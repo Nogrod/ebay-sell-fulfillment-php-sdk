@@ -1,6 +1,6 @@
 <?php
 /**
- * DisputeEvidence
+ * LinkedOrderLineItem
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \eBay\Sell\Fulfillment\ObjectSerializer;
 
 /**
- * DisputeEvidence Class Doc Comment
+ * LinkedOrderLineItem Class Doc Comment
  *
  * @category Class
- * @description This type is used by the &lt;strong&gt;evidence&lt;/strong&gt; array that is returned in the &lt;strong&gt;getPaymentDispute&lt;/strong&gt; response if one or more evidential documents are associated with the payment dispute.
+ * @description This type contains data on a line item that is related to, but not a part of the order.
  * @package  eBay\Sell\Fulfillment
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
+class LinkedOrderLineItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DisputeEvidence';
+    protected static $openAPIModelName = 'LinkedOrderLineItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'evidence_id' => 'string',
-        'evidence_type' => 'string',
-        'files' => '\eBay\Sell\Fulfillment\Model\FileInfo[]',
-        'line_items' => '\eBay\Sell\Fulfillment\Model\OrderLineItems[]',
-        'provided_date' => 'string',
-        'request_date' => 'string',
-        'respond_by_date' => 'string',
-        'shipment_tracking' => '\eBay\Sell\Fulfillment\Model\TrackingInfo[]'
+        'line_item_aspects' => '\eBay\Sell\Fulfillment\Model\NameValuePair[]',
+        'line_item_id' => 'string',
+        'max_estimated_delivery_date' => 'string',
+        'min_estimated_delivery_date' => 'string',
+        'order_id' => 'string',
+        'seller_id' => 'string',
+        'shipments' => '\eBay\Sell\Fulfillment\Model\TrackingInfo[]',
+        'title' => 'string'
     ];
 
     /**
@@ -76,14 +76,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'evidence_id' => null,
-        'evidence_type' => null,
-        'files' => null,
-        'line_items' => null,
-        'provided_date' => null,
-        'request_date' => null,
-        'respond_by_date' => null,
-        'shipment_tracking' => null
+        'line_item_aspects' => null,
+        'line_item_id' => null,
+        'max_estimated_delivery_date' => null,
+        'min_estimated_delivery_date' => null,
+        'order_id' => null,
+        'seller_id' => null,
+        'shipments' => null,
+        'title' => null
     ];
 
     /**
@@ -92,14 +92,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'evidence_id' => false,
-		'evidence_type' => false,
-		'files' => false,
-		'line_items' => false,
-		'provided_date' => false,
-		'request_date' => false,
-		'respond_by_date' => false,
-		'shipment_tracking' => false
+        'line_item_aspects' => false,
+		'line_item_id' => false,
+		'max_estimated_delivery_date' => false,
+		'min_estimated_delivery_date' => false,
+		'order_id' => false,
+		'seller_id' => false,
+		'shipments' => false,
+		'title' => false
     ];
 
     /**
@@ -188,14 +188,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'evidence_id' => 'evidenceId',
-        'evidence_type' => 'evidenceType',
-        'files' => 'files',
-        'line_items' => 'lineItems',
-        'provided_date' => 'providedDate',
-        'request_date' => 'requestDate',
-        'respond_by_date' => 'respondByDate',
-        'shipment_tracking' => 'shipmentTracking'
+        'line_item_aspects' => 'lineItemAspects',
+        'line_item_id' => 'lineItemId',
+        'max_estimated_delivery_date' => 'maxEstimatedDeliveryDate',
+        'min_estimated_delivery_date' => 'minEstimatedDeliveryDate',
+        'order_id' => 'orderId',
+        'seller_id' => 'sellerId',
+        'shipments' => 'shipments',
+        'title' => 'title'
     ];
 
     /**
@@ -204,14 +204,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'evidence_id' => 'setEvidenceId',
-        'evidence_type' => 'setEvidenceType',
-        'files' => 'setFiles',
-        'line_items' => 'setLineItems',
-        'provided_date' => 'setProvidedDate',
-        'request_date' => 'setRequestDate',
-        'respond_by_date' => 'setRespondByDate',
-        'shipment_tracking' => 'setShipmentTracking'
+        'line_item_aspects' => 'setLineItemAspects',
+        'line_item_id' => 'setLineItemId',
+        'max_estimated_delivery_date' => 'setMaxEstimatedDeliveryDate',
+        'min_estimated_delivery_date' => 'setMinEstimatedDeliveryDate',
+        'order_id' => 'setOrderId',
+        'seller_id' => 'setSellerId',
+        'shipments' => 'setShipments',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -220,14 +220,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'evidence_id' => 'getEvidenceId',
-        'evidence_type' => 'getEvidenceType',
-        'files' => 'getFiles',
-        'line_items' => 'getLineItems',
-        'provided_date' => 'getProvidedDate',
-        'request_date' => 'getRequestDate',
-        'respond_by_date' => 'getRespondByDate',
-        'shipment_tracking' => 'getShipmentTracking'
+        'line_item_aspects' => 'getLineItemAspects',
+        'line_item_id' => 'getLineItemId',
+        'max_estimated_delivery_date' => 'getMaxEstimatedDeliveryDate',
+        'min_estimated_delivery_date' => 'getMinEstimatedDeliveryDate',
+        'order_id' => 'getOrderId',
+        'seller_id' => 'getSellerId',
+        'shipments' => 'getShipments',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -287,14 +287,14 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('evidence_id', $data ?? [], null);
-        $this->setIfExists('evidence_type', $data ?? [], null);
-        $this->setIfExists('files', $data ?? [], null);
-        $this->setIfExists('line_items', $data ?? [], null);
-        $this->setIfExists('provided_date', $data ?? [], null);
-        $this->setIfExists('request_date', $data ?? [], null);
-        $this->setIfExists('respond_by_date', $data ?? [], null);
-        $this->setIfExists('shipment_tracking', $data ?? [], null);
+        $this->setIfExists('line_item_aspects', $data ?? [], null);
+        $this->setIfExists('line_item_id', $data ?? [], null);
+        $this->setIfExists('max_estimated_delivery_date', $data ?? [], null);
+        $this->setIfExists('min_estimated_delivery_date', $data ?? [], null);
+        $this->setIfExists('order_id', $data ?? [], null);
+        $this->setIfExists('seller_id', $data ?? [], null);
+        $this->setIfExists('shipments', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
     }
 
     /**
@@ -340,217 +340,217 @@ class DisputeEvidence implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets evidence_id
+     * Gets line_item_aspects
+     *
+     * @return \eBay\Sell\Fulfillment\Model\NameValuePair[]|null
+     */
+    public function getLineItemAspects()
+    {
+        return $this->container['line_item_aspects'];
+    }
+
+    /**
+     * Sets line_item_aspects
+     *
+     * @param \eBay\Sell\Fulfillment\Model\NameValuePair[]|null $line_item_aspects This array contains the complete set of items aspects for the linked line item. For example:<br><pre>\"lineItemAspects\": [<br>    {<br>        \"name\": \"Tire Type\",<br>        \"value\": \"All Season\"<br>    },<br><br>    ...<br> <br>    {<br>        \"name\": \"Car Type\",<br>        \"value\": \"Performance\"<br>    }<br>]</pre><span class=\"tablenote\"><strong>Note:</strong> All item specifics for the listing are returned. The name/value pairs returned are in the language of the linked line item's listing site, which may vary from the seller's language.</span>
+     *
+     * @return self
+     */
+    public function setLineItemAspects($line_item_aspects)
+    {
+        if (is_null($line_item_aspects)) {
+            throw new \InvalidArgumentException('non-nullable line_item_aspects cannot be null');
+        }
+        $this->container['line_item_aspects'] = $line_item_aspects;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_item_id
      *
      * @return string|null
      */
-    public function getEvidenceId()
+    public function getLineItemId()
     {
-        return $this->container['evidence_id'];
+        return $this->container['line_item_id'];
     }
 
     /**
-     * Sets evidence_id
+     * Sets line_item_id
      *
-     * @param string|null $evidence_id Unique identifier of the evidential file set. Potentially, each evidential file set can have more than one file, that is why there is this file set identifier, and then an identifier for each file within this file set.
+     * @param string|null $line_item_id The unique identifier of the linked order line item.
      *
      * @return self
      */
-    public function setEvidenceId($evidence_id)
+    public function setLineItemId($line_item_id)
     {
-        if (is_null($evidence_id)) {
-            throw new \InvalidArgumentException('non-nullable evidence_id cannot be null');
+        if (is_null($line_item_id)) {
+            throw new \InvalidArgumentException('non-nullable line_item_id cannot be null');
         }
-        $this->container['evidence_id'] = $evidence_id;
+        $this->container['line_item_id'] = $line_item_id;
 
         return $this;
     }
 
     /**
-     * Gets evidence_type
+     * Gets max_estimated_delivery_date
      *
      * @return string|null
      */
-    public function getEvidenceType()
+    public function getMaxEstimatedDeliveryDate()
     {
-        return $this->container['evidence_type'];
+        return $this->container['max_estimated_delivery_date'];
     }
 
     /**
-     * Sets evidence_type
+     * Sets max_estimated_delivery_date
      *
-     * @param string|null $evidence_type This enumeration value shows the type of evidential file provided. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum'>eBay API documentation</a>
+     * @param string|null $max_estimated_delivery_date The end of the date range in which the linked line item is expected to be delivered to the shipping address.
      *
      * @return self
      */
-    public function setEvidenceType($evidence_type)
+    public function setMaxEstimatedDeliveryDate($max_estimated_delivery_date)
     {
-        if (is_null($evidence_type)) {
-            throw new \InvalidArgumentException('non-nullable evidence_type cannot be null');
+        if (is_null($max_estimated_delivery_date)) {
+            throw new \InvalidArgumentException('non-nullable max_estimated_delivery_date cannot be null');
         }
-        $this->container['evidence_type'] = $evidence_type;
+        $this->container['max_estimated_delivery_date'] = $max_estimated_delivery_date;
 
         return $this;
     }
 
     /**
-     * Gets files
-     *
-     * @return \eBay\Sell\Fulfillment\Model\FileInfo[]|null
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \eBay\Sell\Fulfillment\Model\FileInfo[]|null $files This array shows the name, ID, file type, and upload date for each provided file.
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        if (is_null($files)) {
-            throw new \InvalidArgumentException('non-nullable files cannot be null');
-        }
-        $this->container['files'] = $files;
-
-        return $this;
-    }
-
-    /**
-     * Gets line_items
-     *
-     * @return \eBay\Sell\Fulfillment\Model\OrderLineItems[]|null
-     */
-    public function getLineItems()
-    {
-        return $this->container['line_items'];
-    }
-
-    /**
-     * Sets line_items
-     *
-     * @param \eBay\Sell\Fulfillment\Model\OrderLineItems[]|null $line_items This array shows one or more order line items associated with the evidential document that has been provided.
-     *
-     * @return self
-     */
-    public function setLineItems($line_items)
-    {
-        if (is_null($line_items)) {
-            throw new \InvalidArgumentException('non-nullable line_items cannot be null');
-        }
-        $this->container['line_items'] = $line_items;
-
-        return $this;
-    }
-
-    /**
-     * Gets provided_date
+     * Gets min_estimated_delivery_date
      *
      * @return string|null
      */
-    public function getProvidedDate()
+    public function getMinEstimatedDeliveryDate()
     {
-        return $this->container['provided_date'];
+        return $this->container['min_estimated_delivery_date'];
     }
 
     /**
-     * Sets provided_date
+     * Sets min_estimated_delivery_date
      *
-     * @param string|null $provided_date The timestamp in this field shows the date/time when the seller provided a requested evidential document to eBay. <br><br>The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: <em>yyyy-MM-ddThh:mm.ss.sssZ</em>. An example would be <code>2019-08-04T19:09:02.768Z</code>.
+     * @param string|null $min_estimated_delivery_date The beginning of the date range in which the linked line item is expected to be delivered to the shipping address.
      *
      * @return self
      */
-    public function setProvidedDate($provided_date)
+    public function setMinEstimatedDeliveryDate($min_estimated_delivery_date)
     {
-        if (is_null($provided_date)) {
-            throw new \InvalidArgumentException('non-nullable provided_date cannot be null');
+        if (is_null($min_estimated_delivery_date)) {
+            throw new \InvalidArgumentException('non-nullable min_estimated_delivery_date cannot be null');
         }
-        $this->container['provided_date'] = $provided_date;
+        $this->container['min_estimated_delivery_date'] = $min_estimated_delivery_date;
 
         return $this;
     }
 
     /**
-     * Gets request_date
+     * Gets order_id
      *
      * @return string|null
      */
-    public function getRequestDate()
+    public function getOrderId()
     {
-        return $this->container['request_date'];
+        return $this->container['order_id'];
     }
 
     /**
-     * Sets request_date
+     * Sets order_id
      *
-     * @param string|null $request_date The timestamp in this field shows the date/time when eBay requested the evidential document from the seller in response to a payment dispute. <br><br>The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: <em>yyyy-MM-ddThh:mm.ss.sssZ</em>. An example would be <code>2019-08-04T19:09:02.768Z</code>.
+     * @param string|null $order_id The unique identifier of the order to which the linked line item belongs.
      *
      * @return self
      */
-    public function setRequestDate($request_date)
+    public function setOrderId($order_id)
     {
-        if (is_null($request_date)) {
-            throw new \InvalidArgumentException('non-nullable request_date cannot be null');
+        if (is_null($order_id)) {
+            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
         }
-        $this->container['request_date'] = $request_date;
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
 
     /**
-     * Gets respond_by_date
+     * Gets seller_id
      *
      * @return string|null
      */
-    public function getRespondByDate()
+    public function getSellerId()
     {
-        return $this->container['respond_by_date'];
+        return $this->container['seller_id'];
     }
 
     /**
-     * Sets respond_by_date
+     * Sets seller_id
      *
-     * @param string|null $respond_by_date The timestamp in this field shows the date/time when the seller was expected to provide a requested evidential document to eBay.  <br><br>The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: <em>yyyy-MM-ddThh:mm.ss.sssZ</em>. An example would be <code>2019-08-04T19:09:02.768Z</code>.
+     * @param string|null $seller_id The eBay user ID of the seller who sold the linked line item. For example, the user ID of the tire seller.
      *
      * @return self
      */
-    public function setRespondByDate($respond_by_date)
+    public function setSellerId($seller_id)
     {
-        if (is_null($respond_by_date)) {
-            throw new \InvalidArgumentException('non-nullable respond_by_date cannot be null');
+        if (is_null($seller_id)) {
+            throw new \InvalidArgumentException('non-nullable seller_id cannot be null');
         }
-        $this->container['respond_by_date'] = $respond_by_date;
+        $this->container['seller_id'] = $seller_id;
 
         return $this;
     }
 
     /**
-     * Gets shipment_tracking
+     * Gets shipments
      *
      * @return \eBay\Sell\Fulfillment\Model\TrackingInfo[]|null
      */
-    public function getShipmentTracking()
+    public function getShipments()
     {
-        return $this->container['shipment_tracking'];
+        return $this->container['shipments'];
     }
 
     /**
-     * Sets shipment_tracking
+     * Sets shipments
      *
-     * @param \eBay\Sell\Fulfillment\Model\TrackingInfo[]|null $shipment_tracking This array shows the shipping carrier and shipment tracking number associated with each shipment package of the order. This array is returned under the <strong>evidence</strong> container if the seller has provided shipment tracking information as evidence to support <code>PROOF_OF_DELIVERY</code> for an INR-related payment dispute.
+     * @param \eBay\Sell\Fulfillment\Model\TrackingInfo[]|null $shipments An array containing any shipment tracking information available for the linked line item.
      *
      * @return self
      */
-    public function setShipmentTracking($shipment_tracking)
+    public function setShipments($shipments)
     {
-        if (is_null($shipment_tracking)) {
-            throw new \InvalidArgumentException('non-nullable shipment_tracking cannot be null');
+        if (is_null($shipments)) {
+            throw new \InvalidArgumentException('non-nullable shipments cannot be null');
         }
-        $this->container['shipment_tracking'] = $shipment_tracking;
+        $this->container['shipments'] = $shipments;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title The listing title of the linked line item.
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+        $this->container['title'] = $title;
 
         return $this;
     }

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **delivery_cost** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
 **delivery_discount** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
 **fee** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
-**price_discount_subtotal** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
+**price_discount** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
 **price_subtotal** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
 **tax** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
 **total** | [**\eBay\Sell\Fulfillment\Model\Amount**](Amount.md) |  | [optional]
