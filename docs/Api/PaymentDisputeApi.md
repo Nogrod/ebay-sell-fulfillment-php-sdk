@@ -18,7 +18,7 @@ All URIs are relative to https://api.ebay.com/sell/fulfillment/v1, except if the
 ## `acceptPaymentDispute()`
 
 ```php
-acceptPaymentDispute($payment_dispute_id, $content_type, $accept_payment_dispute_request)
+acceptPaymentDispute($payment_dispute_id, $accept_payment_dispute_request)
 ```
 ### URI(s):
 - https://apiz.ebay.com{basePath} Production
@@ -48,7 +48,6 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\PaymentDisputeApi(
     $config
 );
 $payment_dispute_id = 'payment_dispute_id_example'; // string | This parameter is used to specify the unique identifier of the payment dispute being accepted. <br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\" target=\"_blank \">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $accept_payment_dispute_request = new \eBay\Sell\Fulfillment\Model\AcceptPaymentDisputeRequest(); // \eBay\Sell\Fulfillment\Model\AcceptPaymentDisputeRequest
 
 $hostIndex = 0;
@@ -57,7 +56,7 @@ $variables = [
 ];
 
 try {
-    $apiInstance->acceptPaymentDispute($payment_dispute_id, $content_type, $accept_payment_dispute_request, $hostIndex, $variables);
+    $apiInstance->acceptPaymentDispute($payment_dispute_id, $accept_payment_dispute_request, $hostIndex, $variables);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentDisputeApi->acceptPaymentDispute: ', $e->getMessage(), PHP_EOL;
 }
@@ -68,7 +67,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_dispute_id** | **string**| This parameter is used to specify the unique identifier of the payment dispute being accepted. &lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **accept_payment_dispute_request** | [**\eBay\Sell\Fulfillment\Model\AcceptPaymentDisputeRequest**](../Model/AcceptPaymentDisputeRequest.md)|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
@@ -93,7 +91,7 @@ void (empty response body)
 ## `addEvidence()`
 
 ```php
-addEvidence($payment_dispute_id, $content_type, $add_evidence_payment_dispute_request): \eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse
+addEvidence($payment_dispute_id, $add_evidence_payment_dispute_request): \eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse
 ```
 ### URI(s):
 - https://apiz.ebay.com{basePath} Production
@@ -123,7 +121,6 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\PaymentDisputeApi(
     $config
 );
 $payment_dispute_id = 'payment_dispute_id_example'; // string | This parameter is used to specify the unique identifier of the contested payment dispute for which the seller wishes to add evidence files. <br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\" target=\"_blank \">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $add_evidence_payment_dispute_request = new \eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeRequest(); // \eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeRequest
 
 $hostIndex = 0;
@@ -132,7 +129,7 @@ $variables = [
 ];
 
 try {
-    $result = $apiInstance->addEvidence($payment_dispute_id, $content_type, $add_evidence_payment_dispute_request, $hostIndex, $variables);
+    $result = $apiInstance->addEvidence($payment_dispute_id, $add_evidence_payment_dispute_request, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentDisputeApi->addEvidence: ', $e->getMessage(), PHP_EOL;
@@ -144,7 +141,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_dispute_id** | **string**| This parameter is used to specify the unique identifier of the contested payment dispute for which the seller wishes to add evidence files. &lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **add_evidence_payment_dispute_request** | [**\eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeRequest**](../Model/AddEvidencePaymentDisputeRequest.md)|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
@@ -169,7 +165,7 @@ try {
 ## `contestPaymentDispute()`
 
 ```php
-contestPaymentDispute($payment_dispute_id, $content_type, $contest_payment_dispute_request)
+contestPaymentDispute($payment_dispute_id, $contest_payment_dispute_request)
 ```
 ### URI(s):
 - https://apiz.ebay.com{basePath} Production
@@ -199,7 +195,6 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\PaymentDisputeApi(
     $config
 );
 $payment_dispute_id = 'payment_dispute_id_example'; // string | This parameter is used to specify the unique identifier of the payment dispute being contested. <br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\" target=\"_blank \">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $contest_payment_dispute_request = new \eBay\Sell\Fulfillment\Model\ContestPaymentDisputeRequest(); // \eBay\Sell\Fulfillment\Model\ContestPaymentDisputeRequest
 
 $hostIndex = 0;
@@ -208,7 +203,7 @@ $variables = [
 ];
 
 try {
-    $apiInstance->contestPaymentDispute($payment_dispute_id, $content_type, $contest_payment_dispute_request, $hostIndex, $variables);
+    $apiInstance->contestPaymentDispute($payment_dispute_id, $contest_payment_dispute_request, $hostIndex, $variables);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentDisputeApi->contestPaymentDispute: ', $e->getMessage(), PHP_EOL;
 }
@@ -219,7 +214,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_dispute_id** | **string**| This parameter is used to specify the unique identifier of the payment dispute being contested. &lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **contest_payment_dispute_request** | [**\eBay\Sell\Fulfillment\Model\ContestPaymentDisputeRequest**](../Model/ContestPaymentDisputeRequest.md)|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
@@ -548,7 +542,7 @@ try {
 ## `updateEvidence()`
 
 ```php
-updateEvidence($payment_dispute_id, $content_type, $update_evidence_payment_dispute_request)
+updateEvidence($payment_dispute_id, $update_evidence_payment_dispute_request)
 ```
 ### URI(s):
 - https://apiz.ebay.com{basePath} Production
@@ -578,7 +572,6 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\PaymentDisputeApi(
     $config
 );
 $payment_dispute_id = 'payment_dispute_id_example'; // string | This parameter is used to specify the unique identifier of the contested payment dispute for which the user plans to update the evidence set.<br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\" target=\"_blank \">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $update_evidence_payment_dispute_request = new \eBay\Sell\Fulfillment\Model\UpdateEvidencePaymentDisputeRequest(); // \eBay\Sell\Fulfillment\Model\UpdateEvidencePaymentDisputeRequest
 
 $hostIndex = 0;
@@ -587,7 +580,7 @@ $variables = [
 ];
 
 try {
-    $apiInstance->updateEvidence($payment_dispute_id, $content_type, $update_evidence_payment_dispute_request, $hostIndex, $variables);
+    $apiInstance->updateEvidence($payment_dispute_id, $update_evidence_payment_dispute_request, $hostIndex, $variables);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentDisputeApi->updateEvidence: ', $e->getMessage(), PHP_EOL;
 }
@@ -598,7 +591,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_dispute_id** | **string**| This parameter is used to specify the unique identifier of the contested payment dispute for which the user plans to update the evidence set.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **update_evidence_payment_dispute_request** | [**\eBay\Sell\Fulfillment\Model\UpdateEvidencePaymentDisputeRequest**](../Model/UpdateEvidencePaymentDisputeRequest.md)|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
@@ -623,7 +615,7 @@ void (empty response body)
 ## `uploadEvidenceFile()`
 
 ```php
-uploadEvidenceFile($payment_dispute_id, $content_type): \eBay\Sell\Fulfillment\Model\FileEvidence
+uploadEvidenceFile($payment_dispute_id, $creation_date, $file_name, $modification_date, $name, $parameters, $read_date, $size, $type, $file): \eBay\Sell\Fulfillment\Model\FileEvidence
 ```
 ### URI(s):
 - https://apiz.ebay.com{basePath} Production
@@ -653,7 +645,15 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\PaymentDisputeApi(
     $config
 );
 $payment_dispute_id = 'payment_dispute_id_example'; // string | This parameter is used to specify the unique identifier of the contested payment dispute for which the user intends to upload an evidence file.<br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\" target=\"_blank \">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>multipart/form-data</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$creation_date = 'creation_date_example'; // string | The file creation date. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 8, 2019</p><p><code>2019-09-08T00:00:00.000Z</code></p>
+$file_name = 'file_name_example'; // string | The name of the file including its extension (for example, xml or csv) to be uploaded.
+$modification_date = 'modification_date_example'; // string | The file modified date. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 9, 2019</p><p><code>2019-09-09T00:00:00.000Z</code></p>
+$name = 'name_example'; // string | A content identifier. The only presently supported name is <code>file</code>.
+$parameters = NULL; // array<string,string> | The parameters you want associated with the file.
+$read_date = 'read_date_example'; // string | The date you read the file. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 10, 2019</p><p><code>2019-09-10T00:00:00.000Z</code></p>
+$size = 56; // int | The size of the file.
+$type = 'type_example'; // string | The file type. The only presently supported type is <code>form-data</code>.
+$file = "/path/to/file.txt"; // \SplFileObject | The file to upload.
 
 $hostIndex = 0;
 $variables = [
@@ -661,7 +661,7 @@ $variables = [
 ];
 
 try {
-    $result = $apiInstance->uploadEvidenceFile($payment_dispute_id, $content_type, $hostIndex, $variables);
+    $result = $apiInstance->uploadEvidenceFile($payment_dispute_id, $creation_date, $file_name, $modification_date, $name, $parameters, $read_date, $size, $type, $file, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentDisputeApi->uploadEvidenceFile: ', $e->getMessage(), PHP_EOL;
@@ -673,7 +673,15 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_dispute_id** | **string**| This parameter is used to specify the unique identifier of the contested payment dispute for which the user intends to upload an evidence file.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;multipart/form-data&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
+| **creation_date** | **string**| The file creation date. &lt;br /&gt;&lt;br /&gt;&lt;b&gt; Format: &lt;/b&gt; UTC &lt;code&gt;yyyy-MM-ddThh:mm:ss.SSSZ&lt;/code&gt;&lt;p&gt;&lt;b&gt;For example:&lt;/b&gt;&lt;p&gt;Created on September 8, 2019&lt;/p&gt;&lt;p&gt;&lt;code&gt;2019-09-08T00:00:00.000Z&lt;/code&gt;&lt;/p&gt; | [optional] |
+| **file_name** | **string**| The name of the file including its extension (for example, xml or csv) to be uploaded. | [optional] |
+| **modification_date** | **string**| The file modified date. &lt;br /&gt;&lt;br /&gt;&lt;b&gt; Format: &lt;/b&gt; UTC &lt;code&gt;yyyy-MM-ddThh:mm:ss.SSSZ&lt;/code&gt;&lt;p&gt;&lt;b&gt;For example:&lt;/b&gt;&lt;p&gt;Created on September 9, 2019&lt;/p&gt;&lt;p&gt;&lt;code&gt;2019-09-09T00:00:00.000Z&lt;/code&gt;&lt;/p&gt; | [optional] |
+| **name** | **string**| A content identifier. The only presently supported name is &lt;code&gt;file&lt;/code&gt;. | [optional] |
+| **parameters** | [**array<string,string>**](../Model/array.md)| The parameters you want associated with the file. | [optional] |
+| **read_date** | **string**| The date you read the file. &lt;br /&gt;&lt;br /&gt;&lt;b&gt; Format: &lt;/b&gt; UTC &lt;code&gt;yyyy-MM-ddThh:mm:ss.SSSZ&lt;/code&gt;&lt;p&gt;&lt;b&gt;For example:&lt;/b&gt;&lt;p&gt;Created on September 10, 2019&lt;/p&gt;&lt;p&gt;&lt;code&gt;2019-09-10T00:00:00.000Z&lt;/code&gt;&lt;/p&gt; | [optional] |
+| **size** | **int**| The size of the file. | [optional] |
+| **type** | **string**| The file type. The only presently supported type is &lt;code&gt;form-data&lt;/code&gt;. | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**| The file to upload. | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
@@ -687,7 +695,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

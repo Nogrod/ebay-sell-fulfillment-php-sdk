@@ -142,7 +142,7 @@ try {
 ## `issueRefund()`
 
 ```php
-issueRefund($order_id, $content_type, $issue_refund_request): \eBay\Sell\Fulfillment\Model\Refund
+issueRefund($order_id, $issue_refund_request): \eBay\Sell\Fulfillment\Model\Refund
 ```
 
 Issue Refund
@@ -167,11 +167,10 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\OrderApi(
     $config
 );
 $order_id = 'order_id_example'; // string | This path parameter is used to specify the unique identifier of the order associated with a refund.<br><br>Use the <a href=\"/api-docs/sell/fulfillment/resources/order/methods/getOrders\" target=\"_blank \">getOrders</a> method to retrieve order IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $issue_refund_request = new \eBay\Sell\Fulfillment\Model\IssueRefundRequest(); // \eBay\Sell\Fulfillment\Model\IssueRefundRequest
 
 try {
-    $result = $apiInstance->issueRefund($order_id, $content_type, $issue_refund_request);
+    $result = $apiInstance->issueRefund($order_id, $issue_refund_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->issueRefund: ', $e->getMessage(), PHP_EOL;
@@ -183,7 +182,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| This path parameter is used to specify the unique identifier of the order associated with a refund.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **issue_refund_request** | [**\eBay\Sell\Fulfillment\Model\IssueRefundRequest**](../Model/IssueRefundRequest.md)|  | [optional] |
 
 ### Return type

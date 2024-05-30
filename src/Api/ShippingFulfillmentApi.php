@@ -132,7 +132,6 @@ class ShippingFulfillmentApi
      * Operation createShippingFulfillment
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details fulfillment payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShippingFulfillment'] to see the possible values for this operation
      *
@@ -142,11 +141,10 @@ class ShippingFulfillmentApi
      */
     public function createShippingFulfillment(
         string $order_id,
-        string $content_type,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
     ): object {
-        list($response) = $this->createShippingFulfillmentWithHttpInfo($order_id, $content_type, $shipping_fulfillment_details, $contentType);
+        list($response) = $this->createShippingFulfillmentWithHttpInfo($order_id, $shipping_fulfillment_details, $contentType);
         return $response;
     }
 
@@ -154,7 +152,6 @@ class ShippingFulfillmentApi
      * Operation createShippingFulfillmentWithHttpInfo
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details fulfillment payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShippingFulfillment'] to see the possible values for this operation
      *
@@ -164,11 +161,10 @@ class ShippingFulfillmentApi
      */
     public function createShippingFulfillmentWithHttpInfo(
         string $order_id,
-        string $content_type,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
     ): array {
-        $request = $this->createShippingFulfillmentRequest($order_id, $content_type, $shipping_fulfillment_details, $contentType);
+        $request = $this->createShippingFulfillmentRequest($order_id, $shipping_fulfillment_details, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -282,7 +278,6 @@ class ShippingFulfillmentApi
      * Operation createShippingFulfillmentAsync
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details fulfillment payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShippingFulfillment'] to see the possible values for this operation
      *
@@ -291,11 +286,10 @@ class ShippingFulfillmentApi
      */
     public function createShippingFulfillmentAsync(
         string $order_id,
-        string $content_type,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
     ): PromiseInterface {
-        return $this->createShippingFulfillmentAsyncWithHttpInfo($order_id, $content_type, $shipping_fulfillment_details, $contentType)
+        return $this->createShippingFulfillmentAsyncWithHttpInfo($order_id, $shipping_fulfillment_details, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -307,7 +301,6 @@ class ShippingFulfillmentApi
      * Operation createShippingFulfillmentAsyncWithHttpInfo
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details fulfillment payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShippingFulfillment'] to see the possible values for this operation
      *
@@ -316,12 +309,11 @@ class ShippingFulfillmentApi
      */
     public function createShippingFulfillmentAsyncWithHttpInfo(
         $order_id,
-        $content_type,
         $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
     ): PromiseInterface {
         $returnType = 'object';
-        $request = $this->createShippingFulfillmentRequest($order_id, $content_type, $shipping_fulfillment_details, $contentType);
+        $request = $this->createShippingFulfillmentRequest($order_id, $shipping_fulfillment_details, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -363,7 +355,6 @@ class ShippingFulfillmentApi
      * Create request for operation 'createShippingFulfillment'
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details fulfillment payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShippingFulfillment'] to see the possible values for this operation
      *
@@ -372,7 +363,6 @@ class ShippingFulfillmentApi
      */
     public function createShippingFulfillmentRequest(
         $order_id,
-        $content_type,
         $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
     ): Request {
@@ -381,13 +371,6 @@ class ShippingFulfillmentApi
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $order_id when calling createShippingFulfillment'
-            );
-        }
-
-        // verify the required parameter 'content_type' is set
-        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
-            throw new InvalidArgumentException(
-                'Missing the required parameter $content_type when calling createShippingFulfillment'
             );
         }
 
@@ -407,10 +390,6 @@ class ShippingFulfillmentApi
         $multipart = false;
 
 
-        // header params
-        if ($content_type !== null) {
-            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
-        }
 
         // path params
         if ($order_id !== null) {

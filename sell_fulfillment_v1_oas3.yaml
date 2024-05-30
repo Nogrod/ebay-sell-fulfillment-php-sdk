@@ -190,12 +190,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
@@ -399,12 +393,6 @@ paths:
         - name: orderId
           in: path
           description: This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs.
-          required: true
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -805,12 +793,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
@@ -877,12 +859,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
@@ -941,12 +917,11 @@ paths:
           required: true
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>multipart/form-data</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
-          required: true
-          schema:
-            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataContentDisposition'
       responses:
         '200':
           description: Success
@@ -1022,12 +997,6 @@ paths:
         - name: payment_dispute_id
           in: path
           description: This parameter is used to specify the unique identifier of the contested payment dispute for which the seller wishes to add evidence files. <br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-          required: true
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -1120,12 +1089,6 @@ paths:
         - name: payment_dispute_id
           in: path
           description: This parameter is used to specify the unique identifier of the contested payment dispute for which the user plans to update the evidence set.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
-          required: true
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -1660,6 +1623,41 @@ components:
           type: string
           description: 'The timestamp in this field shows the date/time when the seller uploaded the evidential document to eBay. <br><br>The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: <em>yyyy-MM-ddThh:mm.ss.sssZ</em>. An example would be <code>2019-08-04T19:09:02.768Z</code>.'
       description: This type is used by the <strong>files</strong> array, which shows the name, ID, file type, and upload date for each provided evidential file.
+    FormDataContentDisposition:
+      type: object
+      properties:
+        creationDate:
+          type: string
+          description: 'The file creation date. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 8, 2019</p><p><code>2019-09-08T00:00:00.000Z</code></p>'
+        fileName:
+          type: string
+          description: The name of the file including its extension (for example, xml or csv) to be uploaded.
+        modificationDate:
+          type: string
+          description: 'The file modified date. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 9, 2019</p><p><code>2019-09-09T00:00:00.000Z</code></p>'
+        name:
+          type: string
+          description: A content identifier. The only presently supported name is <code>file</code>.
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: The parameters you want associated with the file.
+        readDate:
+          type: string
+          description: 'The date you read the file. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 10, 2019</p><p><code>2019-09-10T00:00:00.000Z</code></p>'
+        size:
+          type: integer
+          description: The size of the file.
+          format: int32
+        type:
+          type: string
+          description: The file type. The only presently supported type is <code>form-data</code>.
+        file:
+          type: string
+          format: binary
+          description: The file to upload.
+      description: The metadata for the file.
     FulfillmentStartInstruction:
       type: object
       properties:

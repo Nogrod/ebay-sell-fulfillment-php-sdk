@@ -855,7 +855,6 @@ class OrderApi
      * Issue Refund
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with a refund.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\IssueRefundRequest|null $issue_refund_request issue_refund_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueRefund'] to see the possible values for this operation
      *
@@ -865,11 +864,10 @@ class OrderApi
      */
     public function issueRefund(
         string $order_id,
-        string $content_type,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
     ): \eBay\Sell\Fulfillment\Model\Refund {
-        list($response) = $this->issueRefundWithHttpInfo($order_id, $content_type, $issue_refund_request, $contentType);
+        list($response) = $this->issueRefundWithHttpInfo($order_id, $issue_refund_request, $contentType);
         return $response;
     }
 
@@ -879,7 +877,6 @@ class OrderApi
      * Issue Refund
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with a refund.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\IssueRefundRequest|null $issue_refund_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueRefund'] to see the possible values for this operation
      *
@@ -889,11 +886,10 @@ class OrderApi
      */
     public function issueRefundWithHttpInfo(
         string $order_id,
-        string $content_type,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
     ): array {
-        $request = $this->issueRefundRequest($order_id, $content_type, $issue_refund_request, $contentType);
+        $request = $this->issueRefundRequest($order_id, $issue_refund_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1009,7 +1005,6 @@ class OrderApi
      * Issue Refund
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with a refund.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\IssueRefundRequest|null $issue_refund_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueRefund'] to see the possible values for this operation
      *
@@ -1018,11 +1013,10 @@ class OrderApi
      */
     public function issueRefundAsync(
         string $order_id,
-        string $content_type,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
     ): PromiseInterface {
-        return $this->issueRefundAsyncWithHttpInfo($order_id, $content_type, $issue_refund_request, $contentType)
+        return $this->issueRefundAsyncWithHttpInfo($order_id, $issue_refund_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1036,7 +1030,6 @@ class OrderApi
      * Issue Refund
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with a refund.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\IssueRefundRequest|null $issue_refund_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueRefund'] to see the possible values for this operation
      *
@@ -1045,12 +1038,11 @@ class OrderApi
      */
     public function issueRefundAsyncWithHttpInfo(
         $order_id,
-        $content_type,
         $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
     ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\Refund';
-        $request = $this->issueRefundRequest($order_id, $content_type, $issue_refund_request, $contentType);
+        $request = $this->issueRefundRequest($order_id, $issue_refund_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1092,7 +1084,6 @@ class OrderApi
      * Create request for operation 'issueRefund'
      *
      * @param  string $order_id This path parameter is used to specify the unique identifier of the order associated with a refund.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. (required)
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
      * @param  \eBay\Sell\Fulfillment\Model\IssueRefundRequest|null $issue_refund_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueRefund'] to see the possible values for this operation
      *
@@ -1101,7 +1092,6 @@ class OrderApi
      */
     public function issueRefundRequest(
         $order_id,
-        $content_type,
         $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
     ): Request {
@@ -1110,13 +1100,6 @@ class OrderApi
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $order_id when calling issueRefund'
-            );
-        }
-
-        // verify the required parameter 'content_type' is set
-        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
-            throw new InvalidArgumentException(
-                'Missing the required parameter $content_type when calling issueRefund'
             );
         }
 
@@ -1130,10 +1113,6 @@ class OrderApi
         $multipart = false;
 
 
-        // header params
-        if ($content_type !== null) {
-            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
-        }
 
         // path params
         if ($order_id !== null) {

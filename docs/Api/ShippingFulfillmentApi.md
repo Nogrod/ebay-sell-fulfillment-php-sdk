@@ -12,7 +12,7 @@ All URIs are relative to https://api.ebay.com/sell/fulfillment/v1, except if the
 ## `createShippingFulfillment()`
 
 ```php
-createShippingFulfillment($order_id, $content_type, $shipping_fulfillment_details): object
+createShippingFulfillment($order_id, $shipping_fulfillment_details): object
 ```
 
 
@@ -37,11 +37,10 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\ShippingFulfillmentApi(
     $config
 );
 $order_id = 'order_id_example'; // string | This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.<br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/order/methods/getOrders\" target=\"_blank \">getOrders</a> method to retrieve order IDs.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $shipping_fulfillment_details = new \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails(); // \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails | fulfillment payload
 
 try {
-    $result = $apiInstance->createShippingFulfillment($order_id, $content_type, $shipping_fulfillment_details);
+    $result = $apiInstance->createShippingFulfillment($order_id, $shipping_fulfillment_details);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingFulfillmentApi->createShippingFulfillment: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +52,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **string**| This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **shipping_fulfillment_details** | [**\eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails**](../Model/ShippingFulfillmentDetails.md)| fulfillment payload | |
 
 ### Return type
