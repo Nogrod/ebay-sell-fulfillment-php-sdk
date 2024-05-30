@@ -1,6 +1,6 @@
 <?php
 
-namespace eBay\Sell\Feed\Constants;
+namespace eBay\Sell\Fulfillment\Constants;
 
 /**
  * https://developer.ebay.com/api-docs/static/rest-request-components.html#marketpl
