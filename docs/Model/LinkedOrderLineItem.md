@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **order_id** | **string** | The unique identifier of the order to which the linked line item belongs. | [optional]
 **seller_id** | **string** | The eBay user ID of the seller who sold the linked line item. For example, the user ID of the tire seller. | [optional]
 **shipments** | [**\eBay\Sell\Fulfillment\Model\TrackingInfo[]**](TrackingInfo.md) | An array containing any shipment tracking information available for the linked line item. | [optional]
-**title** | **string** | The listing title of the linked line item. | [optional]
+**title** | **string** | The listing title of the linked line item.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.&lt;/span&gt; | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

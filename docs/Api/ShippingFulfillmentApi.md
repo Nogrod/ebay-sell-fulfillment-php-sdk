@@ -36,8 +36,8 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\ShippingFulfillmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 'order_id_example'; // string | The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.
-$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$order_id = 'order_id_example'; // string | This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.<br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/order/methods/getOrders\" target=\"_blank \">getOrders</a> method to retrieve order IDs.
+$content_type = 'content_type_example'; // string | This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 $shipping_fulfillment_details = new \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails(); // \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails | fulfillment payload
 
 try {
@@ -52,8 +52,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **order_id** | **string**| The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the &lt;b&gt;getOrders&lt;/b&gt; method in the &lt;b&gt;orders.orderId&lt;/b&gt; field. | |
-| **content_type** | **string**| This header indicates the format of the request body provided by the client. It&#39;s value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
+| **order_id** | **string**| This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. | |
+| **content_type** | **string**| This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | |
 | **shipping_fulfillment_details** | [**\eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails**](../Model/ShippingFulfillmentDetails.md)| fulfillment payload | |
 
 ### Return type
@@ -100,8 +100,8 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\ShippingFulfillmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fulfillment_id = 'fulfillment_id_example'; // string | The unique identifier of the fulfillment. This eBay-generated value was created by the <b>Create Shipping Fulfillment</b> call, and returned by the <b>getShippingFulfillments</b> call in the <b>fulfillments.fulfillmentId</b> field; for example, <code>9405509699937003457459</code>.
-$order_id = 'order_id_example'; // string | The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.
+$fulfillment_id = 'fulfillment_id_example'; // string | This path parameter is used to specify the unique identifier of the shipping fulfillment being retrieved.<br><br>Use the <a href=\"/api-docs/sell/fulfillment/resources/order/shipping_fulfillment/methods/getShippingFulfillments\" target=\"_blank \">getShippingFulfillments</a> method to retrieved fulfillment IDs.
+$order_id = 'order_id_example'; // string | This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being retrieved.<br><br> Use the <a href=\"/api-docs/sell/fulfillment/resources/order/methods/getOrders\" target=\"_blank \">getOrders</a> method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub.
 
 try {
     $result = $apiInstance->getShippingFulfillment($fulfillment_id, $order_id);
@@ -115,8 +115,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fulfillment_id** | **string**| The unique identifier of the fulfillment. This eBay-generated value was created by the &lt;b&gt;Create Shipping Fulfillment&lt;/b&gt; call, and returned by the &lt;b&gt;getShippingFulfillments&lt;/b&gt; call in the &lt;b&gt;fulfillments.fulfillmentId&lt;/b&gt; field; for example, &lt;code&gt;9405509699937003457459&lt;/code&gt;. | |
-| **order_id** | **string**| The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the &lt;b&gt;getOrders&lt;/b&gt; method in the &lt;b&gt;orders.orderId&lt;/b&gt; field. | |
+| **fulfillment_id** | **string**| This path parameter is used to specify the unique identifier of the shipping fulfillment being retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/shipping_fulfillment/methods/getShippingFulfillments\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getShippingFulfillments&lt;/a&gt; method to retrieved fulfillment IDs. | |
+| **order_id** | **string**| This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being retrieved.&lt;br&gt;&lt;br&gt; Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub. | |
 
 ### Return type
 
@@ -162,7 +162,7 @@ $apiInstance = new eBay\Sell\Fulfillment\Api\ShippingFulfillmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 'order_id_example'; // string | The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.
+$order_id = 'order_id_example'; // string | This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillments being retrieved.<br><br>Use the <a href=\"/api-docs/sell/fulfillment/resources/order/methods/getOrders\" target=\"_blank \">getOrders</a> method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub.
 
 try {
     $result = $apiInstance->getShippingFulfillments($order_id);
@@ -176,7 +176,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **order_id** | **string**| The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the &lt;b&gt;getOrders&lt;/b&gt; method in the &lt;b&gt;orders.orderId&lt;/b&gt; field. | |
+| **order_id** | **string**| This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillments being retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href&#x3D;\&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders\&quot; target&#x3D;\&quot;_blank \&quot;&gt;getOrders&lt;/a&gt; method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub. | |
 
 ### Return type
 

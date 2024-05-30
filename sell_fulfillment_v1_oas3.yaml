@@ -7,7 +7,7 @@ info:
   license:
     name: eBay API License Agreement
     url: https://go.developer.ebay.com/api-license-agreement
-  version: v1.20.0
+  version: v1.20.4
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -29,13 +29,13 @@ paths:
       parameters:
         - name: fieldGroups
           in: query
-          description: The response type associated with the order. The only presently supported value is <code>TAX_BREAKDOWN</code>. This type returns a breakdown of tax and fee values associated with the order.
+          description: This parameter lets you control what is returned in the response.<br><br><span class="tablenote"><b>Note:</b> The only presently supported value is <code>TAX_BREAKDOWN</code>. This field group adds addition fields to the response that return a breakdown of taxes and fees.</span>
           required: false
           schema:
             type: string
         - name: orderId
           in: path
-          description: The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.<span class="tablenote"><strong>Note:</strong> <b>getOrders</b> can return orders up to two years old. Do not provide the orderId for an order created more than two years in the past.</span>
+          description: This path parameter is used to specify the unique identifier of the order being retrieved.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub.<br><br><span class="tablenote"><strong>Note:</strong> <b>getOrders</b> can return orders up to two years old. Do not provide the <b>orderId</b> for an order created more than two years in the past.</span>
           required: true
           schema:
             type: string
@@ -76,12 +76,12 @@ paths:
     get:
       tags:
         - order
-      description: 'Use this call to search for and retrieve one or more orders based on their creation date, last modification date, or fulfillment status using the <b>filter</b> parameter. You can alternatively specify a list of orders using the <b>orderIds</b> parameter. Include the optional <b>fieldGroups</b> query parameter set to <code>TAX_BREAKDOWN</code> to return a breakdown of the taxes and fees. <br><br> The returned <b>Order</b> objects contain information you can use to create and process fulfillments, including: <ul> <li>Information about the buyer and seller</li> <li>Information about the order''s line items</li> <li>The plans for packaging, addressing and shipping the order</li> <li>The status of payment, packaging, addressing, and shipping the order</li> <li>A summary of monetary amounts specific to the order such as pricing, payments, and shipping costs</li> <li>A summary of applied taxes and fees, and optionally a breakdown of each </li></ul> <br><br> <span class="tablenote"><strong>Important:</strong> In this call, the <b>cancelStatus.cancelRequests</b> array is returned but is always empty. Use the <b>getOrder</b> call instead, which returns this array fully populated with information about any cancellation requests.</span>'
+      description: 'Use this method to search for and retrieve one or more orders based on their creation date, last modification date, or fulfillment status using the <b>filter</b> parameter. You can alternatively specify a list of orders using the <b>orderIds</b> parameter. Include the optional <b>fieldGroups</b> query parameter set to <code>TAX_BREAKDOWN</code> to return a breakdown of the taxes and fees. By default, when no filters are used this call returns all orders created within the last 90 days. <br><br> The returned <b>Order</b> objects contain information you can use to create and process fulfillments, including: <ul> <li>Information about the buyer and seller</li> <li>Information about the order''s line items</li> <li>The plans for packaging, addressing and shipping the order</li> <li>The status of payment, packaging, addressing, and shipping the order</li> <li>A summary of monetary amounts specific to the order such as pricing, payments, and shipping costs</li> <li>A summary of applied taxes and fees, and optionally a breakdown of each </li></ul> <br><br> <span class="tablenote"><strong>Important:</strong> In this call, the <b>cancelStatus.cancelRequests</b> array is returned but is always empty. Use the <b>getOrder</b> call instead, which returns this array fully populated with information about any cancellation requests.</span>'
       operationId: getOrders
       parameters:
         - name: fieldGroups
           in: query
-          description: The response type associated with the order. The only presently supported value is <code>TAX_BREAKDOWN</code>. This type returns a breakdown of tax and fee values associated with the order.
+          description: This parameter lets you control what is returned in the response.<br><br><span class="tablenote"><b>Note:</b> The only presently supported value is <code>TAX_BREAKDOWN</code>. This field group adds addition fields to the response that return a breakdown of taxes and fees.</span>
           required: false
           schema:
             type: string
@@ -105,7 +105,7 @@ paths:
             type: string
         - name: orderIds
           in: query
-          description: A comma-separated list of the unique identifiers of the orders to retrieve (maximum 50). If one or more order ID values are specified through the <b>orderIds</b> query parameter, all other query parameters will be ignored.<br><br><span class="tablenote"><strong>Note:</strong> <b>getOrders</b> can return orders up to two years old. Do not provide the orderId for an order created more than two years in the past.</span>
+          description: A comma-separated list of the unique identifiers of the orders to retrieve (maximum 50). If one or more order ID values are specified through the <b>orderIds</b> query parameter, all other query parameters will be ignored.<br><br><span class="tablenote"><strong>Note:</strong> <b>getOrders</b> can return orders up to two years old. Do not provide the <b>orderId</b> for an order created more than two years in the past.</span>
           required: false
           schema:
             type: string
@@ -186,13 +186,13 @@ paths:
       parameters:
         - name: order_id
           in: path
-          description: The unique identifier of the order. Order IDs are returned in the <b>getOrders</b> method (and <b>GetOrders</b> call of Trading API). The <b>issueRefund</b> method supports the legacy API Order IDs and REST API order IDs.
+          description: This path parameter is used to specify the unique identifier of the order associated with a refund.<br><br>Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -359,7 +359,7 @@ paths:
       parameters:
         - name: orderId
           in: path
-          description: The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.
+          description: This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillments being retrieved.<br><br>Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub.
           required: true
           schema:
             type: string
@@ -398,13 +398,13 @@ paths:
       parameters:
         - name: orderId
           in: path
-          description: The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.
+          description: This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being created.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -418,12 +418,12 @@ paths:
         required: true
       responses:
         '201':
-          description: 'Created. The call also returns the following location code: <br><br><code>{ENV}/sell/fulfillment/v1/order/{ORDERID}/shipping_fulfillment/{FULFILLMENTID}</code> <br><br>The <code>ENV</code> string is the HTTPS path to the same eBay supported environment in which this call was issued. The <code>ORDERID</code> parameter is the unique identifier of the order addressed by this call; for example, <code>01-03955-36441</code>. The <code>FULFILLMENTID</code> parameter identifies the newly created fulfillment; for example, <code>9405509699937003457459</code>. Use this Get Fulfillment URI to retrieve the contents of the new fulfillment.'
+          description: 'Created. The call also returns the following location response header: <br><br><code>{ENV}/sell/fulfillment/v1/order/{ORDERID}/shipping_fulfillment/{FULFILLMENTID}</code> <br><br>The <code>ENV</code> string is the HTTPS path to the same eBay supported environment in which this call was issued. The <code>ORDERID</code> parameter is the unique identifier of the order addressed by this call; for example, <code>01-03955-36441</code>. The <code>FULFILLMENTID</code> parameter identifies the newly created fulfillment; for example, <code>9405509699937003457459</code>. Use this Get Fulfillment URI to retrieve the contents of the new fulfillment.'
           headers:
             Location:
               schema:
                 type: string
-                description: 'A successful call returns the following location code: <br><br><code>{ENV}/sell/fulfillment/v1/order/{ORDERID}/shipping_fulfillment/{FULFILLMENTID}</code> <br><br>The <code>ENV</code> string is the HTTPS path to the same eBay supported environment in which this call was issued. The <code>ORDERID</code> parameter is the unique identifier of the order addressed by this call; for example, <code>01-03955-36441</code>. The <code>FULFILLMENTID</code> parameter identifies the newly created fulfillment; for example, <code>9405509699937003457459</code>. Use this Get Fulfillment URI to retrieve the contents of the new fulfillment.'
+                description: The <b>location</b> response header contains the <a href="/api-docs/sell/fulfillment/resources/order/shipping_fulfillment/methods/getShippingFulfillment" target="_blank ">getShippingFulfillment</a> URI to retrieve the contents of the newly created shipping fulfillment. The URL includes the eBay-assigned <code>fulfillmentId</code>, which you can use to reference the shipping fulfillment.
           content:
             application/json:
               schema:
@@ -498,13 +498,13 @@ paths:
       parameters:
         - name: fulfillmentId
           in: path
-          description: The unique identifier of the fulfillment. This eBay-generated value was created by the <b>Create Shipping Fulfillment</b> call, and returned by the <b>getShippingFulfillments</b> call in the <b>fulfillments.fulfillmentId</b> field; for example, <code>9405509699937003457459</code>.
+          description: This path parameter is used to specify the unique identifier of the shipping fulfillment being retrieved.<br><br>Use the <a href="/api-docs/sell/fulfillment/resources/order/shipping_fulfillment/methods/getShippingFulfillments" target="_blank ">getShippingFulfillments</a> method to retrieved fulfillment IDs.
           required: true
           schema:
             type: string
         - name: orderId
           in: path
-          description: The unique identifier of the order. Order ID values are shown in My eBay/Seller Hub, and are also returned by the <b>getOrders</b> method in the <b>orders.orderId</b> field.
+          description: This path parameter is used to specify the unique identifier of the order associated with the shipping fulfillment being retrieved.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub.
           required: true
           schema:
             type: string
@@ -551,7 +551,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed in at the end of the call URI to identify the payment dispute to retrieve. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.
+          description: This parameter is used to specify the unique identifier of the payment dispute being retrieved.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
@@ -599,19 +599,19 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: The identifier of the payment dispute. The identifier of each payment dispute is returned in the <strong>getPaymentDisputeSummaries</strong> response. This identifier is passed in as a path parameter at the end of the call URI.
+          description: This path parameter is used to specify the unique identifier of the payment dispute associated with the evidence file being retrieved.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
         - name: evidence_id
           in: query
-          description: The identifier of the evidential file set. The identifier of an evidential file set for a payment dispute is returned under the <strong>evidence</strong> array in the <strong>getPaymentDispute</strong> response.<br><br>Below is an example of the syntax to use for this query parameter:<br><br><code>evidence_id=12345678</code>
+          description: This query parameter is used to specify the unique identifier of the evidential file set.<br><br>The identifier of an evidential file set for a payment dispute is returned under the <strong>evidence</strong> array in the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute" target="_blank ">getPaymentDispute</a> response.
           required: true
           schema:
             type: string
         - name: file_id
           in: query
-          description: 'The identifier of an evidential file. This file must belong to the evidential file set identified through the <strong>evidence_id</strong> query parameter. The identifier of each evidential file is returned under the <strong>evidence.files</strong> array in the <strong>getPaymentDispute</strong> response. <br><br>Below is an example of the syntax to use for this query parameter:<br><br><code>file_id=12345678</code> '
+          description: This query parameter is used to specify the unique identifier of an evidential file. This file must belong to the evidential file set identified through the <strong>evidence_id</strong> query parameter.<br><br>The identifier of each evidential file is returned under the <strong>evidence.files</strong> array in the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute" target="_blank ">getPaymentDispute</a> response.
           required: true
           schema:
             type: string
@@ -671,7 +671,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed in at the end of the call URI to identify the payment dispute for which the user wishes to see all activity. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This parameter is used to specify the unique identifier of the payment dispute associated with the activity log being retrieved.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
@@ -719,13 +719,13 @@ paths:
       parameters:
         - name: order_id
           in: query
-          description: This filter is used if the seller wishes to retrieve one or more payment disputes filed against a specific order. It is possible that there can be more than one dispute filed against an order if the order has multiple line items. If this filter is used, any other filters are ignored.
+          description: This filter is used if the seller wishes to retrieve one or more payment disputes filed against a specific order. It is possible that there can be more than one dispute filed against an order if the order has multiple line items. If this filter is used, any other filters are ignored.<br><br>Use the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method to retrieve order IDs. Order ID values are also shown in My eBay/Seller Hub.
           required: false
           schema:
             type: string
         - name: buyer_username
           in: query
-          description: This filter is used if the seller wishes to retrieve one or more payment disputes opened by a specific seller. The string that is passed in to this query parameter is the eBay user ID of the buyer.
+          description: This filter is used if the seller wishes to retrieve one or more payment disputes opened by a specific buyer. The string that is passed in to this query parameter is the eBay user ID of the buyer.
           required: false
           schema:
             type: string
@@ -743,19 +743,19 @@ paths:
             type: string
         - name: payment_dispute_status
           in: query
-          description: This filter is used if the seller wishes to only retrieve payment disputes in a specific state. More than one value can be specified. If no <b>payment_dispute_status</b> filter is used, payment disputes in all states are returned in the response. See <strong>DisputeStateEnum</strong> type for supported values.
+          description: This filter is used if the seller wishes to only retrieve payment disputes in one or more specific states. To filter by more than one status value, a separate <b>payment_dispute_status</b> filter must be used for each value, as shown below:<br><br><i>https://apiz.ebay.com/sell/fulfillment/v1/payment_dispute_summary?payment_dispute_status=OPEN&payment_dispute_status=ACTION_NEEDED</i> <br><br>If no <b>payment_dispute_status</b> filter is used, payment disputes in all states are returned in the response.<br><br>See <a href="/api-docs/sell/fulfillment/types/api:DisputeStateEnum" target="_blank ">DisputeStatusEnum</a> type for supported values.
           required: false
           schema:
             type: string
         - name: limit
           in: query
-          description: 'The value passed in this query parameter sets the maximum number of payment disputes to return per page of data. The value passed in this field should be an integer from 1 to 200. If this query parameter is not set, up to 200 records will be returned on each page of results.<br><br><b>Min</b>: 1; <b>Max</b>: 200; <b>Default</b>: 200'
+          description: 'The value passed in this query parameter sets the maximum number of payment disputes to return per page of data. The value passed in this field should be an integer from 1 to 200. If this query parameter is not set, up to 200 records will be returned on each page of results.<br><br><b>Min</b>: 1<br><br> <b>Max</b>: 200<br><br><b>Default</b>: 200'
           required: false
           schema:
             type: string
         - name: offset
           in: query
-          description: 'This field is used to specify the number of records to skip in the result set before returning the first payment dispute in the paginated response. A zero-based index is used, so if you set the <b>offset</b> value to <code>0</code> (default value), the first payment dispute in the result set appears at the top of the response. <br><br>Combine <b>offset</b> with the <b>limit</b> parameter to control the payment disputes returned in the response. For example, if you supply an <b>offset</b> value of <code>0</code> and a <b>limit</b> value of <code>10</code>, the response will contain the first 10 payment disputes from the result set that matches the input criteria. If you supply an <b>offset</b> value of <code>10</code> and a <b>limit</b> value of <code>20</code>, the response will contain payment disputes 11-30 from the result set that matches the input criteria.<br><br><b>Min</b>: 0; <b>Max</b>: total number of payment disputes - 1; <b>Default</b>: 0'
+          description: 'This field is used to specify the number of records to skip in the result set before returning the first payment dispute in the paginated response. A zero-based index is used, so if you set the <b>offset</b> value to <code>0</code> (default value), the first payment dispute in the result set appears at the top of the response. <br><br>Combine <b>offset</b> with the <b>limit</b> parameter to control the payment disputes returned in the response. For example, if you supply an <b>offset</b> value of <code>0</code> and a <b>limit</b> value of <code>10</code>, the response will contain the first 10 payment disputes from the result set that matches the input criteria. If you supply an <b>offset</b> value of <code>10</code> and a <b>limit</b> value of <code>20</code>, the response will contain payment disputes 11-30 from the result set that matches the input criteria.<br><br><b>Min</b>: 0 <br><br><b>Default</b>: 0'
           required: false
           schema:
             type: string
@@ -801,13 +801,13 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to contest. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This parameter is used to specify the unique identifier of the payment dispute being contested. <br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -873,13 +873,13 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to accept. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This parameter is used to specify the unique identifier of the payment dispute being accepted. <br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -937,13 +937,13 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to upload an evidence file. This identifier is automatically created by eBay after the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This parameter is used to specify the unique identifier of the contested payment dispute for which the user intends to upload an evidence file.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>multipart/form-data</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>multipart/form-data</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -1021,13 +1021,13 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to add evidence for a contested payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This parameter is used to specify the unique identifier of the contested payment dispute for which the seller wishes to add evidence files. <br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -1064,6 +1064,10 @@ paths:
                 domain: API_FULFILLMENT
                 category: REQUEST
                 description: User did not echo back the evidence metadata correctly.
+              '33100':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: Invalid input request
               '33103':
                 domain: API_FULFILLMENT
                 category: REQUEST
@@ -1115,13 +1119,13 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to update the evidence set for a contested payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This parameter is used to specify the unique identifier of the contested payment dispute for which the user plans to update the evidence set.<br><br> Use the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries" target="_blank ">getPaymentDisputeSummaries</a> method to retrieve payment dispute IDs.
           required: true
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: This header indicates the format of the request body provided by the client. It's value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
+          description: This header indicates the format of the request body provided by the client. Its value should be set to <b>application/json</b>. <br><br> For more information, refer to <a href="/api-docs/static/rest-request-components.html#HTTP" target="_blank ">HTTP request headers</a>.
           required: true
           schema:
             type: string
@@ -1158,6 +1162,10 @@ paths:
                 domain: API_FULFILLMENT
                 category: REQUEST
                 description: Evidence Id is invalid
+              '33100':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: Invalid input request
               '33103':
                 domain: API_FULFILLMENT
                 category: REQUEST
@@ -1217,15 +1225,15 @@ components:
       properties:
         evidenceType:
           type: string
-          description: This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field. See the <strong>EvidenceTypeEnum</strong> type for the supported evidence types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum'>eBay API documentation</a>
+          description: This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href="/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum" target="_blank ">EvidenceTypeEnum</a> type for the supported evidence types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum'>eBay API documentation</a>
         files:
           type: array
-          description: This array is used to specify one or more evidence files that will become part of a new evidence set associated with a payment dispute. At least one evidence file must be specified in the <strong>files</strong> array.<br><br> The unique identifier of an evidence file is returned in the response payload of the <strong>uploadEvidence</strong> method.
+          description: This array is used to specify one or more evidence files that will become part of a new evidence set associated with a payment dispute. At least one evidence file must be specified in the <strong>files</strong> array.
           items:
             $ref: '#/components/schemas/FileEvidence'
         lineItems:
           type: array
-          description: This required array identifies the order line item(s) for which the evidence file(s) will be applicable. Both the <strong>itemId</strong> and <strong>lineItemID</strong> fields are needed to identify each order line item, and both of these values are returned under the <strong>evidenceRequests.lineItems</strong> array in the <strong>getPaymentDispute</strong> response.
+          description: This array identifies the order line item(s) for which the evidence file(s) will be applicable.<br><Br>These values are returned under the <strong>evidenceRequests.lineItems</strong> array in the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute" target="_blank ">getPaymentDispute</a> response.
           items:
             $ref: '#/components/schemas/OrderLineItems'
       description: This type is used by the request payload of the <strong>addEvidence</strong> method. The <strong>addEvidence</strong> method is used to create a new evidence set against a payment dispute with one or more evidence files.
@@ -1290,6 +1298,28 @@ components:
           type: string
           description: An eBay-generated unique identifier of the sales promotion.<br><br> Multiple types of sales promotions are available to eBay Store owners, including order size/volume discounts, shipping discounts, special coupons, and price markdowns. Sales promotions can be managed through the Marketing tab of Seller Hub in My eBay, or by using the Trading API's <b>SetPromotionalSale</b> call or the Marketing API's <b>createItemPromotion</b> method.
       description: This type contains information about a sales promotion that is applied to a line item.
+    AppointmentDetails:
+      type: object
+      properties:
+        appointmentEndTime:
+          type: string
+          description: The date and time the appointment ends, formatted as an <a href="https://www.iso.org/iso-8601-date-and-time-format.html " title="https://www.iso.org " target="_blank">ISO 8601</a> string, which is based on the 24-hour Coordinated Universal Time (UTC) clock. Required for tire installation. <br><br><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br><b>Example:</b> <code>2022-10-28T00:00:00.000Z</code>
+        appointmentStartTime:
+          type: string
+          description: The date and time the appointment begins, formatted as an <a href="https://www.iso.org/iso-8601-date-and-time-format.html " title="https://www.iso.org " target="_blank">ISO 8601</a> string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  <br><br><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br><b>Example:</b> <code>2022-10-28T00:10:00.000Z</code>
+        appointmentStatus:
+          type: string
+          description: The status of the appointment. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:AppointmentStatusEnum'>eBay API documentation</a>
+        appointmentType:
+          type: string
+          description: The type of appointment. MACRO appointments only have a start time (not bounded with end time). TIME_SLOT appointments have a period (both start time and end time). Required for tire installation. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:AppointmentTypeEnum'>eBay API documentation</a>
+        appointmentWindow:
+          type: string
+          description: Appointment window for MACRO appointments. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:AppointmentWindowEnum'>eBay API documentation</a>
+        serviceProviderAppointmentDate:
+          type: string
+          description: Service provider date of the appointment (no time stamp). Returned only for MACRO appointment types.
+      description: This type contains information used by the installation provider concerning appointment details selected by the buyer
     Buyer:
       type: object
       properties:
@@ -1348,7 +1378,7 @@ components:
       properties:
         note:
           type: string
-          description: This field shows information that the seller provides about the dispute, such as the basis for the dispute, any relevant evidence, tracking numbers, and so forth.<br><br>This field is limited to 1000 characters.
+          description: This field shows information that the seller provides about the dispute, such as the basis for the dispute, any relevant evidence, tracking numbers, and so forth.<br><br><b>Max Length:</b> 1000 characters.
         returnAddress:
           description: This container is needed if the seller is requesting that the buyer return the item. If this container is used, all relevant fields must be included, including <strong>fullName</strong> and <strong>primaryPhone</strong>.
           $ref: '#/components/schemas/ReturnAddress'
@@ -1463,7 +1493,7 @@ components:
       type: object
       properties:
         amount:
-          description: The monetary amount of the 'Collect and Remit' tax. This currently includes:<br><ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, and New Zealand</li><li>VAT collected for the UK and EU countries</li></ul><br><br><span class="tablenote"><strong>Note:</strong> If the corresponding <strong>taxType</strong> is <code>STATE_SALES_TAX</code>, <code>PROVINCE_SALES_TAX</code>, <code>GST</code>, or <code>VAT</code>, and the <strong>lineItems.taxes</strong> container also appears for this line item with the same tax amount, the order is subject to 'eBay Collect and Remit' tax. For orders that are subject to 'eBay Collect and Remit' tax, the tax amount in this field will be included in the <strong>lineItems.total</strong>, <strong>paymentSummary.payments.amount</strong>, <strong>paymentSummary.totalDueSeller</strong>, and <strong>pricingSummary.total</strong> fields.</span>
+          description: The monetary amount of the 'Collect and Remit' tax. This currently includes:<br><ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, New Zealand, and Jersey</li><li>VAT collected for the UK, EU countries, Kazakhstan, and Belarus</li><li>Sales & Service Tax (SST) in Malaysia</li></ul><br><br><span class="tablenote"><strong>Note:</strong> If the corresponding <strong>taxType</strong> is <code>STATE_SALES_TAX</code>, <code>PROVINCE_SALES_TAX</code>, <code>GST</code>, <code>VAT</code>, or <code>SST</code> and the <strong>lineItems.taxes</strong> container also appears for this line item with the same tax amount, the order is subject to 'eBay Collect and Remit' tax. For orders that are subject to 'eBay Collect and Remit' tax, the tax amount in this field will be included in the <strong>lineItems.total</strong>, <strong>paymentSummary.payments.amount</strong>, <strong>paymentSummary.totalDueSeller</strong>, and <strong>pricingSummary.total</strong> fields.</span>
           $ref: '#/components/schemas/Amount'
         ebayReference:
           description: This container field describes the line-item level VAT tax details.<br><br><span class="tablenote"><b>Note:</b> As of January 31, 2022, <b>addressLine2</b> no longer returns EU VAT tax information.</span>
@@ -1508,10 +1538,10 @@ components:
       properties:
         name:
           type: string
-          description: 'This field value is returned to indicate the VAT tax type, which will vary by country/region. This string value will be one of the following:<ul><li><code>ABN</code>: if this string is returned, the ID in the <strong>value</strong> field is an Australia tax ID</li><li><code>DDG</code>: if this string is returned, it indicates that tax has been collected and remitted for Digitally Delivered Goods (DDG)</li><li><code>IOSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay EU or UK IOSS number</li><li><code>IRD</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay New Zealand tax ID</li><li><code>OSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an  eBay Germany VAT ID</li><li><code>VOEC</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay Norway tax ID</li></ul>'
+          description: 'This field value is returned to indicate the VAT tax type, which will vary by country/region. This string value will be one of the following:<ul><li><code>ABN</code>: if this string is returned, the ID in the <strong>value</strong> field is an Australia tax ID</li><li><code>DDG</code>: if this string is returned, it indicates that tax has been collected and remitted for Digitally Delivered Goods (DDG)</li><li><code>IOSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay EU or UK IOSS number</li><li><code>IRD</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay New Zealand tax ID</li><li><code>SST</code>: if this string is returned, the ID in the <b>value</b> field is an eBay Malaysia taxNumber</li><li><code>OSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an  eBay Germany VAT ID</li><li><code>VOEC</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay Norway tax ID</li></ul>'
         value:
           type: string
-          description: 'The value returned in this field is the VAT identifier number (VATIN), which will vary by country/region. This field will be returned if VAT tax is applicable for the order. The <strong>name</strong> field indicates the VAT tax type, which will vary by country/region: <ul><li><strong>ABN</strong>: <em>eBay AU tax ID</em></li><li><strong>IOSS</strong>: <em>eBay EU IOSS number</em> / <em>eBay UK IOSS number</em></li><li><strong>IRD</strong>: <em>eBay NZ tax ID</em></li><li><strong>OSS</strong>: <em>eBay DE VAT ID</em></li><li><strong>VOEC</strong>: <em>eBay NO number</em></li></ul>'
+          description: 'The value returned in this field is the VAT identifier number (VATIN), which will vary by country/region. This field will be returned if VAT tax is applicable for the order. The <strong>name</strong> field indicates the VAT tax type, which will vary by country/region: <ul><li><strong>ABN</strong>: <em>eBay AU tax ID</em></li><li><strong>IOSS</strong>: <em>eBay EU IOSS number</em> / <em>eBay UK IOSS number</em></li><li><strong>IRD</strong>: <em>eBay NZ tax ID</em></li><li><strong>OSS</strong>: <em>eBay DE VAT ID</em></li><li><b>SST</b>: <i>eBay MY taxNumber</i></li><li><strong>VOEC</strong>: <em>eBay NO number</em></li></ul>'
       description: This type describes the VAT tax details. The eBay VAT tax type and the eBay VAT identifier number will be returned if a VAT tax is applicable for the order.<br><br><span class="tablenote"><b>Note:</b>  As of January 31, 2022, <b>addressLine2</b> no longer returns EU VAT tax information.</span>
     EbayVaultProgram:
       type: object
@@ -1612,7 +1642,7 @@ components:
       properties:
         fileId:
           type: string
-          description: If an <strong>uploadEvidenceFile</strong> call is successful, a unique identifier of this evidence file will be returned in the <strong>uploadEvidenceFile</strong> response payload.  This unique <strong>fileId</strong> value is then used to either add this evidence file to a new evidence set using the <strong>addEvidence</strong> method, or to add this file to an existing evidence set using the <strong>updateEvidence</strong> method.<br><br>Note that if an evidence set already exists for a payment dispute, the <strong>getPaymentDispute</strong> method will return both the <strong>evidenceId</strong> (unique identifier of evidence set) value, and the <strong>fileId</strong> (unique identifier of a file within that evidence set) value(s).
+          description: This field is used to identify the evidence file to be uploaded to the evidence set.<br><br> This file is created with the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/uploadEvidenceFile" target="_blank ">uploadEvidenceFile</a> method and can be retrieved using the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputes" target="_blank ">getPaymentDisputes</a> method.
       description: This type is used to store the unique identifier of an evidence file. Evidence files are used by seller to contest a payment dispute.
     FileInfo:
       type: object
@@ -1633,11 +1663,14 @@ components:
     FulfillmentStartInstruction:
       type: object
       properties:
+        appointment:
+          description: This container provides information used by the installation provider concerning appointment details selected by the buyer.
+          $ref: '#/components/schemas/AppointmentDetails'
         ebaySupportedFulfillment:
           type: boolean
           description: This field is only returned if its value is <code>true</code> and indicates that the fulfillment will be shipped via eBay's Global Shipping Program, eBay International Shipping, or the Authenticity Guarantee service program. <br><br>For more information, see the <a href="https://www.ebay.com/help/selling/shipping-items/setting-shipping-options/global-shipping-program?id=4646 " target="_blank">Global Shipping Program</a> help topic.
         finalDestinationAddress:
-          description: This container is only returned if the value of <b>ebaySupportedFulfillment</b> field is <code>true</code>. <br><br>This is the final destination address for a Global Shipping Program shipment or an eBay International Shipping shipment, which is usually the recipient's home. Sellers should not ship directly to this address; instead they should ship this package to their international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address.<br><br>For more information, see <a href="https://developer.ebay.com/devzone/guides/features-guide/default.html#Development/Shipping-APIWork.html#AddressingaGlobalShippingProgramShipment " target="_blank">Addressing a Global Shipping Program Shipment</a>.<p> <span class="tablenote"><strong>Note:</strong> For Authenticity Guarantee program shipment, this is the address of the authenticator's warehouse. The authenticator is responsible for delivery to the buyer shipping address.</span></p>
+          description: This container is only returned if the value of <b>ebaySupportedFulfillment</b> field is <code>true</code>. <br><br>This is the final destination address for a Global Shipping Program shipment or an eBay International Shipping shipment, which is usually the recipient's home. Sellers should not ship directly to this address; instead they should ship this package to their international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address.<br><br>For more information, see <a href="/api-docs/user-guides/static/trading-user-guide/global-shipping-addressing.html" target="_blank">Addressing Shipments</a>.<p> <span class="tablenote"><strong>Note:</strong> For Authenticity Guarantee program shipment, this is the address of the authenticator's warehouse. The authenticator is responsible for delivery to the buyer shipping address.</span></p>
           $ref: '#/components/schemas/Address'
         fulfillmentInstructionsType:
           type: string
@@ -1671,6 +1704,9 @@ components:
     InfoFromBuyer:
       type: object
       properties:
+        contentOnHold:
+          type: boolean
+          description: When the value of this field is <code>true</code> it indicates that the buyer's note regarding the payment dispute (i.e., the <b>buyerProvided.note</b> field,) is on hold. When this is the case, the <b>buyerProvided.note</b> field will not be returned.<br><br>When the value of this field is <code>false</code>, it is not returned.
         note:
           type: string
           description: This field shows any note that was left by the buyer in regard to the dispute.
@@ -1716,10 +1752,10 @@ components:
       properties:
         legacyItemId:
           type: string
-          description: The unique identifier of a listing in legacy/Trading API format. <br><br><span class="tablenote"><strong>Note:</strong> Both <b>legacyItemId</b> and <b>legacyTransactionId</b> are needed to identify an order line item. </span>
+          description: The unique identifier of a listing.<br><br> This value can be found in the <a href="/devzone/xml/docs/reference/ebay/getorders.html#Response.OrderArray.Order.TransactionArray.Transaction" target="_blank">Transaction</a> container in the response of the <a href="/devzone/xml/docs/reference/ebay/getorders.html" target="_blank">getOrder</a> call of the <b>Trading API</b>.<br><br><span class="tablenote"><strong>Note:</strong> Both <b>legacyItemId</b> and <b>legacyTransactionId</b> are needed to identify an order line item. </span>
         legacyTransactionId:
           type: string
-          description: The unique identifier of a sale/transaction in legacy/Trading API format. A 'transaction ID' is created once a buyer purchases a 'Buy It Now' item or if an auction listing ends with a winning bidder. <br><br><span class="tablenote"><strong>Note:</strong> Both <b>legacyItemId</b> and <b>legacyTransactionId</b> are needed to identify an order line item. </span>
+          description: The unique identifier of a sale/transaction in legacy/Trading API format. A 'transaction ID' is created once a buyer purchases a 'Buy It Now' item or if an auction listing ends with a winning bidder.<br><br> This value can be found in the <a href="/devzone/xml/docs/reference/ebay/getorders.html#Response.OrderArray.Order.TransactionArray.Transaction" target="_blank">Transaction</a> container in the response of the <a href="/devzone/xml/docs/reference/ebay/getorders.html" target="_blank">getOrder</a> call of the <b>Trading API</b>. <br><br><span class="tablenote"><strong>Note:</strong> Both <b>legacyItemId</b> and <b>legacyTransactionId</b> are needed to identify an order line item. </span>
       description: Type defining the <b>legacyReference</b> container. This container is needed if the seller is issuing a refund for an individual order line item, and wishes to use an item ID and transaction ID to identify the order line item.
     LineItem:
       type: object
@@ -1737,7 +1773,7 @@ components:
           $ref: '#/components/schemas/Amount'
         ebayCollectAndRemitTaxes:
           type: array
-          description: This container will be returned if the order line item is subject to a 'Collect and Remit' tax that eBay will collect and remit to the proper taxing authority on the buyer's behalf.<br><br>'Collect and Remit' tax includes:<ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, and New Zealand</li><li>VAT collected for the UK and EU countries</li></ul>The amount of this tax is shown in the <strong>amount</strong> field, and the type of tax is shown in the <strong>taxType</strong> field.<br><br>eBay will display the tax type and amount during checkout in accordance with the buyer's address, and handle collection and remittance of the tax without requiring the seller to take any action.
+          description: This container will be returned if the order line item is subject to a 'Collect and Remit' tax that eBay will collect and remit to the proper taxing authority on the buyer's behalf.<br><br>'Collect and Remit' tax includes:<ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, New Zealand, and Jersey</li><li>VAT collected for the UK, EU countries, Kazakhstan, and Belarus</li><li>Sales & Service Tax (SST) in Malaysia</li></ul>The amount of this tax is shown in the <strong>amount</strong> field, and the type of tax is shown in the <strong>taxType</strong> field.<br><br>eBay will display the tax type and amount during checkout in accordance with the buyer's address, and handle collection and remittance of the tax without requiring the seller to take any action.
           items:
             $ref: '#/components/schemas/EbayCollectAndRemitTax'
         ebayCollectedCharges:
@@ -1803,7 +1839,7 @@ components:
             $ref: '#/components/schemas/Tax'
         title:
           type: string
-          description: The title of the listing.
+          description: The title of the listing.<br><br><span class="tablenote"><b>Note:</b> The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.</span>
         total:
           description: 'This is the total price that the buyer must pay for the line item after all costs (item cost, delivery cost, taxes,) are added, minus any discounts and/or promotions.<br><br><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>total</strong> value only when the <strong>fieldGroups</strong> query parameter is set to <code>TAX_BREAKDOWN</code>. If the <strong>fieldGroups</strong> query parameter is not set to <code>TAX_BREAKDOWN</code>, ''Collect and Remit'' will not be added into this <strong>total</strong> value.<br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>total</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is in this amount:<ul><li><code>STATE_SALES_TAX</code>: US state-mandated sales tax</li><li><code>PROVINCE_SALES_TAX</code>: Provincial Sales Tax in Canada</li><li><code>GST</code>: ''Goods and Services'' tax in Canada, Australia, and New Zealand</li><li><code>VAT</code>: VAT collected for UK and EU countries</li></ul></span>'
           $ref: '#/components/schemas/Amount'
@@ -1847,7 +1883,7 @@ components:
       properties:
         lineItemId:
           type: string
-          description: This is the unique identifier of the eBay order line item that is part of the shipping fulfillment. The line item ID is created as soon as there is a commitment to buy from the seller.
+          description: This is the unique identifier of the eBay order line item that is part of the shipping fulfillment.<br><br>Line item Ids can be found in the lineItems.<b>lineItemId</b> field of the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank">getOrders</a> response.
         quantity:
           type: integer
           description: This is the number of lineItems associated with the <a href="#request.trackingNumber">trackingNumber</a> specified by the seller. This must be a whole number greater than zero (0).
@@ -1899,7 +1935,7 @@ components:
             $ref: '#/components/schemas/TrackingInfo'
         title:
           type: string
-          description: The listing title of the linked line item.
+          description: The listing title of the linked line item.<br><br><span class="tablenote"><b>Note:</b> The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.</span>
       description: This type contains data on a line item that is related to, but not a part of the order.
     MonetaryTransaction:
       type: object
@@ -2005,7 +2041,7 @@ components:
           description: The unique identifier of the eBay listing associated with the order.
         lineItemId:
           type: string
-          description: The unique identifier of the line item within the order. The <strong>lineItemId</strong> value is created once the buyer actually purchases the item, or if there is a commitment to buy (such as an auction that is won by the buyer, an accepted Best Offer, or other situation that does not require immediate payment from the buyer).
+          description: The unique identifier of the line item within the order.
       description: This type is used by the <strong>lineItems</strong> array that is used to identify one or more line items in the order with the payment dispute.
     OrderRefund:
       type: object
@@ -2376,9 +2412,9 @@ components:
           $ref: '#/components/schemas/SimpleAmount'
         lineItemId:
           type: string
-          description: The unique identifier of an order line item. This identifier is created once a buyer purchases a 'Buy It Now' item or if an auction listing ends with a winning bidder. Either this field or the <b>legacyReference</b> container is needed to identify an individual order line item that will receive a refund.<br><br><span class="tablenote"><strong>Note:</strong> The <b>lineItemId</b> field is used to identify an order line item in REST API format, and the  <b>legacyReference</b> container is used to identify an order line item in Trading/legacy API format. Both legacy and REST API identifiers are returned in <b>getOrder</b> (Fulfillment API) and <b>GetOrders</b> (Trading API).</span>
+          description: The unique identifier of an order line item. This identifier is created once a buyer purchases a 'Buy It Now' item or if an auction listing ends with a winning bidder.<br><br>Either this field or the <b>legacyReference</b> container is needed to identify an individual order line item that will receive a refund.<br><br> This value is returned using the <a href="/api-docs/sell/fulfillment/resources/order/methods/getOrders" target="_blank ">getOrders</a> method.
         legacyReference:
-          description: This container is needed if the seller is issuing a refund for an individual order line item, and wishes to use an item ID/transaction ID pair to identify the order line item. Either this container or the <b>lineItemId</b> field is needed to identify an individual order line item that will receive a refund. <br><br><span class="tablenote"><strong>Note:</strong> The <b>lineItemId</b> field is used to identify an order line item in REST API format, and the  <b>legacyReference</b> container is used to identify an order line item in Trading/legacy API format. Both legacy and REST API identifiers are returned in <b>getOrder</b> (Fulfillment API) and <b>GetOrders</b> (Trading API).</span>
+          description: This container is needed if the seller is issuing a refund for an individual order line item, and wishes to use an item ID/transaction ID pair to identify the order line item.<br><br>Either this container or the <b>lineItemId</b> field is needed to identify an individual order line item that will receive a refund. <br><br><span class="tablenote"><strong>Note:</strong> This container should <b>only</b> be used if a seller is using the <a href="/devzone/xml/docs/reference/ebay/getorders.html" target="_blank ">GetOrders</a> method of the <b>Trading API</b>.</span>
           $ref: '#/components/schemas/LegacyReference'
       description: This type is used if the seller is issuing a refund for one or more individual order line items in a multiple line item order. Otherwise, the seller just uses the <b>orderLevelRefundAmount</b> container to specify the amount of the refund for the entire order.
     ReturnAddress:
@@ -2395,7 +2431,7 @@ components:
           description: The city of the return address.
         country:
           type: string
-          description: The country's two-digt, ISO 3166-1 country code. See the enumeration type for a country's value. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
+          description: The country's two-digit, ISO 3166-1 country code. See the enumeration type for a country's value. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
         county:
           type: string
           description: The county of the return address. Counties are not applicable to all countries.
@@ -2456,7 +2492,7 @@ components:
           description: The unique identifier of the shipping carrier being used to ship the line item(s). Technically, the <strong>shippingCarrierCode</strong> and <strong>trackingNumber</strong> fields are optional, but generally these fields will be provided if the shipping carrier and tracking number are known. <br><br><span class="tablenote"><strong>Note:</strong> Use the Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call to retrieve the latest shipping carrier enumeration values. When making the <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call, include the <strong>DetailName</strong> field in the request payload and set its value to <code>ShippingCarrierDetails</code>. Each valid shipping carrier enumeration value is returned in a <strong>ShippingCarrierDetails.ShippingCarrier</strong> field in the response payload.</span>
         trackingNumber:
           type: string
-          description: The tracking number provided by the shipping carrier for this fulfillment. The seller should be careful that this tracking number is accurate since the buyer will use this tracking number to track shipment, and eBay has no way to verify the accuracy of this number.<br><br>This field and the <b>shippingCarrierCode</b> field are mutually dependent. If you include one, you must also include the other.<br><br><span class="tablenote"><strong>Note:</strong> If you include <b>trackingNumber</b> (and <b>shippingCarrierCode</b>) in the request, the resulting fulfillment's ID (returned in the HTTP location code) is the tracking number. If you do not include shipment tracking information, the resulting fulfillment ID will default to an arbitrary number such as <code>999</code>.</span><br><span class="tablenote"><strong>Note:</strong> Only alphanumeric characters are supported for shipment tracking numbers. Spaces, hyphens, and all other special characters are not supported. Do not include a space in the tracking number even if a space appears in the tracking number on the shipping label.</span>
+          description: The tracking number provided by the shipping carrier for this fulfillment. The seller should be careful that this tracking number is accurate since the buyer will use this tracking number to track shipment, and eBay has no way to verify the accuracy of this number.<br><br>This field and the <b>shippingCarrierCode</b> field are mutually dependent. If you include one, you must also include the other.<br><br><span class="tablenote"><strong>Note:</strong> If you include <b>trackingNumber</b> (and <b>shippingCarrierCode</b>) in the request, the resulting fulfillment's ID (returned in the HTTP location response header) is the tracking number. If you do not include shipment tracking information, the resulting fulfillment ID will default to an arbitrary number such as <code>999</code>.</span><br><span class="tablenote"><strong>Note:</strong> Only alphanumeric characters are supported for shipment tracking numbers. Spaces, hyphens, and all other special characters are not supported. Do not include a space in the tracking number even if a space appears in the tracking number on the shipping label.</span>
       description: This type contains the details for creating a fulfillment for an order.
     ShippingFulfillmentPagedCollection:
       type: object
@@ -2486,7 +2522,7 @@ components:
           type: string
           description: The unique identifier of the shipping service option being used to ship the line item.<br><br><span class="tablenote"><strong>Note:</strong> Use the Trading API's <a href="/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call to retrieve the latest shipping carrier and shipping service option enumeration values. When making the <a href="/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call, include the <strong>DetailName</strong> field in the request payload and set its value to <code>ShippingServiceDetails</code>. Each valid shipping service option (returned in <strong>ShippingServiceDetails.ShippingService</strong> field) and corresponding shipping carrier (returned in <strong>ShippingServiceDetails.ShippingCarrier</strong> field) is returned in response payload.</span>
         shipTo:
-          description: This container consists of shipping and contact information about the individual or organization to whom the fulfillment package will be shipped.<br><span class="tablenote"><strong>Note:</strong> When <b>FulfillmentInstructionsType</b> is <code>FULFILLED_BY_EBAY</code>, there will be no <b>shipTo</b> address displayed.</span><br><span class="tablenote"><strong>Note:</strong> For Digitally Delivered Goods (DDG), this address is the same as the Buyer's Registration Address.</span><br><span class="tablenote"><strong>Note:</strong> For a Global Shipping Program shipment, this is the address of the international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address. For more information, see <a href="https://developer.ebay.com/devzone/guides/features-guide/default.html#Development/Shipping-APIWork.html#AddressingaGlobalShippingProgramShipment " target="_blank">Addressing a Global Shipping Program Shipment</a>.</span>
+          description: This container consists of shipping and contact information about the individual or organization to whom the fulfillment package will be shipped.<br><span class="tablenote"><strong>Note:</strong> When <b>FulfillmentInstructionsType</b> is <code>FULFILLED_BY_EBAY</code>, there will be no <b>shipTo</b> address displayed.</span><br><span class="tablenote"><strong>Note:</strong> For Digitally Delivered Goods (DDG), this address is the same as the Buyer's Registration Address.</span><br><span class="tablenote"><strong>Note:</strong> For a Global Shipping Program shipment, this is the address of the international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address. For more information, see <a href="/api-docs/user-guides/static/trading-user-guide/global-shipping-addressing.html" target="_blank">Addressing Shipments</a>.</span>
           $ref: '#/components/schemas/ExtendedContact'
         shipToReferenceId:
           type: string
@@ -2556,10 +2592,10 @@ components:
       properties:
         evidenceId:
           type: string
-          description: The unique identifier of the evidence set that is being updated with new evidence files.
+          description: The unique identifier of the evidence set that is being updated with new evidence files.<br><br> This ID is returned under the <strong>evidence</strong> array in the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute" target="_blank ">getPaymentDispute</a> response.
         evidenceType:
           type: string
-          description: This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field. See the <strong>EvidenceTypeEnum</strong> type for the supported evidence types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum'>eBay API documentation</a>
+          description: This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href="/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum" target="_blank ">EvidenceTypeEnum</a> type for the supported evidence types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum'>eBay API documentation</a>
         files:
           type: array
           description: This array is used to specify one or more evidence files that will be added to the evidence set associated with a payment dispute. At least one evidence file must be specified in the <strong>files</strong> array.<br><br> The unique identifier of an evidence file is returned in the response payload of the <strong>uploadEvidence</strong> method.
@@ -2567,7 +2603,7 @@ components:
             $ref: '#/components/schemas/FileEvidence'
         lineItems:
           type: array
-          description: This required array identifies the order line item(s) for which the evidence file(s) will be applicable. Both the <strong>itemId</strong> and <strong>lineItemID</strong> fields are needed to identify each order line item, and both of these values are returned under the <strong>evidenceRequests.lineItems</strong> array in the <strong>getPaymentDispute</strong> response.
+          description: This required array identifies the order line item(s) for which the evidence file(s) will be applicable. <br><Br>These values are returned under the <strong>evidenceRequests.lineItems</strong> array in the <a href="/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute" target="_blank ">getPaymentDispute</a> response. <br><br><span class="tablenote"><b>Note:</b> Both the <strong>itemId</strong> and <strong>lineItemID</strong> fields are needed to identify each order line item.</span>
           items:
             $ref: '#/components/schemas/OrderLineItems'
       description: This type is used by the request payload of the <strong>updateEvidence</strong> method. The <strong>updateEvidence</strong> method is used to update an existing evidence set against a payment dispute with one or more evidence files.
