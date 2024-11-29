@@ -83,10 +83,10 @@ docs/Model/TrackingInfo.md
 docs/Model/UpdateEvidencePaymentDisputeRequest.md
 git_push.sh
 phpunit.xml.dist
-src/ApiException.php
 src/Api/OrderApi.php
 src/Api/PaymentDisputeApi.php
 src/Api/ShippingFulfillmentApi.php
+src/ApiException.php
 src/Configuration.php
 src/HeaderSelector.php
 src/Model/AcceptPaymentDisputeRequest.php

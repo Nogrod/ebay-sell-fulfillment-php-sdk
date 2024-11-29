@@ -653,7 +653,7 @@ $parameters = NULL; // array<string,string> | The parameters you want associated
 $read_date = 'read_date_example'; // string | The date you read the file. <br /><br /><b> Format: </b> UTC <code>yyyy-MM-ddThh:mm:ss.SSSZ</code><p><b>For example:</b><p>Created on September 10, 2019</p><p><code>2019-09-10T00:00:00.000Z</code></p>
 $size = 56; // int | The size of the file.
 $type = 'type_example'; // string | The file type. The only presently supported type is <code>form-data</code>.
-$file = "/path/to/file.txt"; // \SplFileObject | The file to upload.
+$file = '/path/to/file.txt'; // \SplFileObject | The file to upload.
 
 $hostIndex = 0;
 $variables = [
