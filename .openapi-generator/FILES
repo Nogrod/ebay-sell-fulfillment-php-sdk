@@ -17,6 +17,7 @@ docs/Model/AppointmentDetails.md
 docs/Model/Buyer.md
 docs/Model/CancelRequest.md
 docs/Model/CancelStatus.md
+docs/Model/Charge.md
 docs/Model/ContestPaymentDisputeRequest.md
 docs/Model/DeliveryCost.md
 docs/Model/DisputeAmount.md
@@ -99,6 +100,7 @@ src/Model/AppointmentDetails.php
 src/Model/Buyer.php
 src/Model/CancelRequest.php
 src/Model/CancelStatus.php
+src/Model/Charge.php
 src/Model/ContestPaymentDisputeRequest.php
 src/Model/DeliveryCost.php
 src/Model/DisputeAmount.php
@@ -165,3 +167,4 @@ src/Model/TaxIdentifier.php
 src/Model/TrackingInfo.php
 src/Model/UpdateEvidencePaymentDisputeRequest.php
 src/ObjectSerializer.php
+tests/Model/ChargeTest.php

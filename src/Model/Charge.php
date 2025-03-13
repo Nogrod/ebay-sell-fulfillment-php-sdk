@@ -1,6 +1,6 @@
 <?php
 /**
- * ShippingFulfillmentPagedCollection
+ * Charge
  *
  * PHP version 8.1
  *
@@ -34,15 +34,15 @@ use ReturnTypeWillChange;
 use eBay\Sell\Fulfillment\ObjectSerializer;
 
 /**
- * ShippingFulfillmentPagedCollection Class Doc Comment
+ * Charge Class Doc Comment
  *
- * @description This type contains the specifications for the entire collection of shipping fulfillments that are associated with the order specified by a &lt;b&gt;getShippingFulfillments&lt;/b&gt; call. The &lt;b&gt;fulfillments&lt;/b&gt; container returns an array of all the fulfillments in the collection.
+ * @description This type is used to display the charge type and the amount of the charge against the buyer.
  * @package  eBay\Sell\Fulfillment
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess, JsonSerializable
+class Charge implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ShippingFulfillmentPagedCollection';
+    protected static string $openAPIModelName = 'Charge';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'fulfillments' => '\eBay\Sell\Fulfillment\Model\ShippingFulfillment[]',
-        'total' => 'int',
-        'warnings' => '\eBay\Sell\Fulfillment\Model\Error[]'
+        'amount' => '\eBay\Sell\Fulfillment\Model\Amount',
+        'charge_type' => 'string'
     ];
 
     /**
@@ -70,9 +69,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'fulfillments' => null,
-        'total' => 'int32',
-        'warnings' => null
+        'amount' => null,
+        'charge_type' => null
     ];
 
     /**
@@ -81,9 +79,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'fulfillments' => false,
-        'total' => false,
-        'warnings' => false
+        'amount' => false,
+        'charge_type' => false
     ];
 
     /**
@@ -172,9 +169,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'fulfillments' => 'fulfillments',
-        'total' => 'total',
-        'warnings' => 'warnings'
+        'amount' => 'amount',
+        'charge_type' => 'chargeType'
     ];
 
     /**
@@ -183,9 +179,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $setters = [
-        'fulfillments' => 'setFulfillments',
-        'total' => 'setTotal',
-        'warnings' => 'setWarnings'
+        'amount' => 'setAmount',
+        'charge_type' => 'setChargeType'
     ];
 
     /**
@@ -194,9 +189,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $getters = [
-        'fulfillments' => 'getFulfillments',
-        'total' => 'getTotal',
-        'warnings' => 'getWarnings'
+        'amount' => 'getAmount',
+        'charge_type' => 'getChargeType'
     ];
 
     /**
@@ -255,9 +249,8 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('fulfillments', $data ?? [], null);
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('charge_type', $data ?? [], null);
     }
 
     /**
@@ -303,82 +296,55 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets fulfillments
+     * Gets amount
      *
-     * @return \eBay\Sell\Fulfillment\Model\ShippingFulfillment[]|null
+     * @return \eBay\Sell\Fulfillment\Model\Amount|null
      */
-    public function getFulfillments(): ?array
+    public function getAmount(): ?\eBay\Sell\Fulfillment\Model\Amount
     {
-        return $this->container['fulfillments'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets fulfillments
+     * Sets amount
      *
-     * @param \eBay\Sell\Fulfillment\Model\ShippingFulfillment[]|null $fulfillments This array contains one or more fulfillments required for the order that was specified in method endpoint.
+     * @param \eBay\Sell\Fulfillment\Model\Amount|null $amount amount
      *
      * @return $this
      */
-    public function setFulfillments(?array $fulfillments): static
+    public function setAmount(?\eBay\Sell\Fulfillment\Model\Amount $amount): static
     {
-        if (is_null($fulfillments)) {
-            throw new InvalidArgumentException('non-nullable fulfillments cannot be null');
+        if (is_null($amount)) {
+            throw new InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['fulfillments'] = $fulfillments;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets total
+     * Gets charge_type
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getTotal(): ?int
+    public function getChargeType(): ?string
     {
-        return $this->container['total'];
+        return $this->container['charge_type'];
     }
 
     /**
-     * Sets total
+     * Sets charge_type
      *
-     * @param int|null $total The total number of fulfillments in the specified order.<br><br><span class=\"tablenote\"><strong>Note:</strong> If no fulfillments are found for the order, this field is returned with a value of <code>0</code>.</span>
+     * @param string|null $charge_type This field shows the type of buyer charge <br> <br> <span class=\"tablenote\"> <strong> Note: </strong> Currently, the only supported charge type is BUYER_PROTECTION. </span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sol:ChargeTypeEnum'>eBay API documentation</a>
      *
      * @return $this
      */
-    public function setTotal(?int $total): static
+    public function setChargeType(?string $charge_type): static
     {
-        if (is_null($total)) {
-            throw new InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($charge_type)) {
+            throw new InvalidArgumentException('non-nullable charge_type cannot be null');
         }
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \eBay\Sell\Fulfillment\Model\Error[]|null
-     */
-    public function getWarnings(): ?array
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \eBay\Sell\Fulfillment\Model\Error[]|null $warnings This array is only returned if one or more errors or warnings occur with the call request.
-     *
-     * @return $this
-     */
-    public function setWarnings(?array $warnings): static
-    {
-        if (is_null($warnings)) {
-            throw new InvalidArgumentException('non-nullable warnings cannot be null');
-        }
-        $this->container['warnings'] = $warnings;
+        $this->container['charge_type'] = $charge_type;
 
         return $this;
     }

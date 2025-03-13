@@ -6,8 +6,8 @@ info:
     name: eBay Inc.
   license:
     name: eBay API License Agreement
-    url: https://go.developer.ebay.com/api-license-agreement
-  version: v1.20.4
+    url: https://developer.ebay.com/join/api-license-agreement
+  version: v1.20.6
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -1336,6 +1336,16 @@ components:
           type: string
           description: The state of the order with regard to cancellation. This field is always returned, and if there are no cancellation requests, a value of <code>NONE_REQUESTED</code> is returned.  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:CancelStateEnum'>eBay API documentation</a>
       description: This type contains information about any requests that have been made to cancel an order.
+    Charge:
+      type: object
+      properties:
+        amount:
+          description: This container shows the amount and currency of the charge.
+          $ref: '#/components/schemas/Amount'
+        chargeType:
+          type: string
+          description: 'This field shows the type of buyer charge <br> <br> <span class="tablenote"> <strong> Note: </strong> Currently, the only supported charge type is BUYER_PROTECTION. </span> For implementation help, refer to <a href=''https://developer.ebay.com/api-docs/sell/fulfillment/types/sol:ChargeTypeEnum''>eBay API documentation</a>'
+      description: This type is used to display the charge type and the amount of the charge against the buyer.
     ContestPaymentDisputeRequest:
       type: object
       properties:
@@ -1343,7 +1353,7 @@ components:
           type: string
           description: This field shows information that the seller provides about the dispute, such as the basis for the dispute, any relevant evidence, tracking numbers, and so forth.<br><br><b>Max Length:</b> 1000 characters.
         returnAddress:
-          description: This container is needed if the seller is requesting that the buyer return the item. If this container is used, all relevant fields must be included, including <strong>fullName</strong> and <strong>primaryPhone</strong>.
+          description: This container is needed if the seller is requesting that the buyer return the item. If this container is used, all relevant fields must be included, including <strong>fullName</strong> and <strong>primaryPhone</strong>.<br><br><span class="tablenote"><b>Note:</b> If the <a href ="/api-docs/sell/fulfillment/types/api:DisputeReasonEnum" >Dispute Reason</a> is <code>SIGNIFICANTLY_NOT_AS_DESCRIBED</code>, <b>returnAddress</b> is required.</span>
           $ref: '#/components/schemas/ReturnAddress'
         revision:
           type: integer
@@ -1474,6 +1484,11 @@ components:
         ebayShipping:
           description: This container consists of costs related to eBay Shipping collected by eBay from the buyer of this order.
           $ref: '#/components/schemas/Amount'
+        charges:
+          type: array
+          description: 'This array shows any charges that eBay collects from the buyer.<br><br><span class="tablenote"><strong> Note: </strong> Currently, the only supported charge type is BUYER_PROTECTION.</span>'
+          items:
+            $ref: '#/components/schemas/Charge'
       description: This type contains the breakdown of costs that are collected by eBay from the buyer.
     EbayFulfillmentProgram:
       type: object
@@ -1994,7 +2009,7 @@ components:
           description: The date and time that the order was last modified. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. <br><br><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br><b>Example:</b> <code>2015-08-04T19:09:02.768Z</code>
         legacyOrderId:
           type: string
-          description: The unique identifier of the order in legacy format, as traditionally used by the Trading API (and other legacy APIs). Both the <b>orderId</b> field and this field are always returned.
+          description: <span class="tablenote"><strong>Note:</strong> This field is deprecated and will stopped being returned on February 24, 2025. Please exclusively use the <b>orderId</b> field going forward.</span><br>The unique identifier of the order in legacy format, as traditionally used by the Trading API (and other legacy APIs). Both the <b>orderId</b> field and this field are always returned.
         lineItems:
           type: array
           description: This array contains the details for all line items that comprise the order.
@@ -2316,10 +2331,10 @@ components:
       properties:
         countryCode:
           type: string
-          description: The seller's country calling code. This field is needed if the buyer is located in a different country than the seller. It is also OK to provide if the buyer and seller are both located in the same country. For a full list of calling codes for all countries, see the <a href="https://countrycode.org/ " target="_blank">countrycode.org</a> site.
+          description: ' The two-letter, <a href="https://www.iso.org/iso-3166-country-codes.html " target="_blank">ISO 3166</a> code associated with the seller''s phone number. This field is needed if the buyer is located in a different country than the seller. It is also OK to provide if the buyer and seller are both located in the same country<br><br>See <a href="/api-docs/sell/fulfillment/types/ba:CountryCodeEnum " target="_blank">CountryCodeEnum</a> for a list of supported values.'
         number:
           type: string
-          description: 'The seller''s primary phone number associated with the return address. When this number is provided in a <strong>contestPaymentDispute</strong> or <strong>contestPaymentDispute</strong> method, it is provided as one continuous numeric string, including the area code. So, if the phone number''s area code was ''408'', a number in this field may look something like this: <br><br><code>"number" : "4088084356"</code><br><br>If the buyer is located in a different country than the seller, the seller''s country calling code will need to be specified in the <strong>countryCode</strong> field.'
+          description: 'The seller''s primary phone number associated with the return address. When this number is provided in a <strong>contestPaymentDispute</strong> or <strong>contestPaymentDispute</strong> method, it is provided as one continuous numeric string, including the area code. So, if the phone number''s area code was ''408'', a number in this field may look something like this: <br><br><code>"number" : "4088084356"</code><br><br>If the buyer is located in a different country than the seller, the seller''s country code will need to be specified in the <strong>countryCode</strong> field.'
       description: This type is used by the <strong>returnAddress</strong field that is used by the payment dispute methods. If a buyer is returning the item (under payment dispute) to the seller, a primary phone number for the seller must be provided.
     PhoneNumber:
       type: object
@@ -2429,7 +2444,7 @@ components:
           description: The city of the return address.
         country:
           type: string
-          description: The country's two-digit, ISO 3166-1 country code. See the enumeration type for a country's value. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
+          description: The country's two-letter, ISO 3166-1 country code. See the enumeration type for a country's value. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
         county:
           type: string
           description: The county of the return address. Counties are not applicable to all countries.
