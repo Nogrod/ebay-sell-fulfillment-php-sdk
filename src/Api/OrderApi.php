@@ -1,4 +1,5 @@
 <?php
+
 /**
  * OrderApi
  * PHP version 8.1
@@ -143,8 +144,7 @@ class OrderApi
         string $order_id,
         ?string $field_groups = null,
         string $contentType = self::contentTypes['getOrder'][0]
-    ): \eBay\Sell\Fulfillment\Model\Order
-    {
+    ): \eBay\Sell\Fulfillment\Model\Order {
         list($response) = $this->getOrderWithHttpInfo($order_id, $field_groups, $contentType);
         return $response;
     }
@@ -164,8 +164,7 @@ class OrderApi
         string $order_id,
         ?string $field_groups = null,
         string $contentType = self::contentTypes['getOrder'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getOrderRequest($order_id, $field_groups, $contentType);
 
         try {
@@ -191,9 +190,9 @@ class OrderApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\Order', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\Order', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -235,7 +234,7 @@ class OrderApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\Order';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -291,8 +290,7 @@ class OrderApi
         string $order_id,
         ?string $field_groups = null,
         string $contentType = self::contentTypes['getOrder'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getOrderAsyncWithHttpInfo($order_id, $field_groups, $contentType)
             ->then(
                 function ($response) {
@@ -315,8 +313,7 @@ class OrderApi
         string $order_id,
         ?string $field_groups = null,
         string $contentType = self::contentTypes['getOrder'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\Order';
         $request = $this->getOrderRequest($order_id, $field_groups, $contentType);
 
@@ -324,7 +321,7 @@ class OrderApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -370,8 +367,7 @@ class OrderApi
         string $order_id,
         ?string $field_groups = null,
         string $contentType = self::contentTypes['getOrder'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
@@ -488,8 +484,7 @@ class OrderApi
         ?string $offset = null,
         ?string $order_ids = null,
         string $contentType = self::contentTypes['getOrders'][0]
-    ): \eBay\Sell\Fulfillment\Model\OrderSearchPagedCollection
-    {
+    ): \eBay\Sell\Fulfillment\Model\OrderSearchPagedCollection {
         list($response) = $this->getOrdersWithHttpInfo($field_groups, $filter, $limit, $offset, $order_ids, $contentType);
         return $response;
     }
@@ -515,8 +510,7 @@ class OrderApi
         ?string $offset = null,
         ?string $order_ids = null,
         string $contentType = self::contentTypes['getOrders'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getOrdersRequest($field_groups, $filter, $limit, $offset, $order_ids, $contentType);
 
         try {
@@ -542,9 +536,9 @@ class OrderApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\OrderSearchPagedCollection', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\OrderSearchPagedCollection', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -586,7 +580,7 @@ class OrderApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\OrderSearchPagedCollection';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -648,8 +642,7 @@ class OrderApi
         ?string $offset = null,
         ?string $order_ids = null,
         string $contentType = self::contentTypes['getOrders'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getOrdersAsyncWithHttpInfo($field_groups, $filter, $limit, $offset, $order_ids, $contentType)
             ->then(
                 function ($response) {
@@ -678,8 +671,7 @@ class OrderApi
         ?string $offset = null,
         ?string $order_ids = null,
         string $contentType = self::contentTypes['getOrders'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\OrderSearchPagedCollection';
         $request = $this->getOrdersRequest($field_groups, $filter, $limit, $offset, $order_ids, $contentType);
 
@@ -687,7 +679,7 @@ class OrderApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -739,8 +731,7 @@ class OrderApi
         ?string $offset = null,
         ?string $order_ids = null,
         string $contentType = self::contentTypes['getOrders'][0]
-    ): Request
-    {
+    ): Request {
 
 
 
@@ -878,8 +869,7 @@ class OrderApi
         string $order_id,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
-    ): \eBay\Sell\Fulfillment\Model\Refund
-    {
+    ): \eBay\Sell\Fulfillment\Model\Refund {
         list($response) = $this->issueRefundWithHttpInfo($order_id, $issue_refund_request, $contentType);
         return $response;
     }
@@ -901,8 +891,7 @@ class OrderApi
         string $order_id,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
-    ): array
-    {
+    ): array {
         $request = $this->issueRefundRequest($order_id, $issue_refund_request, $contentType);
 
         try {
@@ -928,9 +917,9 @@ class OrderApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\Refund', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\Refund', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -972,7 +961,7 @@ class OrderApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\Refund';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1030,8 +1019,7 @@ class OrderApi
         string $order_id,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->issueRefundAsyncWithHttpInfo($order_id, $issue_refund_request, $contentType)
             ->then(
                 function ($response) {
@@ -1056,8 +1044,7 @@ class OrderApi
         string $order_id,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\Refund';
         $request = $this->issueRefundRequest($order_id, $issue_refund_request, $contentType);
 
@@ -1065,7 +1052,7 @@ class OrderApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1111,8 +1098,7 @@ class OrderApi
         string $order_id,
         ?\eBay\Sell\Fulfillment\Model\IssueRefundRequest $issue_refund_request = null,
         string $contentType = self::contentTypes['issueRefund'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {

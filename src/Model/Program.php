@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Program
  *
@@ -514,7 +515,7 @@ class Program implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

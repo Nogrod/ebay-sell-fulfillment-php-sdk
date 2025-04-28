@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FulfillmentStartInstruction
  *
@@ -616,7 +617,7 @@ class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, JsonSe
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

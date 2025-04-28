@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PaymentDisputeApi
  * PHP version 8.1
@@ -173,8 +174,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['acceptPaymentDispute'][0]
-    ): void
-    {
+    ): void {
         $this->acceptPaymentDisputeWithHttpInfo($payment_dispute_id, $accept_payment_dispute_request, $hostIndex, $variables, $contentType);
     }
 
@@ -205,8 +205,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['acceptPaymentDispute'][0]
-    ): array
-    {
+    ): array {
         $request = $this->acceptPaymentDisputeRequest($payment_dispute_id, $accept_payment_dispute_request, $hostIndex, $variables, $contentType);
 
         try {
@@ -267,8 +266,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['acceptPaymentDispute'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->acceptPaymentDisputeAsyncWithHttpInfo($payment_dispute_id, $accept_payment_dispute_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -303,8 +301,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['acceptPaymentDispute'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '';
         $request = $this->acceptPaymentDisputeRequest($payment_dispute_id, $accept_payment_dispute_request, $hostIndex, $variables, $contentType);
 
@@ -355,8 +352,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['acceptPaymentDispute'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -508,8 +504,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['addEvidence'][0]
-    ): \eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse
-    {
+    ): \eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse {
         list($response) = $this->addEvidenceWithHttpInfo($payment_dispute_id, $add_evidence_payment_dispute_request, $hostIndex, $variables, $contentType);
         return $response;
     }
@@ -541,8 +536,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['addEvidence'][0]
-    ): array
-    {
+    ): array {
         $request = $this->addEvidenceRequest($payment_dispute_id, $add_evidence_payment_dispute_request, $hostIndex, $variables, $contentType);
 
         try {
@@ -568,9 +562,9 @@ class PaymentDisputeApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -612,7 +606,7 @@ class PaymentDisputeApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -680,8 +674,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['addEvidence'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->addEvidenceAsyncWithHttpInfo($payment_dispute_id, $add_evidence_payment_dispute_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -716,8 +709,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['addEvidence'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\AddEvidencePaymentDisputeResponse';
         $request = $this->addEvidenceRequest($payment_dispute_id, $add_evidence_payment_dispute_request, $hostIndex, $variables, $contentType);
 
@@ -725,7 +717,7 @@ class PaymentDisputeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -781,8 +773,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['addEvidence'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -934,8 +925,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['contestPaymentDispute'][0]
-    ): void
-    {
+    ): void {
         $this->contestPaymentDisputeWithHttpInfo($payment_dispute_id, $contest_payment_dispute_request, $hostIndex, $variables, $contentType);
     }
 
@@ -966,8 +956,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['contestPaymentDispute'][0]
-    ): array
-    {
+    ): array {
         $request = $this->contestPaymentDisputeRequest($payment_dispute_id, $contest_payment_dispute_request, $hostIndex, $variables, $contentType);
 
         try {
@@ -1028,8 +1017,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['contestPaymentDispute'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->contestPaymentDisputeAsyncWithHttpInfo($payment_dispute_id, $contest_payment_dispute_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -1064,8 +1052,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['contestPaymentDispute'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '';
         $request = $this->contestPaymentDisputeRequest($payment_dispute_id, $contest_payment_dispute_request, $hostIndex, $variables, $contentType);
 
@@ -1116,8 +1103,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['contestPaymentDispute'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -1271,8 +1257,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['fetchEvidenceContent'][0]
-    ): array
-    {
+    ): array {
         list($response) = $this->fetchEvidenceContentWithHttpInfo($payment_dispute_id, $evidence_id, $file_id, $hostIndex, $variables, $contentType);
         return $response;
     }
@@ -1306,8 +1291,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['fetchEvidenceContent'][0]
-    ): array
-    {
+    ): array {
         $request = $this->fetchEvidenceContentRequest($payment_dispute_id, $evidence_id, $file_id, $hostIndex, $variables, $contentType);
 
         try {
@@ -1333,9 +1317,9 @@ class PaymentDisputeApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('string[]', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('string[]', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1377,7 +1361,7 @@ class PaymentDisputeApi
             }
 
             $returnType = 'string[]';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1447,8 +1431,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['fetchEvidenceContent'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->fetchEvidenceContentAsyncWithHttpInfo($payment_dispute_id, $evidence_id, $file_id, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -1485,8 +1468,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['fetchEvidenceContent'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = 'string[]';
         $request = $this->fetchEvidenceContentRequest($payment_dispute_id, $evidence_id, $file_id, $hostIndex, $variables, $contentType);
 
@@ -1494,7 +1476,7 @@ class PaymentDisputeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1552,8 +1534,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['fetchEvidenceContent'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -1727,8 +1708,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getActivities'][0]
-    ): \eBay\Sell\Fulfillment\Model\PaymentDisputeActivityHistory
-    {
+    ): \eBay\Sell\Fulfillment\Model\PaymentDisputeActivityHistory {
         list($response) = $this->getActivitiesWithHttpInfo($payment_dispute_id, $hostIndex, $variables, $contentType);
         return $response;
     }
@@ -1758,8 +1738,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getActivities'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getActivitiesRequest($payment_dispute_id, $hostIndex, $variables, $contentType);
 
         try {
@@ -1785,9 +1764,9 @@ class PaymentDisputeApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\PaymentDisputeActivityHistory', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\PaymentDisputeActivityHistory', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1829,7 +1808,7 @@ class PaymentDisputeApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\PaymentDisputeActivityHistory';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1895,8 +1874,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getActivities'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getActivitiesAsyncWithHttpInfo($payment_dispute_id, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -1929,8 +1907,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getActivities'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\PaymentDisputeActivityHistory';
         $request = $this->getActivitiesRequest($payment_dispute_id, $hostIndex, $variables, $contentType);
 
@@ -1938,7 +1915,7 @@ class PaymentDisputeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1992,8 +1969,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getActivities'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -2135,8 +2111,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDispute'][0]
-    ): \eBay\Sell\Fulfillment\Model\PaymentDispute
-    {
+    ): \eBay\Sell\Fulfillment\Model\PaymentDispute {
         list($response) = $this->getPaymentDisputeWithHttpInfo($payment_dispute_id, $hostIndex, $variables, $contentType);
         return $response;
     }
@@ -2166,8 +2141,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDispute'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getPaymentDisputeRequest($payment_dispute_id, $hostIndex, $variables, $contentType);
 
         try {
@@ -2193,9 +2167,9 @@ class PaymentDisputeApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\PaymentDispute', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\PaymentDispute', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2237,7 +2211,7 @@ class PaymentDisputeApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\PaymentDispute';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -2303,8 +2277,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDispute'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getPaymentDisputeAsyncWithHttpInfo($payment_dispute_id, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -2337,8 +2310,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDispute'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\PaymentDispute';
         $request = $this->getPaymentDisputeRequest($payment_dispute_id, $hostIndex, $variables, $contentType);
 
@@ -2346,7 +2318,7 @@ class PaymentDisputeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2400,8 +2372,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDispute'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -2555,8 +2526,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDisputeSummaries'][0]
-    ): \eBay\Sell\Fulfillment\Model\DisputeSummaryResponse
-    {
+    ): \eBay\Sell\Fulfillment\Model\DisputeSummaryResponse {
         list($response) = $this->getPaymentDisputeSummariesWithHttpInfo($order_id, $buyer_username, $open_date_from, $open_date_to, $payment_dispute_status, $limit, $offset, $hostIndex, $variables, $contentType);
         return $response;
     }
@@ -2598,8 +2568,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDisputeSummaries'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getPaymentDisputeSummariesRequest($order_id, $buyer_username, $open_date_from, $open_date_to, $payment_dispute_status, $limit, $offset, $hostIndex, $variables, $contentType);
 
         try {
@@ -2625,9 +2594,9 @@ class PaymentDisputeApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\DisputeSummaryResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\DisputeSummaryResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2669,7 +2638,7 @@ class PaymentDisputeApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\DisputeSummaryResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -2747,8 +2716,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDisputeSummaries'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getPaymentDisputeSummariesAsyncWithHttpInfo($order_id, $buyer_username, $open_date_from, $open_date_to, $payment_dispute_status, $limit, $offset, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -2793,8 +2761,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDisputeSummaries'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\DisputeSummaryResponse';
         $request = $this->getPaymentDisputeSummariesRequest($order_id, $buyer_username, $open_date_from, $open_date_to, $payment_dispute_status, $limit, $offset, $hostIndex, $variables, $contentType);
 
@@ -2802,7 +2769,7 @@ class PaymentDisputeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2868,8 +2835,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['getPaymentDisputeSummaries'][0]
-    ): Request
-    {
+    ): Request {
 
 
 
@@ -3068,8 +3034,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['updateEvidence'][0]
-    ): void
-    {
+    ): void {
         $this->updateEvidenceWithHttpInfo($payment_dispute_id, $update_evidence_payment_dispute_request, $hostIndex, $variables, $contentType);
     }
 
@@ -3100,8 +3065,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['updateEvidence'][0]
-    ): array
-    {
+    ): array {
         $request = $this->updateEvidenceRequest($payment_dispute_id, $update_evidence_payment_dispute_request, $hostIndex, $variables, $contentType);
 
         try {
@@ -3162,8 +3126,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['updateEvidence'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->updateEvidenceAsyncWithHttpInfo($payment_dispute_id, $update_evidence_payment_dispute_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -3198,8 +3161,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['updateEvidence'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '';
         $request = $this->updateEvidenceRequest($payment_dispute_id, $update_evidence_payment_dispute_request, $hostIndex, $variables, $contentType);
 
@@ -3250,8 +3212,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['updateEvidence'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {
@@ -3419,8 +3380,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['uploadEvidenceFile'][0]
-    ): \eBay\Sell\Fulfillment\Model\FileEvidence
-    {
+    ): \eBay\Sell\Fulfillment\Model\FileEvidence {
         list($response) = $this->uploadEvidenceFileWithHttpInfo($payment_dispute_id, $creation_date, $file_name, $modification_date, $name, $parameters, $read_date, $size, $type, $file, $hostIndex, $variables, $contentType);
         return $response;
     }
@@ -3468,8 +3428,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['uploadEvidenceFile'][0]
-    ): array
-    {
+    ): array {
         $request = $this->uploadEvidenceFileRequest($payment_dispute_id, $creation_date, $file_name, $modification_date, $name, $parameters, $read_date, $size, $type, $file, $hostIndex, $variables, $contentType);
 
         try {
@@ -3495,9 +3454,9 @@ class PaymentDisputeApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\FileEvidence', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\FileEvidence', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3539,7 +3498,7 @@ class PaymentDisputeApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\FileEvidence';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -3623,8 +3582,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['uploadEvidenceFile'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->uploadEvidenceFileAsyncWithHttpInfo($payment_dispute_id, $creation_date, $file_name, $modification_date, $name, $parameters, $read_date, $size, $type, $file, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
@@ -3675,8 +3633,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['uploadEvidenceFile'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\FileEvidence';
         $request = $this->uploadEvidenceFileRequest($payment_dispute_id, $creation_date, $file_name, $modification_date, $name, $parameters, $read_date, $size, $type, $file, $hostIndex, $variables, $contentType);
 
@@ -3684,7 +3641,7 @@ class PaymentDisputeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3756,8 +3713,7 @@ class PaymentDisputeApi
         ?int $hostIndex = null,
         array $variables = [],
         string $contentType = self::contentTypes['uploadEvidenceFile'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'payment_dispute_id' is set
         if ($payment_dispute_id === null || (is_array($payment_dispute_id) && count($payment_dispute_id) === 0)) {

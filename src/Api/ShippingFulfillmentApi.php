@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ShippingFulfillmentApi
  * PHP version 8.1
@@ -143,8 +144,7 @@ class ShippingFulfillmentApi
         string $order_id,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
-    ): array
-    {
+    ): array {
         list($response) = $this->createShippingFulfillmentWithHttpInfo($order_id, $shipping_fulfillment_details, $contentType);
         return $response;
     }
@@ -164,8 +164,7 @@ class ShippingFulfillmentApi
         string $order_id,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
-    ): array
-    {
+    ): array {
         $request = $this->createShippingFulfillmentRequest($order_id, $shipping_fulfillment_details, $contentType);
 
         try {
@@ -191,9 +190,9 @@ class ShippingFulfillmentApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 201:
-                    if (in_array('object', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('object', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -235,7 +234,7 @@ class ShippingFulfillmentApi
             }
 
             $returnType = 'object';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -291,8 +290,7 @@ class ShippingFulfillmentApi
         string $order_id,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->createShippingFulfillmentAsyncWithHttpInfo($order_id, $shipping_fulfillment_details, $contentType)
             ->then(
                 function ($response) {
@@ -315,8 +313,7 @@ class ShippingFulfillmentApi
         string $order_id,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = 'object';
         $request = $this->createShippingFulfillmentRequest($order_id, $shipping_fulfillment_details, $contentType);
 
@@ -324,7 +321,7 @@ class ShippingFulfillmentApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -370,8 +367,7 @@ class ShippingFulfillmentApi
         string $order_id,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
@@ -486,8 +482,7 @@ class ShippingFulfillmentApi
         string $fulfillment_id,
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillment'][0]
-    ): \eBay\Sell\Fulfillment\Model\ShippingFulfillment
-    {
+    ): \eBay\Sell\Fulfillment\Model\ShippingFulfillment {
         list($response) = $this->getShippingFulfillmentWithHttpInfo($fulfillment_id, $order_id, $contentType);
         return $response;
     }
@@ -507,8 +502,7 @@ class ShippingFulfillmentApi
         string $fulfillment_id,
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillment'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getShippingFulfillmentRequest($fulfillment_id, $order_id, $contentType);
 
         try {
@@ -534,9 +528,9 @@ class ShippingFulfillmentApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\ShippingFulfillment', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\ShippingFulfillment', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -578,7 +572,7 @@ class ShippingFulfillmentApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\ShippingFulfillment';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -634,8 +628,7 @@ class ShippingFulfillmentApi
         string $fulfillment_id,
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillment'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getShippingFulfillmentAsyncWithHttpInfo($fulfillment_id, $order_id, $contentType)
             ->then(
                 function ($response) {
@@ -658,8 +651,7 @@ class ShippingFulfillmentApi
         string $fulfillment_id,
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillment'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\ShippingFulfillment';
         $request = $this->getShippingFulfillmentRequest($fulfillment_id, $order_id, $contentType);
 
@@ -667,7 +659,7 @@ class ShippingFulfillmentApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -713,8 +705,7 @@ class ShippingFulfillmentApi
         string $fulfillment_id,
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillment'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'fulfillment_id' is set
         if ($fulfillment_id === null || (is_array($fulfillment_id) && count($fulfillment_id) === 0)) {
@@ -828,8 +819,7 @@ class ShippingFulfillmentApi
     public function getShippingFulfillments(
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillments'][0]
-    ): \eBay\Sell\Fulfillment\Model\ShippingFulfillmentPagedCollection
-    {
+    ): \eBay\Sell\Fulfillment\Model\ShippingFulfillmentPagedCollection {
         list($response) = $this->getShippingFulfillmentsWithHttpInfo($order_id, $contentType);
         return $response;
     }
@@ -847,8 +837,7 @@ class ShippingFulfillmentApi
     public function getShippingFulfillmentsWithHttpInfo(
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillments'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getShippingFulfillmentsRequest($order_id, $contentType);
 
         try {
@@ -874,9 +863,9 @@ class ShippingFulfillmentApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Fulfillment\Model\ShippingFulfillmentPagedCollection', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Fulfillment\Model\ShippingFulfillmentPagedCollection', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -918,7 +907,7 @@ class ShippingFulfillmentApi
             }
 
             $returnType = '\eBay\Sell\Fulfillment\Model\ShippingFulfillmentPagedCollection';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -972,8 +961,7 @@ class ShippingFulfillmentApi
     public function getShippingFulfillmentsAsync(
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillments'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getShippingFulfillmentsAsyncWithHttpInfo($order_id, $contentType)
             ->then(
                 function ($response) {
@@ -994,8 +982,7 @@ class ShippingFulfillmentApi
     public function getShippingFulfillmentsAsyncWithHttpInfo(
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillments'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Fulfillment\Model\ShippingFulfillmentPagedCollection';
         $request = $this->getShippingFulfillmentsRequest($order_id, $contentType);
 
@@ -1003,7 +990,7 @@ class ShippingFulfillmentApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1047,8 +1034,7 @@ class ShippingFulfillmentApi
     public function getShippingFulfillmentsRequest(
         string $order_id,
         string $contentType = self::contentTypes['getShippingFulfillments'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
