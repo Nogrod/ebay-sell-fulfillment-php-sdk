@@ -67,6 +67,7 @@ docs/Model/PickupStep.md
 docs/Model/PostSaleAuthenticationProgram.md
 docs/Model/PricingSummary.md
 docs/Model/Program.md
+docs/Model/Property.md
 docs/Model/Refund.md
 docs/Model/RefundItem.md
 docs/Model/ReturnAddress.md
@@ -152,6 +153,7 @@ src/Model/PickupStep.php
 src/Model/PostSaleAuthenticationProgram.php
 src/Model/PricingSummary.php
 src/Model/Program.php
+src/Model/Property.php
 src/Model/Refund.php
 src/Model/RefundItem.php
 src/Model/ReturnAddress.php

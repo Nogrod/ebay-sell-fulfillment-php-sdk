@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AddEvidencePaymentDisputeRequest
+ * Property
  *
  * PHP version 8.1
  *
@@ -35,15 +35,15 @@ use ReturnTypeWillChange;
 use eBay\Sell\Fulfillment\ObjectSerializer;
 
 /**
- * AddEvidencePaymentDisputeRequest Class Doc Comment
+ * Property Class Doc Comment
  *
- * @description This type is used by the request payload of the &lt;strong&gt;addEvidence&lt;/strong&gt; method. The &lt;strong&gt;addEvidence&lt;/strong&gt; method is used to create a new evidence set against a payment dispute with one or more evidence files.
+ * @description This type defines the property name and value for an order.
  * @package  eBay\Sell\Fulfillment
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class Property implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'AddEvidencePaymentDisputeRequest';
+    protected static string $openAPIModelName = 'Property';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'evidence_type' => 'string',
-        'files' => '\eBay\Sell\Fulfillment\Model\FileEvidence[]',
-        'line_items' => '\eBay\Sell\Fulfillment\Model\OrderLineItems[]'
+        'property_display_name' => 'string',
+        'property_name' => 'string',
+        'property_value' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'evidence_type' => null,
-        'files' => null,
-        'line_items' => null
+        'property_display_name' => null,
+        'property_name' => null,
+        'property_value' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'evidence_type' => false,
-        'files' => false,
-        'line_items' => false
+        'property_display_name' => false,
+        'property_name' => false,
+        'property_value' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'evidence_type' => 'evidenceType',
-        'files' => 'files',
-        'line_items' => 'lineItems'
+        'property_display_name' => 'propertyDisplayName',
+        'property_name' => 'propertyName',
+        'property_value' => 'propertyValue'
     ];
 
     /**
@@ -184,9 +184,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
      * @var array<string, string>
      */
     protected static array $setters = [
-        'evidence_type' => 'setEvidenceType',
-        'files' => 'setFiles',
-        'line_items' => 'setLineItems'
+        'property_display_name' => 'setPropertyDisplayName',
+        'property_name' => 'setPropertyName',
+        'property_value' => 'setPropertyValue'
     ];
 
     /**
@@ -195,9 +195,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
      * @var array<string, string>
      */
     protected static array $getters = [
-        'evidence_type' => 'getEvidenceType',
-        'files' => 'getFiles',
-        'line_items' => 'getLineItems'
+        'property_display_name' => 'getPropertyDisplayName',
+        'property_name' => 'getPropertyName',
+        'property_value' => 'getPropertyValue'
     ];
 
     /**
@@ -256,9 +256,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('evidence_type', $data ?? [], null);
-        $this->setIfExists('files', $data ?? [], null);
-        $this->setIfExists('line_items', $data ?? [], null);
+        $this->setIfExists('property_display_name', $data ?? [], null);
+        $this->setIfExists('property_name', $data ?? [], null);
+        $this->setIfExists('property_value', $data ?? [], null);
     }
 
     /**
@@ -304,82 +304,82 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
 
 
     /**
-     * Gets evidence_type
+     * Gets property_display_name
      *
      * @return string|null
      */
-    public function getEvidenceType(): ?string
+    public function getPropertyDisplayName(): ?string
     {
-        return $this->container['evidence_type'];
+        return $this->container['property_display_name'];
     }
 
     /**
-     * Sets evidence_type
+     * Sets property_display_name
      *
-     * @param string|null $evidence_type This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum'>eBay API documentation</a>
+     * @param string|null $property_display_name The display name of the motor vehicle aspect. This is the localized name of the compatibility property.
      *
      * @return $this
      */
-    public function setEvidenceType(?string $evidence_type): static
+    public function setPropertyDisplayName(?string $property_display_name): static
     {
-        if (is_null($evidence_type)) {
-            throw new InvalidArgumentException('non-nullable evidence_type cannot be null');
+        if (is_null($property_display_name)) {
+            throw new InvalidArgumentException('non-nullable property_display_name cannot be null');
         }
-        $this->container['evidence_type'] = $evidence_type;
+        $this->container['property_display_name'] = $property_display_name;
 
         return $this;
     }
 
     /**
-     * Gets files
+     * Gets property_name
      *
-     * @return \eBay\Sell\Fulfillment\Model\FileEvidence[]|null
+     * @return string|null
      */
-    public function getFiles(): ?array
+    public function getPropertyName(): ?string
     {
-        return $this->container['files'];
+        return $this->container['property_name'];
     }
 
     /**
-     * Sets files
+     * Sets property_name
      *
-     * @param \eBay\Sell\Fulfillment\Model\FileEvidence[]|null $files This array is used to specify one or more evidence files that will become part of a new evidence set associated with a payment dispute. At least one evidence file must be specified in the <strong>files</strong> array.
+     * @param string|null $property_name The name of the motor vehicle aspect.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
      *
      * @return $this
      */
-    public function setFiles(?array $files): static
+    public function setPropertyName(?string $property_name): static
     {
-        if (is_null($files)) {
-            throw new InvalidArgumentException('non-nullable files cannot be null');
+        if (is_null($property_name)) {
+            throw new InvalidArgumentException('non-nullable property_name cannot be null');
         }
-        $this->container['files'] = $files;
+        $this->container['property_name'] = $property_name;
 
         return $this;
     }
 
     /**
-     * Gets line_items
+     * Gets property_value
      *
-     * @return \eBay\Sell\Fulfillment\Model\OrderLineItems[]|null
+     * @return string|null
      */
-    public function getLineItems(): ?array
+    public function getPropertyValue(): ?string
     {
-        return $this->container['line_items'];
+        return $this->container['property_value'];
     }
 
     /**
-     * Sets line_items
+     * Sets property_value
      *
-     * @param \eBay\Sell\Fulfillment\Model\OrderLineItems[]|null $line_items This array identifies the order line item(s) for which the evidence file(s) will be applicable.<br><Br>These values are returned under the <strong>evidenceRequests.lineItems</strong> array in the <a href=\"/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute\" target=\"_blank \">getPaymentDispute</a> response.
+     * @param string|null $property_value The value of the property specified in the <b>propertyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>.
      *
      * @return $this
      */
-    public function setLineItems(?array $line_items): static
+    public function setPropertyValue(?string $property_value): static
     {
-        if (is_null($line_items)) {
-            throw new InvalidArgumentException('non-nullable line_items cannot be null');
+        if (is_null($property_value)) {
+            throw new InvalidArgumentException('non-nullable property_value cannot be null');
         }
-        $this->container['line_items'] = $line_items;
+        $this->container['property_value'] = $property_value;
 
         return $this;
     }
