@@ -1,4 +1,4 @@
-# # EbayVaultProgram
+# EbayVaultProgram
 
 ## Properties
 

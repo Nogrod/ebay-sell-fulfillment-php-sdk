@@ -1,4 +1,4 @@
-# # ExtendedContact
+# ExtendedContact
 
 ## Properties
 

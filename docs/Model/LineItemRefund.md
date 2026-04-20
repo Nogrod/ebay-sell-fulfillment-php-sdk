@@ -1,4 +1,4 @@
-# # LineItemRefund
+# LineItemRefund
 
 ## Properties
 

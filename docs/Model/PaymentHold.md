@@ -1,4 +1,4 @@
-# # PaymentHold
+# PaymentHold
 
 ## Properties
 

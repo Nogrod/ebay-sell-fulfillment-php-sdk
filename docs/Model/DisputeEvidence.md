@@ -1,4 +1,4 @@
-# # DisputeEvidence
+# DisputeEvidence
 
 ## Properties
 

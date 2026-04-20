@@ -1,4 +1,4 @@
-# # ItemLocation
+# ItemLocation
 
 ## Properties
 

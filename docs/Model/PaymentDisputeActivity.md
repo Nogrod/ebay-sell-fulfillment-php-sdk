@@ -1,4 +1,4 @@
-# # PaymentDisputeActivity
+# PaymentDisputeActivity
 
 ## Properties
 

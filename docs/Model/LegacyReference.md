@@ -1,4 +1,4 @@
-# # LegacyReference
+# LegacyReference
 
 ## Properties
 

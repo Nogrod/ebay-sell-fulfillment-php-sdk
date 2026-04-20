@@ -1,4 +1,4 @@
-# # TaxIdentifier
+# TaxIdentifier
 
 ## Properties
 

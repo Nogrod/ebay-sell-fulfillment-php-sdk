@@ -1,4 +1,4 @@
-# # AddEvidencePaymentDisputeRequest
+# AddEvidencePaymentDisputeRequest
 
 ## Properties
 

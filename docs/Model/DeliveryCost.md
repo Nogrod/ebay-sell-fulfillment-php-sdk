@@ -1,4 +1,4 @@
-# # DeliveryCost
+# DeliveryCost
 
 ## Properties
 

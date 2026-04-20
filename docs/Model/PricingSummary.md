@@ -1,4 +1,4 @@
-# # PricingSummary
+# PricingSummary
 
 ## Properties
 

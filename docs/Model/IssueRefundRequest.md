@@ -1,4 +1,4 @@
-# # IssueRefundRequest
+# IssueRefundRequest
 
 ## Properties
 

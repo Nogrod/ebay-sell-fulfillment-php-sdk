@@ -1,4 +1,4 @@
-# # PostSaleAuthenticationProgram
+# PostSaleAuthenticationProgram
 
 ## Properties
 

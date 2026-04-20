@@ -1,4 +1,4 @@
-# # PaymentDispute
+# PaymentDispute
 
 ## Properties
 

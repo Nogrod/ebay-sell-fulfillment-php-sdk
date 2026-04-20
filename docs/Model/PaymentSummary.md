@@ -1,4 +1,4 @@
-# # PaymentSummary
+# PaymentSummary
 
 ## Properties
 

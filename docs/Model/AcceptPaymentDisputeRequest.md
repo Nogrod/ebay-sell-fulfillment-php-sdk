@@ -1,4 +1,4 @@
-# # AcceptPaymentDisputeRequest
+# AcceptPaymentDisputeRequest
 
 ## Properties
 

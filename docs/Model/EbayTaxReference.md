@@ -1,4 +1,4 @@
-# # EbayTaxReference
+# EbayTaxReference
 
 ## Properties
 

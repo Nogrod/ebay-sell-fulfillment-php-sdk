@@ -1,4 +1,4 @@
-# # RefundItem
+# RefundItem
 
 ## Properties
 

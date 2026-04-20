@@ -1,4 +1,4 @@
-# # DisputeSummaryResponse
+# DisputeSummaryResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ShippingFulfillmentPagedCollection
+# ShippingFulfillmentPagedCollection
 
 ## Properties
 

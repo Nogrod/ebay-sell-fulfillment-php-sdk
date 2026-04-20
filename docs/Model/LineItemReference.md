@@ -1,4 +1,4 @@
-# # LineItemReference
+# LineItemReference
 
 ## Properties
 

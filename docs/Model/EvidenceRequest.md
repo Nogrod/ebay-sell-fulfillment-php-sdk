@@ -1,4 +1,4 @@
-# # EvidenceRequest
+# EvidenceRequest
 
 ## Properties
 

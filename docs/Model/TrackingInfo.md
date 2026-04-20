@@ -1,4 +1,4 @@
-# # TrackingInfo
+# TrackingInfo
 
 ## Properties
 

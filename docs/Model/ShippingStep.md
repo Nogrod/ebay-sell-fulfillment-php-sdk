@@ -1,4 +1,4 @@
-# # ShippingStep
+# ShippingStep
 
 ## Properties
 

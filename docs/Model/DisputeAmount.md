@@ -1,4 +1,4 @@
-# # DisputeAmount
+# DisputeAmount
 
 ## Properties
 

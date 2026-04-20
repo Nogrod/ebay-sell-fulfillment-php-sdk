@@ -1,4 +1,4 @@
-# # EbayShipping
+# EbayShipping
 
 ## Properties
 

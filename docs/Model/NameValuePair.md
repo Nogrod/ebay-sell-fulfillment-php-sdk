@@ -1,4 +1,4 @@
-# # NameValuePair
+# NameValuePair
 
 ## Properties
 

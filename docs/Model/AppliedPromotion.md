@@ -1,4 +1,4 @@
-# # AppliedPromotion
+# AppliedPromotion
 
 ## Properties
 

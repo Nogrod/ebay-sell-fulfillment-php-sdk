@@ -1,4 +1,4 @@
-# # CancelStatus
+# CancelStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # LinkedOrderLineItem
+# LinkedOrderLineItem
 
 ## Properties
 

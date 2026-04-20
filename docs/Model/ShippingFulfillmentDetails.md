@@ -1,4 +1,4 @@
-# # ShippingFulfillmentDetails
+# ShippingFulfillmentDetails
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # Phone
+# Phone
 
 ## Properties
 

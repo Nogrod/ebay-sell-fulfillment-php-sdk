@@ -1,4 +1,4 @@
-# # GiftDetails
+# GiftDetails
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # Charge
+# Charge
 
 ## Properties
 

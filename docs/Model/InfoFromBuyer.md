@@ -1,4 +1,4 @@
-# # InfoFromBuyer
+# InfoFromBuyer
 
 ## Properties
 

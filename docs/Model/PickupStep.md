@@ -1,4 +1,4 @@
-# # PickupStep
+# PickupStep
 
 ## Properties
 

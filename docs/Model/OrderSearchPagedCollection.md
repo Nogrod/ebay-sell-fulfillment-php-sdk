@@ -1,4 +1,4 @@
-# # OrderSearchPagedCollection
+# OrderSearchPagedCollection
 
 ## Properties
 

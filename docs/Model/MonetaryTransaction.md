@@ -1,4 +1,4 @@
-# # MonetaryTransaction
+# MonetaryTransaction
 
 ## Properties
 
