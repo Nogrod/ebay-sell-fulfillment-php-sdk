@@ -62,7 +62,7 @@ class CancelStatus implements ModelInterface, ArrayAccess, JsonSerializable
     protected static array $openAPITypes = [
         'cancelled_date' => 'string',
         'cancel_requests' => '\eBay\Sell\Fulfillment\Model\CancelRequest[]',
-        'cancel_state' => '\eBay\Sell\Fulfillment\Model\CancelStateEnum'
+        'cancel_state' => 'string'
     ];
 
     /**
@@ -336,9 +336,9 @@ class CancelStatus implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets cancel_state
      *
-     * @return \eBay\Sell\Fulfillment\Model\CancelStateEnum|null
+     * @return string|null
      */
-    public function getCancelState(): ?\eBay\Sell\Fulfillment\Model\CancelStateEnum
+    public function getCancelState(): ?string
     {
         return $this->container['cancel_state'];
     }
@@ -346,11 +346,11 @@ class CancelStatus implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cancel_state
      *
-     * @param \eBay\Sell\Fulfillment\Model\CancelStateEnum|null $cancel_state The state of the order with regard to cancellation. This field is always returned, and if there are no cancellation requests, a value of <code>NONE_REQUESTED</code> is returned.
+     * @param string|null $cancel_state The state of the order with regard to cancellation. This field is always returned, and if there are no cancellation requests, a value of <code>NONE_REQUESTED</code> is returned.
      *
      * @return $this
      */
-    public function setCancelState(?\eBay\Sell\Fulfillment\Model\CancelStateEnum $cancel_state): static
+    public function setCancelState(?string $cancel_state): static
     {
         if (is_null($cancel_state)) {
             throw new InvalidArgumentException('non-nullable cancel_state cannot be null');

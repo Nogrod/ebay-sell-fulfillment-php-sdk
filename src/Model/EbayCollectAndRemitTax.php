@@ -62,8 +62,8 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $openAPITypes = [
         'amount' => '\eBay\Sell\Fulfillment\Model\Amount',
         'ebay_reference' => '\eBay\Sell\Fulfillment\Model\EbayTaxReference',
-        'tax_type' => '\eBay\Sell\Fulfillment\Model\TaxTypeEnum',
-        'collection_method' => '\eBay\Sell\Fulfillment\Model\CollectionMethodEnum'
+        'tax_type' => 'string',
+        'collection_method' => 'string'
     ];
 
     /**
@@ -343,9 +343,9 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets tax_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\TaxTypeEnum|null
+     * @return string|null
      */
-    public function getTaxType(): ?\eBay\Sell\Fulfillment\Model\TaxTypeEnum
+    public function getTaxType(): ?string
     {
         return $this->container['tax_type'];
     }
@@ -353,11 +353,11 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets tax_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\TaxTypeEnum|null $tax_type The type of tax and fees that eBay will collect and remit to the taxing or fee authority. See the <strong>TaxTypeEnum</strong> type definition for more information about each tax or fee type.
+     * @param string|null $tax_type The type of tax and fees that eBay will collect and remit to the taxing or fee authority. See the <strong>TaxTypeEnum</strong> type definition for more information about each tax or fee type.
      *
      * @return $this
      */
-    public function setTaxType(?\eBay\Sell\Fulfillment\Model\TaxTypeEnum $tax_type): static
+    public function setTaxType(?string $tax_type): static
     {
         if (is_null($tax_type)) {
             throw new InvalidArgumentException('non-nullable tax_type cannot be null');
@@ -370,9 +370,9 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets collection_method
      *
-     * @return \eBay\Sell\Fulfillment\Model\CollectionMethodEnum|null
+     * @return string|null
      */
-    public function getCollectionMethod(): ?\eBay\Sell\Fulfillment\Model\CollectionMethodEnum
+    public function getCollectionMethod(): ?string
     {
         return $this->container['collection_method'];
     }
@@ -380,11 +380,11 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets collection_method
      *
-     * @param \eBay\Sell\Fulfillment\Model\CollectionMethodEnum|null $collection_method This field indicates the collection method used to collect the 'Collect and Remit' tax for the order. This field is always returned for orders subject to 'Collect and Remit' tax, and its value is always <code>NET</code>.<br><br><span class=\"tablenote\"><strong>Note:</strong> Although the <strong>collectionMethod</strong> field is returned for all orders subject to 'Collect and Remit' tax, the <strong>collectionMethod</strong> field and the <strong>CollectionMethodEnum</strong> type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.</span>
+     * @param string|null $collection_method This field indicates the collection method used to collect the 'Collect and Remit' tax for the order. This field is always returned for orders subject to 'Collect and Remit' tax, and its value is always <code>NET</code>.<br><br><span class=\"tablenote\"><strong>Note:</strong> Although the <strong>collectionMethod</strong> field is returned for all orders subject to 'Collect and Remit' tax, the <strong>collectionMethod</strong> field and the <strong>CollectionMethodEnum</strong> type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.</span>
      *
      * @return $this
      */
-    public function setCollectionMethod(?\eBay\Sell\Fulfillment\Model\CollectionMethodEnum $collection_method): static
+    public function setCollectionMethod(?string $collection_method): static
     {
         if (is_null($collection_method)) {
             throw new InvalidArgumentException('non-nullable collection_method cannot be null');

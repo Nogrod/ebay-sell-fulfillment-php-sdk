@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ShippingFulfillment
  *
@@ -491,7 +490,7 @@ class ShippingFulfillment implements ModelInterface, ArrayAccess, JsonSerializab
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

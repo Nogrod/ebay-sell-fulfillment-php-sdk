@@ -1,5 +1,4 @@
 <?php
-
 /**
  * SellerActionsToRelease
  *
@@ -355,7 +354,7 @@ class SellerActionsToRelease implements ModelInterface, ArrayAccess, JsonSeriali
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

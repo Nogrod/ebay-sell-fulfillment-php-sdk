@@ -60,8 +60,8 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, Json
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'outcome_reason' => '\eBay\Sell\Fulfillment\Model\AuthenticityVerificationReasonEnum',
-        'status' => '\eBay\Sell\Fulfillment\Model\AuthenticityVerificationStatusEnum'
+        'outcome_reason' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -275,9 +275,9 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, Json
     /**
      * Gets outcome_reason
      *
-     * @return \eBay\Sell\Fulfillment\Model\AuthenticityVerificationReasonEnum|null
+     * @return string|null
      */
-    public function getOutcomeReason(): ?\eBay\Sell\Fulfillment\Model\AuthenticityVerificationReasonEnum
+    public function getOutcomeReason(): ?string
     {
         return $this->container['outcome_reason'];
     }
@@ -285,11 +285,11 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, Json
     /**
      * Sets outcome_reason
      *
-     * @param \eBay\Sell\Fulfillment\Model\AuthenticityVerificationReasonEnum|null $outcome_reason This field indicates the result of the authenticity verification inspection on an order line item. This field is not returned when the status value of the order line item is <code>PENDING</code> or <code>PASSED</code>. The possible values returned here are <code>NOT_AUTHENTIC</code>, <code>NOT_AS_DESCRIBED</code>, <code>CUSTOMIZED</code>, <code>MISCATEGORIZED</code>, or <code>NOT_AUTHENTIC_NO_RETURN</code>.
+     * @param string|null $outcome_reason This field indicates the result of the authenticity verification inspection on an order line item. This field is not returned when the status value of the order line item is <code>PENDING</code> or <code>PASSED</code>. The possible values returned here are <code>NOT_AUTHENTIC</code>, <code>NOT_AS_DESCRIBED</code>, <code>CUSTOMIZED</code>, <code>MISCATEGORIZED</code>, or <code>NOT_AUTHENTIC_NO_RETURN</code>.
      *
      * @return $this
      */
-    public function setOutcomeReason(?\eBay\Sell\Fulfillment\Model\AuthenticityVerificationReasonEnum $outcome_reason): static
+    public function setOutcomeReason(?string $outcome_reason): static
     {
         if (is_null($outcome_reason)) {
             throw new InvalidArgumentException('non-nullable outcome_reason cannot be null');
@@ -302,9 +302,9 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, Json
     /**
      * Gets status
      *
-     * @return \eBay\Sell\Fulfillment\Model\AuthenticityVerificationStatusEnum|null
+     * @return string|null
      */
-    public function getStatus(): ?\eBay\Sell\Fulfillment\Model\AuthenticityVerificationStatusEnum
+    public function getStatus(): ?string
     {
         return $this->container['status'];
     }
@@ -312,11 +312,11 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, Json
     /**
      * Sets status
      *
-     * @param \eBay\Sell\Fulfillment\Model\AuthenticityVerificationStatusEnum|null $status The value in this field indicates whether the order line item has passed or failed the authenticity verification inspection, or if the inspection and/or results are still pending. The possible values returned here are <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code>, or <code>PASSED_WITH_EXCEPTION</code>.
+     * @param string|null $status The value in this field indicates whether the order line item has passed or failed the authenticity verification inspection, or if the inspection and/or results are still pending. The possible values returned here are <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code>, or <code>PASSED_WITH_EXCEPTION</code>.
      *
      * @return $this
      */
-    public function setStatus(?\eBay\Sell\Fulfillment\Model\AuthenticityVerificationStatusEnum $status): static
+    public function setStatus(?string $status): static
     {
         if (is_null($status)) {
             throw new InvalidArgumentException('non-nullable status cannot be null');

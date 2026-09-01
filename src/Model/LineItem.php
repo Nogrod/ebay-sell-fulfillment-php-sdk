@@ -1,5 +1,4 @@
 <?php
-
 /**
  * LineItem
  *
@@ -72,16 +71,16 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
         'legacy_variation_id' => 'string',
         'line_item_cost' => '\eBay\Sell\Fulfillment\Model\Amount',
         'line_item_fulfillment_instructions' => '\eBay\Sell\Fulfillment\Model\LineItemFulfillmentInstructions',
-        'line_item_fulfillment_status' => '\eBay\Sell\Fulfillment\Model\LineItemFulfillmentStatusEnum',
+        'line_item_fulfillment_status' => 'string',
         'line_item_id' => 'string',
         'linked_order_line_items' => '\eBay\Sell\Fulfillment\Model\LinkedOrderLineItem[]',
-        'listing_marketplace_id' => '\eBay\Sell\Fulfillment\Model\MarketplaceIdEnum',
+        'listing_marketplace_id' => 'string',
         'properties' => '\eBay\Sell\Fulfillment\Model\LineItemProperties',
-        'purchase_marketplace_id' => '\eBay\Sell\Fulfillment\Model\MarketplaceIdEnum',
+        'purchase_marketplace_id' => 'string',
         'quantity' => 'int',
         'refunds' => '\eBay\Sell\Fulfillment\Model\LineItemRefund[]',
         'sku' => 'string',
-        'sold_format' => '\eBay\Sell\Fulfillment\Model\SoldFormatEnum',
+        'sold_format' => 'string',
         'taxes' => '\eBay\Sell\Fulfillment\Model\Tax[]',
         'title' => 'string',
         'total' => '\eBay\Sell\Fulfillment\Model\Amount',
@@ -767,9 +766,9 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets line_item_fulfillment_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\LineItemFulfillmentStatusEnum|null
+     * @return string|null
      */
-    public function getLineItemFulfillmentStatus(): ?\eBay\Sell\Fulfillment\Model\LineItemFulfillmentStatusEnum
+    public function getLineItemFulfillmentStatus(): ?string
     {
         return $this->container['line_item_fulfillment_status'];
     }
@@ -777,11 +776,11 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets line_item_fulfillment_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\LineItemFulfillmentStatusEnum|null $line_item_fulfillment_status This enumeration value indicates the current fulfillment status of the line item.
+     * @param string|null $line_item_fulfillment_status This enumeration value indicates the current fulfillment status of the line item.
      *
      * @return $this
      */
-    public function setLineItemFulfillmentStatus(?\eBay\Sell\Fulfillment\Model\LineItemFulfillmentStatusEnum $line_item_fulfillment_status): static
+    public function setLineItemFulfillmentStatus(?string $line_item_fulfillment_status): static
     {
         if (is_null($line_item_fulfillment_status)) {
             throw new InvalidArgumentException('non-nullable line_item_fulfillment_status cannot be null');
@@ -848,9 +847,9 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets listing_marketplace_id
      *
-     * @return \eBay\Sell\Fulfillment\Model\MarketplaceIdEnum|null
+     * @return string|null
      */
-    public function getListingMarketplaceId(): ?\eBay\Sell\Fulfillment\Model\MarketplaceIdEnum
+    public function getListingMarketplaceId(): ?string
     {
         return $this->container['listing_marketplace_id'];
     }
@@ -858,11 +857,11 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets listing_marketplace_id
      *
-     * @param \eBay\Sell\Fulfillment\Model\MarketplaceIdEnum|null $listing_marketplace_id The unique identifier of the eBay marketplace where the line item was listed.
+     * @param string|null $listing_marketplace_id The unique identifier of the eBay marketplace where the line item was listed.
      *
      * @return $this
      */
-    public function setListingMarketplaceId(?\eBay\Sell\Fulfillment\Model\MarketplaceIdEnum $listing_marketplace_id): static
+    public function setListingMarketplaceId(?string $listing_marketplace_id): static
     {
         if (is_null($listing_marketplace_id)) {
             throw new InvalidArgumentException('non-nullable listing_marketplace_id cannot be null');
@@ -902,9 +901,9 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets purchase_marketplace_id
      *
-     * @return \eBay\Sell\Fulfillment\Model\MarketplaceIdEnum|null
+     * @return string|null
      */
-    public function getPurchaseMarketplaceId(): ?\eBay\Sell\Fulfillment\Model\MarketplaceIdEnum
+    public function getPurchaseMarketplaceId(): ?string
     {
         return $this->container['purchase_marketplace_id'];
     }
@@ -912,11 +911,11 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets purchase_marketplace_id
      *
-     * @param \eBay\Sell\Fulfillment\Model\MarketplaceIdEnum|null $purchase_marketplace_id The unique identifier of the eBay marketplace where the line item was listed. Often, the <strong>listingMarketplaceId</strong> and the <strong>purchaseMarketplaceId</strong> identifier are the same, but there are occasions when an item will surface on multiple eBay marketplaces.
+     * @param string|null $purchase_marketplace_id The unique identifier of the eBay marketplace where the line item was listed. Often, the <strong>listingMarketplaceId</strong> and the <strong>purchaseMarketplaceId</strong> identifier are the same, but there are occasions when an item will surface on multiple eBay marketplaces.
      *
      * @return $this
      */
-    public function setPurchaseMarketplaceId(?\eBay\Sell\Fulfillment\Model\MarketplaceIdEnum $purchase_marketplace_id): static
+    public function setPurchaseMarketplaceId(?string $purchase_marketplace_id): static
     {
         if (is_null($purchase_marketplace_id)) {
             throw new InvalidArgumentException('non-nullable purchase_marketplace_id cannot be null');
@@ -1010,9 +1009,9 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets sold_format
      *
-     * @return \eBay\Sell\Fulfillment\Model\SoldFormatEnum|null
+     * @return string|null
      */
-    public function getSoldFormat(): ?\eBay\Sell\Fulfillment\Model\SoldFormatEnum
+    public function getSoldFormat(): ?string
     {
         return $this->container['sold_format'];
     }
@@ -1020,11 +1019,11 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets sold_format
      *
-     * @param \eBay\Sell\Fulfillment\Model\SoldFormatEnum|null $sold_format The eBay listing type of the line item. The most common listing types are <code>AUCTION</code> and <code>FIXED_PRICE</code>.
+     * @param string|null $sold_format The eBay listing type of the line item. The most common listing types are <code>AUCTION</code> and <code>FIXED_PRICE</code>.
      *
      * @return $this
      */
-    public function setSoldFormat(?\eBay\Sell\Fulfillment\Model\SoldFormatEnum $sold_format): static
+    public function setSoldFormat(?string $sold_format): static
     {
         if (is_null($sold_format)) {
             throw new InvalidArgumentException('non-nullable sold_format cannot be null');
@@ -1205,7 +1204,7 @@ class LineItem implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

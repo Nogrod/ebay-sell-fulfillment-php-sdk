@@ -69,9 +69,9 @@ class Order implements ModelInterface, ArrayAccess, JsonSerializable
         'fulfillment_start_instructions' => '\eBay\Sell\Fulfillment\Model\FulfillmentStartInstruction[]',
         'last_modified_date' => 'string',
         'line_items' => '\eBay\Sell\Fulfillment\Model\LineItem[]',
-        'order_fulfillment_status' => '\eBay\Sell\Fulfillment\Model\OrderFulfillmentStatus',
+        'order_fulfillment_status' => 'string',
         'order_id' => 'string',
-        'order_payment_status' => '\eBay\Sell\Fulfillment\Model\OrderPaymentStatusEnum',
+        'order_payment_status' => 'string',
         'payment_summary' => '\eBay\Sell\Fulfillment\Model\PaymentSummary',
         'pricing_summary' => '\eBay\Sell\Fulfillment\Model\PricingSummary',
         'program' => '\eBay\Sell\Fulfillment\Model\Program',
@@ -637,9 +637,9 @@ class Order implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets order_fulfillment_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\OrderFulfillmentStatus|null
+     * @return string|null
      */
-    public function getOrderFulfillmentStatus(): ?\eBay\Sell\Fulfillment\Model\OrderFulfillmentStatus
+    public function getOrderFulfillmentStatus(): ?string
     {
         return $this->container['order_fulfillment_status'];
     }
@@ -647,11 +647,11 @@ class Order implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets order_fulfillment_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\OrderFulfillmentStatus|null $order_fulfillment_status The degree to which fulfillment of the order is complete. See the <strong>OrderFulfillmentStatus</strong> type definition for more information about each possible fulfillment state.
+     * @param string|null $order_fulfillment_status The degree to which fulfillment of the order is complete. See the <strong>OrderFulfillmentStatus</strong> type definition for more information about each possible fulfillment state.
      *
      * @return $this
      */
-    public function setOrderFulfillmentStatus(?\eBay\Sell\Fulfillment\Model\OrderFulfillmentStatus $order_fulfillment_status): static
+    public function setOrderFulfillmentStatus(?string $order_fulfillment_status): static
     {
         if (is_null($order_fulfillment_status)) {
             throw new InvalidArgumentException('non-nullable order_fulfillment_status cannot be null');
@@ -691,9 +691,9 @@ class Order implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets order_payment_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\OrderPaymentStatusEnum|null
+     * @return string|null
      */
-    public function getOrderPaymentStatus(): ?\eBay\Sell\Fulfillment\Model\OrderPaymentStatusEnum
+    public function getOrderPaymentStatus(): ?string
     {
         return $this->container['order_payment_status'];
     }
@@ -701,11 +701,11 @@ class Order implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets order_payment_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\OrderPaymentStatusEnum|null $order_payment_status The enumeration value returned in this field indicates the current payment status of an order, or in case of a refund request, the current status of the refund. See the <strong>OrderPaymentStatusEnum</strong> type definition for more information about each possible payment/refund state.
+     * @param string|null $order_payment_status The enumeration value returned in this field indicates the current payment status of an order, or in case of a refund request, the current status of the refund. See the <strong>OrderPaymentStatusEnum</strong> type definition for more information about each possible payment/refund state.
      *
      * @return $this
      */
-    public function setOrderPaymentStatus(?\eBay\Sell\Fulfillment\Model\OrderPaymentStatusEnum $order_payment_status): static
+    public function setOrderPaymentStatus(?string $order_payment_status): static
     {
         if (is_null($order_payment_status)) {
             throw new InvalidArgumentException('non-nullable order_payment_status cannot be null');

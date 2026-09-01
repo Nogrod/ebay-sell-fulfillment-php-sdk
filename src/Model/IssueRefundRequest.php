@@ -1,5 +1,4 @@
 <?php
-
 /**
  * IssueRefundRequest
  *
@@ -60,7 +59,7 @@ class IssueRefundRequest implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'reason_for_refund' => '\eBay\Sell\Fulfillment\Model\ReasonForRefundEnum',
+        'reason_for_refund' => 'string',
         'comment' => 'string',
         'refund_items' => '\eBay\Sell\Fulfillment\Model\RefundItem[]',
         'order_level_refund_amount' => '\eBay\Sell\Fulfillment\Model\SimpleAmount'
@@ -292,9 +291,9 @@ class IssueRefundRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets reason_for_refund
      *
-     * @return \eBay\Sell\Fulfillment\Model\ReasonForRefundEnum
+     * @return string
      */
-    public function getReasonForRefund(): \eBay\Sell\Fulfillment\Model\ReasonForRefundEnum
+    public function getReasonForRefund(): string
     {
         return $this->container['reason_for_refund'];
     }
@@ -302,11 +301,11 @@ class IssueRefundRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets reason_for_refund
      *
-     * @param \eBay\Sell\Fulfillment\Model\ReasonForRefundEnum $reason_for_refund The enumeration value passed in this field indicates the reason for the refund. One of the defined enumeration values in the <strong>ReasonForRefundEnum</strong> type must be used.<br><br>This field is required, and it is highly recommended that sellers use the correct refund reason, especially in the case of a buyer-requested cancellation or 'buyer remorse' return to indicate that there was nothing wrong with the item(s) or with the shipment of the order.<br><br><span class=\"tablenote\"><strong>Note:</strong> If issuing refunds for more than one order line item, keep in mind that the refund reason must be the same for each of the order line items. If the refund reason is different for one or more order line items in an order, the seller would need to make separate <strong>issueRefund</strong> calls, one for each refund reason. </span>
+     * @param string $reason_for_refund The enumeration value passed in this field indicates the reason for the refund. One of the defined enumeration values in the <strong>ReasonForRefundEnum</strong> type must be used.<br><br>This field is required, and it is highly recommended that sellers use the correct refund reason, especially in the case of a buyer-requested cancellation or 'buyer remorse' return to indicate that there was nothing wrong with the item(s) or with the shipment of the order.<br><br><span class=\"tablenote\"><strong>Note:</strong> If issuing refunds for more than one order line item, keep in mind that the refund reason must be the same for each of the order line items. If the refund reason is different for one or more order line items in an order, the seller would need to make separate <strong>issueRefund</strong> calls, one for each refund reason. </span>
      *
      * @return $this
      */
-    public function setReasonForRefund(\eBay\Sell\Fulfillment\Model\ReasonForRefundEnum $reason_for_refund): static
+    public function setReasonForRefund(string $reason_for_refund): static
     {
         if (is_null($reason_for_refund)) {
             throw new InvalidArgumentException('non-nullable reason_for_refund cannot be null');
@@ -460,7 +459,7 @@ class IssueRefundRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

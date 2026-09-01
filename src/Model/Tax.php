@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Tax
  *
@@ -61,7 +60,7 @@ class Tax implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'amount' => '\eBay\Sell\Fulfillment\Model\Amount',
-        'tax_type' => '\eBay\Sell\Fulfillment\Model\TaxTypeEnum'
+        'tax_type' => 'string'
     ];
 
     /**
@@ -302,9 +301,9 @@ class Tax implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets tax_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\TaxTypeEnum|null
+     * @return string|null
      */
-    public function getTaxType(): ?\eBay\Sell\Fulfillment\Model\TaxTypeEnum
+    public function getTaxType(): ?string
     {
         return $this->container['tax_type'];
     }
@@ -312,11 +311,11 @@ class Tax implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets tax_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\TaxTypeEnum|null $tax_type Tax type. This field is only available when <strong>fieldGroups</strong> is set to <code>TAX_BREAKDOWN</code>. If the order has fees, a breakdown of the fees is also provided.
+     * @param string|null $tax_type Tax type. This field is only available when <strong>fieldGroups</strong> is set to <code>TAX_BREAKDOWN</code>. If the order has fees, a breakdown of the fees is also provided.
      *
      * @return $this
      */
-    public function setTaxType(?\eBay\Sell\Fulfillment\Model\TaxTypeEnum $tax_type): static
+    public function setTaxType(?string $tax_type): static
     {
         if (is_null($tax_type)) {
             throw new InvalidArgumentException('non-nullable tax_type cannot be null');
@@ -389,7 +388,7 @@ class Tax implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

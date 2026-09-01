@@ -2146,8 +2146,8 @@
         ],
         "properties": {
           "evidenceType": {
-            "description": "This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-addevidence.evidencetypeenum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types.",
-            "$ref": "#/components/schemas/EvidenceTypeEnum"
+            "type": "string",
+            "description": "This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-addevidence.evidencetypeenum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types."
           },
           "files": {
             "type": "array",
@@ -2197,8 +2197,8 @@
             "description": "The city of the shipping destination."
           },
           "countryCode": {
-            "description": "The country of the shipping destination, represented as a two-letter ISO 3166&#8209;1 alpha&#8209;2 country code. For example, <code>US</code> represents the United States, and <code>DE</code> represents Germany.",
-            "$ref": "#/components/schemas/CountryCodeEnum"
+            "type": "string",
+            "description": "The country of the shipping destination, represented as a two-letter ISO 3166&#8209;1 alpha&#8209;2 country code. For example, <code>US</code> represents the United States, and <code>DE</code> represents Germany."
           },
           "county": {
             "type": "string",
@@ -2219,16 +2219,16 @@
         "type": "object",
         "properties": {
           "convertedFromCurrency": {
-            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>convertedFromValue</strong> field. This value is required or returned only if currency conversion/localization is required and represents the pre-conversion currency.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>convertedFromValue</strong> field. This value is required or returned only if currency conversion/localization is required and represents the pre-conversion currency."
           },
           "convertedFromValue": {
             "type": "string",
             "description": "The monetary amount, before any conversion is performed, in the currency specified by the <strong>convertedFromCurrency</strong> field. This value is required or returned only if currency conversion/localization is required. The <strong>value</strong> field contains the converted amount of this value in the currency specified by the <strong>currency</strong> field."
           },
           "currency": {
-            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. If currency conversion/localization is required, this is the post-conversion currency of the amount in the <strong>value</strong> field.<br><br><strong>Default:</strong> The default currency with be that of the eBay marketplace that hosts the listing.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. If currency conversion/localization is required, this is the post-conversion currency of the amount in the <strong>value</strong> field.<br><br><strong>Default:</strong> The default currency with be that of the eBay marketplace that hosts the listing."
           },
           "value": {
             "type": "string",
@@ -2267,16 +2267,16 @@
             "description": "The date and time the appointment begins, formatted as an <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html \" title=\"https://www.iso.org \" target=\"_blank\">ISO&nbsp;8601</a> string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  <br><br><strong>Format:</strong> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br><strong>Example:</strong> <code>2022-10-28T00:10:00.000Z</code>"
           },
           "appointmentStatus": {
-            "description": "The status of the appointment.",
-            "$ref": "#/components/schemas/AppointmentStatusEnum"
+            "type": "string",
+            "description": "The status of the appointment."
           },
           "appointmentType": {
-            "description": "The type of appointment. <code>MACRO</code> appointments only have a start time (not bounded with end time). <code>TIME_SLOT</code> appointments have a period (both start time and end time). Required for tire installation.",
-            "$ref": "#/components/schemas/AppointmentTypeEnum"
+            "type": "string",
+            "description": "The type of appointment. <code>MACRO</code> appointments only have a start time (not bounded with end time). <code>TIME_SLOT</code> appointments have a period (both start time and end time). Required for tire installation."
           },
           "appointmentWindow": {
-            "description": "Appointment window for <code>MACRO</code> appointments.",
-            "$ref": "#/components/schemas/AppointmentWindowEnum"
+            "type": "string",
+            "description": "Appointment window for <code>MACRO</code> appointments."
           },
           "serviceProviderAppointmentDate": {
             "type": "string",
@@ -2378,8 +2378,8 @@
             "description": "This string vlaue is the unique identifier of the order cancellation request. This field is returned for each cancellation request."
           },
           "cancelRequestState": {
-            "description": "The current stage or condition of the cancellation request. This field is returned for each cancellation request.",
-            "$ref": "#/components/schemas/CancelRequestStateEnum"
+            "type": "string",
+            "description": "The current stage or condition of the cancellation request. This field is returned for each cancellation request."
           }
         },
         "description": "This type contains information about a buyer request to cancel an order."
@@ -2417,8 +2417,8 @@
             }
           },
           "cancelState": {
-            "description": "The state of the order with regard to cancellation. This field is always returned, and if there are no cancellation requests, a value of <code>NONE_REQUESTED</code> is returned. ",
-            "$ref": "#/components/schemas/CancelStateEnum"
+            "type": "string",
+            "description": "The state of the order with regard to cancellation. This field is always returned, and if there are no cancellation requests, a value of <code>NONE_REQUESTED</code> is returned. "
           }
         },
         "description": "This type contains information about any requests that have been made to cancel an order."
@@ -2431,8 +2431,8 @@
             "$ref": "#/components/schemas/Amount"
           },
           "chargeType": {
-            "description": "This field shows the type of buyer charge. <br> <br> <span class=\"tablenote\"> <strong> Note: </strong> Currently, the only supported charge type is <code>BUYER_PROTECTION</code>. </span>",
-            "$ref": "#/components/schemas/ChargeTypeEnum"
+            "type": "string",
+            "description": "This field shows the type of buyer charge. <br> <br> <span class=\"tablenote\"> <strong> Note: </strong> Currently, the only supported charge type is <code>BUYER_PROTECTION</code>. </span>"
           }
         },
         "description": "This type is used to display the charge type and the amount of the charge against the buyer."
@@ -2920,16 +2920,16 @@
         "type": "object",
         "properties": {
           "convertedFromCurrency": {
-            "description": "The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <strong> convertedFromValue</strong> field. This value is the pre-conversion currency.<br><br>This field is only returned if/when currency conversion was applied by eBay.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <strong> convertedFromValue</strong> field. This value is the pre-conversion currency.<br><br>This field is only returned if/when currency conversion was applied by eBay."
           },
           "convertedFromValue": {
             "type": "string",
             "description": "The monetary amount before any conversion is performed, in the currency specified by the <strong> convertedFromCurrency</strong> field. This value is the pre-conversion amount. The <strong> value</strong> field contains the converted amount of this value, in the currency specified by the <strong> currency</strong> field.<br><br>This field is only returned if/when currency conversion was applied by eBay."
           },
           "currency": {
-            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. This field is always returned with any container using <strong>Amount</strong> type. <br><br><strong>Default</strong>: The currency of the authenticated user's country.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. This field is always returned with any container using <strong>Amount</strong> type. <br><br><strong>Default</strong>: The currency of the authenticated user's country."
           },
           "exchangeRate": {
             "type": "string",
@@ -2950,8 +2950,8 @@
             "description": "Unique identifier for the evidential file set. Each file set may contain multiple files, which is why there is a file set identifier and a separate identifier for each individual file within the set."
           },
           "evidenceType": {
-            "description": "This enumeration value shows the type of evidential file provided.",
-            "$ref": "#/components/schemas/EvidenceTypeEnum"
+            "type": "string",
+            "description": "This enumeration value shows the type of evidential file provided."
           },
           "files": {
             "type": "array",
@@ -3067,12 +3067,12 @@
             "$ref": "#/components/schemas/EbayTaxReference"
           },
           "taxType": {
-            "description": "The type of tax and fees that eBay will collect and remit to the taxing or fee authority. See the <strong>TaxTypeEnum</strong> type definition for more information about each tax or fee type.",
-            "$ref": "#/components/schemas/TaxTypeEnum"
+            "type": "string",
+            "description": "The type of tax and fees that eBay will collect and remit to the taxing or fee authority. See the <strong>TaxTypeEnum</strong> type definition for more information about each tax or fee type."
           },
           "collectionMethod": {
-            "description": "This field indicates the collection method used to collect the 'Collect and Remit' tax for the order. This field is always returned for orders subject to 'Collect and Remit' tax, and its value is always <code>NET</code>.<br><br><span class=\"tablenote\"><strong>Note:</strong> Although the <strong>collectionMethod</strong> field is returned for all orders subject to 'Collect and Remit' tax, the <strong>collectionMethod</strong> field and the <strong>CollectionMethodEnum</strong> type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.</span>",
-            "$ref": "#/components/schemas/CollectionMethodEnum"
+            "type": "string",
+            "description": "This field indicates the collection method used to collect the 'Collect and Remit' tax for the order. This field is always returned for orders subject to 'Collect and Remit' tax, and its value is always <code>NET</code>.<br><br><span class=\"tablenote\"><strong>Note:</strong> Although the <strong>collectionMethod</strong> field is returned for all orders subject to 'Collect and Remit' tax, the <strong>collectionMethod</strong> field and the <strong>CollectionMethodEnum</strong> type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.</span>"
           }
         },
         "description": "This type contains information about the type and amount of tax that eBay will collect and remit to the state, province, country, or other taxing authority in the buyer's location, as required by that taxing authority.<br><br>'Collect and Remit' tax includes:<ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, and New Zealand</li><li>VAT collected for the UK and EU countries</li></ul>"
@@ -3152,8 +3152,8 @@
         "description": "This type contains details on the fulfillment type.",
         "properties": {
           "fulfillmentType": {
-            "description": "This field specifies how an eBay vault order will be fulfilled. Supported options are:<ul><li><strong>Seller to Vault</strong>: The order will be shipped by the seller to an authenticator.</li><li><strong>Vault to Vault</strong>: The order will be shipped from an eBay vault to the buyer's vault.</li><li><strong>Vault to Buyer</strong>: The order will be shipped from an eBay vault to the buyer's shipping address.</li></ul>",
-            "$ref": "#/components/schemas/EbayVaultFulfillmentTypeEnum"
+            "type": "string",
+            "description": "This field specifies how an eBay vault order will be fulfilled. Supported options are:<ul><li><strong>Seller to Vault</strong>: The order will be shipped by the seller to an authenticator.</li><li><strong>Vault to Vault</strong>: The order will be shipped from an eBay vault to the buyer's vault.</li><li><strong>Vault to Buyer</strong>: The order will be shipped from an eBay vault to the buyer's shipping address.</li></ul>"
           }
         }
       },
@@ -3385,8 +3385,8 @@
             "description": "Unique identifier of the evidential file set. Potentially, each evidential file set can have more than one file, that is why there is this file set identifier, and then an identifier for each file within this file set."
           },
           "evidenceType": {
-            "description": "This enumeration value shows the type of evidential document provided.",
-            "$ref": "#/components/schemas/EvidenceTypeEnum"
+            "type": "string",
+            "description": "This enumeration value shows the type of evidential document provided."
           },
           "lineItems": {
             "type": "array",
@@ -3609,8 +3609,8 @@
             "$ref": "#/components/schemas/Address"
           },
           "fulfillmentInstructionsType": {
-            "description": "The enumeration value returned in this field indicates the method of fulfillment that will be used to deliver this set of line items (this package) to the buyer. This field will have a value of <code>SHIP_TO</code> if the <strong>ebaySupportedFulfillment</strong> field is returned with a value of <code>true</code>. See the <strong>FulfillmentInstructionsType</strong> definition for more information about different fulfillment types.",
-            "$ref": "#/components/schemas/FulfillmentInstructionsType"
+            "type": "string",
+            "description": "The enumeration value returned in this field indicates the method of fulfillment that will be used to deliver this set of line items (this package) to the buyer. This field will have a value of <code>SHIP_TO</code> if the <strong>ebaySupportedFulfillment</strong> field is returned with a value of <code>true</code>. See the <strong>FulfillmentInstructionsType</strong> definition for more information about different fulfillment types."
           },
           "maxEstimatedDeliveryDate": {
             "type": "string",
@@ -3677,8 +3677,8 @@
         ],
         "properties": {
           "reasonForRefund": {
-            "description": "The enumeration value passed in this field indicates the reason for the refund. One of the defined enumeration values in the <strong>ReasonForRefundEnum</strong> type must be used.<br><br>This field is required, and it is highly recommended that sellers use the correct refund reason, especially in the case of a buyer-requested cancellation or 'buyer remorse' return to indicate that there was nothing wrong with the item(s) or with the shipment of the order.<br><br><span class=\"tablenote\"><strong>Note:</strong> If issuing refunds for more than one order line item, keep in mind that the refund reason must be the same for each of the order line items. If the refund reason is different for one or more order line items in an order, the seller would need to make separate <strong>issueRefund</strong> calls, one for each refund reason. </span>",
-            "$ref": "#/components/schemas/ReasonForRefundEnum"
+            "type": "string",
+            "description": "The enumeration value passed in this field indicates the reason for the refund. One of the defined enumeration values in the <strong>ReasonForRefundEnum</strong> type must be used.<br><br>This field is required, and it is highly recommended that sellers use the correct refund reason, especially in the case of a buyer-requested cancellation or 'buyer remorse' return to indicate that there was nothing wrong with the item(s) or with the shipment of the order.<br><br><span class=\"tablenote\"><strong>Note:</strong> If issuing refunds for more than one order line item, keep in mind that the refund reason must be the same for each of the order line items. If the refund reason is different for one or more order line items in an order, the seller would need to make separate <strong>issueRefund</strong> calls, one for each refund reason. </span>"
           },
           "comment": {
             "type": "string",
@@ -3702,8 +3702,8 @@
         "type": "object",
         "properties": {
           "countryCode": {
-            "description": "The two-letter <a href=\"https://www.iso.org/iso-3166-country-codes.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 3166</a> code representing the country of the address.",
-            "$ref": "#/components/schemas/CountryCodeEnum"
+            "type": "string",
+            "description": "The two-letter <a href=\"https://www.iso.org/iso-3166-country-codes.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 3166</a> code representing the country of the address."
           },
           "location": {
             "type": "string",
@@ -3791,8 +3791,8 @@
             "$ref": "#/components/schemas/LineItemFulfillmentInstructions"
           },
           "lineItemFulfillmentStatus": {
-            "description": "This enumeration value indicates the current fulfillment status of the line item.",
-            "$ref": "#/components/schemas/LineItemFulfillmentStatusEnum"
+            "type": "string",
+            "description": "This enumeration value indicates the current fulfillment status of the line item."
           },
           "lineItemId": {
             "type": "string",
@@ -3806,16 +3806,16 @@
             }
           },
           "listingMarketplaceId": {
-            "description": "The unique identifier of the eBay marketplace where the line item was listed.",
-            "$ref": "#/components/schemas/MarketplaceIdEnum"
+            "type": "string",
+            "description": "The unique identifier of the eBay marketplace where the line item was listed."
           },
           "properties": {
             "description": "Contains information about the eBay programs, if any, under which the line item was listed.",
             "$ref": "#/components/schemas/LineItemProperties"
           },
           "purchaseMarketplaceId": {
-            "description": "The unique identifier of the eBay marketplace where the line item was listed. Often, the <strong>listingMarketplaceId</strong> and the <strong>purchaseMarketplaceId</strong> identifier are the same, but there are occasions when an item will surface on multiple eBay marketplaces.",
-            "$ref": "#/components/schemas/MarketplaceIdEnum"
+            "type": "string",
+            "description": "The unique identifier of the eBay marketplace where the line item was listed. Often, the <strong>listingMarketplaceId</strong> and the <strong>purchaseMarketplaceId</strong> identifier are the same, but there are occasions when an item will surface on multiple eBay marketplaces."
           },
           "quantity": {
             "type": "integer",
@@ -3834,8 +3834,8 @@
             "description": "Seller-defined Stock-Keeping Unit (SKU). This inventory identifier must be unique within the seller's eBay inventory. SKUs are optional when listing in the legacy Trading API system, but SKUs are required when listing items through the Inventory API model."
           },
           "soldFormat": {
-            "description": "The eBay listing type of the line item. The most common listing types are <code>AUCTION</code> and <code>FIXED_PRICE</code>.",
-            "$ref": "#/components/schemas/SoldFormatEnum"
+            "type": "string",
+            "description": "The eBay listing type of the line item. The most common listing types are <code>AUCTION</code> and <code>FIXED_PRICE</code>."
           },
           "taxes": {
             "type": "array",
@@ -4055,12 +4055,12 @@
             "description": "This timestamp indicates when the monetary transaction occurred. A date is returned for all monetary transactions.<br><br> The following format is used: <code>YYYY-MM-DDTHH:MM:SS.SSSZ</code>. For example, <code>2015-08-04T19:09:02.768Z</code>."
           },
           "type": {
-            "description": "This enumeration value indicates whether the monetary transaction is a charge or a credit to the seller.",
-            "$ref": "#/components/schemas/MonetaryTransactionTypeEnum"
+            "type": "string",
+            "description": "This enumeration value indicates whether the monetary transaction is a charge or a credit to the seller."
           },
           "reason": {
-            "description": "This enumeration value indicates the reason for the monetary transaction.",
-            "$ref": "#/components/schemas/MonetaryTransactionReasonEnum"
+            "type": "string",
+            "description": "This enumeration value indicates the reason for the monetary transaction."
           },
           "amount": {
             "description": "The amount involved in the monetary transaction. For active cross-border trade orders, the currency conversion and <strong>exchangeRate</strong> fields will be displayed as well.",
@@ -4148,16 +4148,16 @@
             }
           },
           "orderFulfillmentStatus": {
-            "description": "The degree to which fulfillment of the order is complete. See the <strong>OrderFulfillmentStatus</strong> type definition for more information about each possible fulfillment state.",
-            "$ref": "#/components/schemas/OrderFulfillmentStatus"
+            "type": "string",
+            "description": "The degree to which fulfillment of the order is complete. See the <strong>OrderFulfillmentStatus</strong> type definition for more information about each possible fulfillment state."
           },
           "orderId": {
             "type": "string",
             "description": "The unique identifier of the order. This field is always returned."
           },
           "orderPaymentStatus": {
-            "description": "The enumeration value returned in this field indicates the current payment status of an order, or in case of a refund request, the current status of the refund. See the <strong>OrderPaymentStatusEnum</strong> type definition for more information about each possible payment/refund state.",
-            "$ref": "#/components/schemas/OrderPaymentStatusEnum"
+            "type": "string",
+            "description": "The enumeration value returned in this field indicates the current payment status of an order, or in case of a refund request, the current status of the refund. See the <strong>OrderPaymentStatusEnum</strong> type definition for more information about each possible payment/refund state."
           },
           "paymentSummary": {
             "description": "This container consists of detailed payment information for the order, including buyer payment for the order, refund information (if applicable), and seller payment holds (if applicable).",
@@ -4244,8 +4244,8 @@
             "description": "The eBay-generated unique identifier for the refund. This field is not returned until the refund has been issued."
           },
           "refundStatus": {
-            "description": "This enumeration value indicates the current status of the refund to the buyer. This container is always returned for each refund.",
-            "$ref": "#/components/schemas/RefundStatusEnum"
+            "type": "string",
+            "description": "This enumeration value indicates the current status of the refund to the buyer. This container is always returned for each refund."
           }
         },
         "description": "This type contains information about a refund issued for an order. This does not include line item level refunds."
@@ -4325,16 +4325,16 @@
             }
           },
           "paymentMethod": {
-            "description": "The payment method used to pay for the order. See the <strong>PaymentMethodTypeEnum</strong> type for more information on the payment methods.<br><br><span class=\"tablenote\"><strong>Note:</strong> Effective September 26, 2025, access to buyer payment details for U.S. users will be limited to select developers. All other developers will receive a value of \"CustomCode\" in place of buyer payment details. For more information, please refer to <a href=\"/api-docs/static/data-handling-update.html\" target=\"_blank\">Data Handling Compliance</a>.</span>",
-            "$ref": "#/components/schemas/PaymentMethodTypeEnum"
+            "type": "string",
+            "description": "The payment method used to pay for the order. See the <strong>PaymentMethodTypeEnum</strong> type for more information on the payment methods.<br><br><span class=\"tablenote\"><strong>Note:</strong> Effective September 26, 2025, access to buyer payment details for U.S. users will be limited to select developers. All other developers will receive a value of \"CustomCode\" in place of buyer payment details. For more information, please refer to <a href=\"/api-docs/static/data-handling-update.html\" target=\"_blank\">Data Handling Compliance</a>.</span>"
           },
           "paymentReferenceId": {
             "type": "string",
             "description": "This field is only returned if payment has been made by the buyer, and the <strong>paymentMethod</strong> is <code>ESCROW</code>. This field contains a special ID for ESCROW."
           },
           "paymentStatus": {
-            "description": "The enumeration value returned in this field indicates the status of the payment for the order. See the <strong>PaymentStatusEnum</strong> type definition for more information on the possible payment states.",
-            "$ref": "#/components/schemas/PaymentStatusEnum"
+            "type": "string",
+            "description": "The enumeration value returned in this field indicates the status of the payment for the order. See the <strong>PaymentStatusEnum</strong> type definition for more information on the possible payment states."
           }
         },
         "description": "This type is used to provide details about the seller payments for an order."
@@ -4350,7 +4350,7 @@
             "type": "array",
             "description": "The value(s) returned in this array indicate the choices that the seller has when responding to the payment dispute. Once the seller has responded to the payment dispute, this field will no longer be shown, and instead, the <strong>sellerResponse</strong> field will show the decision that the seller made.",
             "items": {
-              "$ref": "#/components/schemas/SellerDecisionEnum"
+              "type": "string"
             }
           },
           "buyerProvided": {
@@ -4410,12 +4410,12 @@
             "description": "This is the unique identifier of the payment dispute. This is the same identifier that is passed in to the call URI. This identifier is automatically created by eBay once the payment dispute comes into the eBay system."
           },
           "paymentDisputeStatus": {
-            "description": "The enumeration value in this field gives the current status of the payment dispute. The status of a payment dispute partially determines other fields that are returned in the response.",
-            "$ref": "#/components/schemas/DisputeStateEnum"
+            "type": "string",
+            "description": "The enumeration value in this field gives the current status of the payment dispute. The status of a payment dispute partially determines other fields that are returned in the response."
           },
           "reason": {
-            "description": "The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute.",
-            "$ref": "#/components/schemas/DisputeReasonEnum"
+            "type": "string",
+            "description": "The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute."
           },
           "resolution": {
             "description": "This container gives details about a payment dispute that has been resolved. This container is only returned for resolved/closed payment disputes.",
@@ -4435,8 +4435,8 @@
             "format": "int32"
           },
           "sellerResponse": {
-            "description": "The enumeration value returned in this field indicates how the seller has responded to the payment dispute. The seller has the option of accepting the payment dispute and agreeing to issue a refund, accepting the payment dispute and agreeing to issue a refund as long as the buyer returns the item, or contesting the payment dispute. This field is returned as soon as the seller makes an initial decision on the payment dispute.",
-            "$ref": "#/components/schemas/SellerResponseEnum"
+            "type": "string",
+            "description": "The enumeration value returned in this field indicates how the seller has responded to the payment dispute. The seller has the option of accepting the payment dispute and agreeing to issue a refund, accepting the payment dispute and agreeing to issue a refund as long as the buyer returns the item, or contesting the payment dispute. This field is returned as soon as the seller makes an initial decision on the payment dispute."
           }
         },
         "description": "This type is used by the base response of the <strong>getPaymentDispute</strong> method. The <strong>getPaymentDispute</strong> method retrieves detailed information on a specific payment dispute."
@@ -4449,12 +4449,12 @@
             "description": "The timestamp in this field shows the date/time of the payment dispute activity.<br><br>The timestamps returned here use the <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO&nbsp;8601</a> 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: <em>yyyy-MM-ddThh:mm.ss.sssZ</em>. An example would be <code>2019-08-04T19:09:02.768Z</code>."
           },
           "activityType": {
-            "description": "This enumeration value indicates the type of activity that occured on the payment dispute. For example, a value of <code>DISPUTE_OPENED</code> is returned when a payment disute is first created,  a value indicating the seller's decision on the dispute, such as <code>SELLER_CONTEST</code>, is returned when seller makes a decision to accept or contest dispute, and a value of <code>DISPUTE_CLOSED</code> is returned when a payment disute is resolved. See <strong>ActivityEnum</strong> for an explanation of each of the values that may be returned here.",
-            "$ref": "#/components/schemas/ActivityEnum"
+            "type": "string",
+            "description": "This enumeration value indicates the type of activity that occured on the payment dispute. For example, a value of <code>DISPUTE_OPENED</code> is returned when a payment disute is first created,  a value indicating the seller's decision on the dispute, such as <code>SELLER_CONTEST</code>, is returned when seller makes a decision to accept or contest dispute, and a value of <code>DISPUTE_CLOSED</code> is returned when a payment disute is resolved. See <strong>ActivityEnum</strong> for an explanation of each of the values that may be returned here."
           },
           "actor": {
-            "description": "This enumeration value indicates the actor that performed the action. Possible values include the <code>BUYER</code>, <code>SELLER</code>, <code>CS_AGENT</code> (eBay customer service), or <code>SYSTEM</code>.",
-            "$ref": "#/components/schemas/ActorEnum"
+            "type": "string",
+            "description": "This enumeration value indicates the actor that performed the action. Possible values include the <code>BUYER</code>, <code>SELLER</code>, <code>CS_AGENT</code> (eBay customer service), or <code>SYSTEM</code>."
           }
         },
         "description": "This type is used by each recorded activity on a payment dispute, from creation to resolution."
@@ -4484,12 +4484,12 @@
             "$ref": "#/components/schemas/SimpleAmount"
           },
           "protectionStatus": {
-            "description": "This enumeration value indicates if the seller is fully protected, partially protected, or not protected by eBay for the payment dispute. This field is always returned once the payment dispute is resolved.",
-            "$ref": "#/components/schemas/ProtectionStatusEnum"
+            "type": "string",
+            "description": "This enumeration value indicates if the seller is fully protected, partially protected, or not protected by eBay for the payment dispute. This field is always returned once the payment dispute is resolved."
           },
           "reasonForClosure": {
-            "description": "The enumeration value returned in this field indicates the outcome of the payment dispute for the seller. This field is always returned once the payment dispute is resolved.",
-            "$ref": "#/components/schemas/OutcomeEnum"
+            "type": "string",
+            "description": "The enumeration value returned in this field indicates the outcome of the payment dispute for the seller. This field is always returned once the payment dispute is resolved."
           },
           "recoupAmount": {
             "description": "This container shows the dollar amount being recouped from the seller. This container is empty if the seller wins the payment dispute or if the seller is fully protected by eBay's seller protection policy.",
@@ -4534,12 +4534,12 @@
             "description": "This is the unique identifier of the payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. This identifier is passed in at the end of the <strong>getPaymentDispute</strong> call URI to retrieve a specific payment dispute. The <strong>getPaymentDispute</strong> method returns more details about a payment dispute than the <strong>getPaymentDisputeSummaries</strong> method."
           },
           "paymentDisputeStatus": {
-            "description": "The enumeration value in this field gives the current status of the payment dispute.",
-            "$ref": "#/components/schemas/DisputeStateEnum"
+            "type": "string",
+            "description": "The enumeration value in this field gives the current status of the payment dispute."
           },
           "reason": {
-            "description": "The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute.",
-            "$ref": "#/components/schemas/DisputeReasonEnum"
+            "type": "string",
+            "description": "The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute."
           },
           "respondByDate": {
             "type": "string",
@@ -4666,12 +4666,12 @@
         "type": "object",
         "properties": {
           "outcomeReason": {
-            "description": "This field indicates the result of the authenticity verification inspection on an order line item. This field is not returned when the status value of the order line item is <code>PENDING</code> or <code>PASSED</code>. The possible values returned here are <code>NOT_AUTHENTIC</code>, <code>NOT_AS_DESCRIBED</code>, <code>CUSTOMIZED</code>, <code>MISCATEGORIZED</code>, or <code>NOT_AUTHENTIC_NO_RETURN</code>.",
-            "$ref": "#/components/schemas/AuthenticityVerificationReasonEnum"
+            "type": "string",
+            "description": "This field indicates the result of the authenticity verification inspection on an order line item. This field is not returned when the status value of the order line item is <code>PENDING</code> or <code>PASSED</code>. The possible values returned here are <code>NOT_AUTHENTIC</code>, <code>NOT_AS_DESCRIBED</code>, <code>CUSTOMIZED</code>, <code>MISCATEGORIZED</code>, or <code>NOT_AUTHENTIC_NO_RETURN</code>."
           },
           "status": {
-            "description": "The value in this field indicates whether the order line item has passed or failed the authenticity verification inspection, or if the inspection and/or results are still pending. The possible values returned here are <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code>, or <code>PASSED_WITH_EXCEPTION</code>.",
-            "$ref": "#/components/schemas/AuthenticityVerificationStatusEnum"
+            "type": "string",
+            "description": "The value in this field indicates whether the order line item has passed or failed the authenticity verification inspection, or if the inspection and/or results are still pending. The possible values returned here are <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code>, or <code>PASSED_WITH_EXCEPTION</code>."
           }
         },
         "description": "This type is used to provide the status and outcome of an order line item going through the Authenticity Guarantee verification process."
@@ -4733,7 +4733,7 @@
             }
           },
           "evidenceType": {
-            "$ref": "#/components/schemas/EvidenceTypeEnum"
+            "type": "string"
           }
         }
       },
@@ -4838,8 +4838,8 @@
             "description": "The unique identifier of the order refund. This value is returned unless the refund operation fails (refundStatus value shows FAILED). This identifier can be used to track the status of the refund through a getOrder or getOrders call. For order-level refunds, check the paymentSummary.refunds.refundId field in the getOrder/getOrders response, and for line item level refunds, check the lineItems.refunds.refundId field(s) in the getOrder/getOrders response."
           },
           "refundStatus": {
-            "description": "The value returned in this field indicates the success or failure of the refund operation. A successful <strong>issueRefund</strong> operation should result in a value of <code>PENDING</code>. A failed <strong>issueRefund</strong> operation should result in a value of <code>FAILED</code>, and an HTTP status code and/or API error code may also get returned to possibly indicate the issue.<br><br>The refunds issued through this method are processed asynchronously, so the refund will not show as 'Refunded' right away. A seller will have to make a subsequent <strong>getOrder</strong> call to check the status of the refund.  The status of an order refund can be found in the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder.orderrefund.refundstatus\" target=\"_blank\">paymentSummary.refunds.refundStatus</a> field of the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder\" target=\"_blank\">getOrder</a> response.",
-            "$ref": "#/components/schemas/RefundStatusEnum"
+            "type": "string",
+            "description": "The value returned in this field indicates the success or failure of the refund operation. A successful <strong>issueRefund</strong> operation should result in a value of <code>PENDING</code>. A failed <strong>issueRefund</strong> operation should result in a value of <code>FAILED</code>, and an HTTP status code and/or API error code may also get returned to possibly indicate the issue.<br><br>The refunds issued through this method are processed asynchronously, so the refund will not show as 'Refunded' right away. A seller will have to make a subsequent <strong>getOrder</strong> call to check the status of the refund.  The status of an order refund can be found in the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder.orderrefund.refundstatus\" target=\"_blank\">paymentSummary.refunds.refundStatus</a> field of the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder\" target=\"_blank\">getOrder</a> response."
           }
         },
         "description": "This is the base type of the issueRefund response payload. As long as the issueRefund method does not trigger an error, a response payload will be returned."
@@ -4895,8 +4895,8 @@
             "description": "The city of the return address."
           },
           "country": {
-            "description": "The country's two-letter, ISO 3166-1 country code. See the enumeration type for a country's value.",
-            "$ref": "#/components/schemas/CountryCodeEnum"
+            "type": "string",
+            "description": "The country's two-letter, ISO 3166-1 country code. See the enumeration type for a country's value."
           },
           "county": {
             "type": "string",
@@ -5058,8 +5058,8 @@
         "type": "object",
         "properties": {
           "currency": {
-            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code (such as <code>USD</code> for US site) that indicates the currency of the amount in the <strong>value</strong> field. Both the <strong>value</strong> and <strong>currency</strong> fields are always returned with the <strong>amount</strong> container.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code (such as <code>USD</code> for US site) that indicates the currency of the amount in the <strong>value</strong> field. Both the <strong>value</strong> and <strong>currency</strong> fields are always returned with the <strong>amount</strong> container."
           },
           "value": {
             "type": "string",
@@ -5086,8 +5086,8 @@
             "$ref": "#/components/schemas/Amount"
           },
           "taxType": {
-            "description": "Tax type. This field is only available when <strong>fieldGroups</strong> is set to <code>TAX_BREAKDOWN</code>. If the order has fees, a breakdown of the fees is also provided.",
-            "$ref": "#/components/schemas/TaxTypeEnum"
+            "type": "string",
+            "description": "Tax type. This field is only available when <strong>fieldGroups</strong> is set to <code>TAX_BREAKDOWN</code>. If the order has fees, a breakdown of the fees is also provided."
           }
         },
         "description": "This type contains information about any sales tax applied to a line item."
@@ -5100,8 +5100,8 @@
             "description": "The city name that can be used by sellers for tax purposes."
           },
           "countryCode": {
-            "description": "The country code that can be used by sellers for tax purposes, represented as a two-letter ISO 3166&#8209;1 alpha&#8209;2 country code. For example, <strong>US</strong> represents the United States, and <strong>DE</strong> represents Germany.",
-            "$ref": "#/components/schemas/CountryCodeEnum"
+            "type": "string",
+            "description": "The country code that can be used by sellers for tax purposes, represented as a two-letter ISO 3166&#8209;1 alpha&#8209;2 country code. For example, <strong>US</strong> represents the United States, and <strong>DE</strong> represents Germany."
           },
           "postalCode": {
             "type": "string",
@@ -5122,12 +5122,12 @@
             "description": "This value is the unique tax ID associated with the buyer. The type of tax identification is shown in the <strong>taxIdentifierType</strong> field."
           },
           "taxIdentifierType": {
-            "description": "This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the <strong>TaxIdentifierTypeEnum</strong> type.",
-            "$ref": "#/components/schemas/TaxIdentifierTypeEnum"
+            "type": "string",
+            "description": "This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the <strong>TaxIdentifierTypeEnum</strong> type."
           },
           "issuingCountry": {
-            "description": "This two-letter code indicates the country that issued the buyer's tax ID. The country that the two-letter code represents can be found in the <strong>CountryCodeEnum</strong> type or in the  <a href=\"https://www.iso.org/iso-3166-country-codes.html\" target=\"_blank\">ISO 3166</a> standard.",
-            "$ref": "#/components/schemas/CountryCodeEnum"
+            "type": "string",
+            "description": "This two-letter code indicates the country that issued the buyer's tax ID. The country that the two-letter code represents can be found in the <strong>CountryCodeEnum</strong> type or in the  <a href=\"https://www.iso.org/iso-3166-country-codes.html\" target=\"_blank\">ISO 3166</a> standard."
           }
         },
         "description": "This type is used by the <strong>taxIdentifier</strong> container that is returned in <strong>getOrder</strong>. The <strong>taxIdentifier</strong> container consists of taxpayer identification information for buyers from Italy, Spain, or Guatemala. It is currently only returned for orders occurring on the eBay Italy or eBay Spain marketplaces.<br><br><span class=\"tablenote\"><strong>Note:</strong> Currently, the <strong>taxIdentifier</strong> container is only returned in <strong>getOrder</strong> and not in <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders\" target=\"_blank\">getOrders</a>. So, if a seller wanted to view a buyer's tax information for a particular order returned in <strong>getOrders</strong>, that seller would need to use the <strong>orderId</strong> value for that particular order, and then run a <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder\" target=\"_blank\">getOrder</a> call against that order ID. </span>"
@@ -5192,8 +5192,8 @@
             "description": "The unique identifier of the evidence set that is being updated with new evidence files.<br><br> This ID is returned under the <strong>evidence</strong> array in the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdispute\" target=\"_blank \">getPaymentDispute</a> response."
           },
           "evidenceType": {
-            "description": "This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-addevidence.evidencetypeenum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types.",
-            "$ref": "#/components/schemas/EvidenceTypeEnum"
+            "type": "string",
+            "description": "This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-addevidence.evidencetypeenum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types."
           },
           "files": {
             "type": "array",

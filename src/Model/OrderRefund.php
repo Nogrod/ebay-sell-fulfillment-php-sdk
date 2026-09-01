@@ -1,5 +1,4 @@
 <?php
-
 /**
  * OrderRefund
  *
@@ -64,7 +63,7 @@ class OrderRefund implements ModelInterface, ArrayAccess, JsonSerializable
         'refund_date' => 'string',
         'refund_id' => 'string',
         'refund_reference_id' => 'string',
-        'refund_status' => '\eBay\Sell\Fulfillment\Model\RefundStatusEnum'
+        'refund_status' => 'string'
     ];
 
     /**
@@ -404,9 +403,9 @@ class OrderRefund implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets refund_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\RefundStatusEnum|null
+     * @return string|null
      */
-    public function getRefundStatus(): ?\eBay\Sell\Fulfillment\Model\RefundStatusEnum
+    public function getRefundStatus(): ?string
     {
         return $this->container['refund_status'];
     }
@@ -414,11 +413,11 @@ class OrderRefund implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets refund_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\RefundStatusEnum|null $refund_status This enumeration value indicates the current status of the refund to the buyer. This container is always returned for each refund.
+     * @param string|null $refund_status This enumeration value indicates the current status of the refund to the buyer. This container is always returned for each refund.
      *
      * @return $this
      */
-    public function setRefundStatus(?\eBay\Sell\Fulfillment\Model\RefundStatusEnum $refund_status): static
+    public function setRefundStatus(?string $refund_status): static
     {
         if (is_null($refund_status)) {
             throw new InvalidArgumentException('non-nullable refund_status cannot be null');
@@ -491,7 +490,7 @@ class OrderRefund implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

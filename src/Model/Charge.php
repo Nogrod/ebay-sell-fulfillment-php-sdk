@@ -61,7 +61,7 @@ class Charge implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'amount' => '\eBay\Sell\Fulfillment\Model\Amount',
-        'charge_type' => '\eBay\Sell\Fulfillment\Model\ChargeTypeEnum'
+        'charge_type' => 'string'
     ];
 
     /**
@@ -302,9 +302,9 @@ class Charge implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets charge_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\ChargeTypeEnum|null
+     * @return string|null
      */
-    public function getChargeType(): ?\eBay\Sell\Fulfillment\Model\ChargeTypeEnum
+    public function getChargeType(): ?string
     {
         return $this->container['charge_type'];
     }
@@ -312,11 +312,11 @@ class Charge implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets charge_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\ChargeTypeEnum|null $charge_type This field shows the type of buyer charge. <br> <br> <span class=\"tablenote\"> <strong> Note: </strong> Currently, the only supported charge type is <code>BUYER_PROTECTION</code>. </span>
+     * @param string|null $charge_type This field shows the type of buyer charge. <br> <br> <span class=\"tablenote\"> <strong> Note: </strong> Currently, the only supported charge type is <code>BUYER_PROTECTION</code>. </span>
      *
      * @return $this
      */
-    public function setChargeType(?\eBay\Sell\Fulfillment\Model\ChargeTypeEnum $charge_type): static
+    public function setChargeType(?string $charge_type): static
     {
         if (is_null($charge_type)) {
             throw new InvalidArgumentException('non-nullable charge_type cannot be null');

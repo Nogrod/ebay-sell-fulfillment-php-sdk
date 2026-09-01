@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **evidence_id** | **string** | Unique identifier for the evidential file set. Each file set may contain multiple files, which is why there is a file set identifier and a separate identifier for each individual file within the set. | [optional]
-**evidence_type** | [**\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum**](EvidenceTypeEnum.md) | This enumeration value shows the type of evidential file provided. | [optional]
+**evidence_type** | **string** | This enumeration value shows the type of evidential file provided. | [optional]
 **files** | [**\eBay\Sell\Fulfillment\Model\FileInfo[]**](FileInfo.md) | This array shows the name, ID, file type, and upload date for each provided file. | [optional]
 **line_items** | [**\eBay\Sell\Fulfillment\Model\OrderLineItems[]**](OrderLineItems.md) | This array shows one or more order line items associated with the evidential document that has been provided. | [optional]
 **provided_date** | **string** | The timestamp in this field shows the date/time when the seller provided a requested evidential document to eBay. &lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href&#x3D;\&quot;https://www.iso.org/iso-8601-date-and-time-format.html\&quot; title&#x3D;\&quot;https://www.iso.org \&quot; target&#x3D;\&quot;_blank\&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;. | [optional]

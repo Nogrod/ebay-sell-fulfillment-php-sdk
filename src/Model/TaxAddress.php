@@ -1,5 +1,4 @@
 <?php
-
 /**
  * TaxAddress
  *
@@ -61,7 +60,7 @@ class TaxAddress implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'city' => 'string',
-        'country_code' => '\eBay\Sell\Fulfillment\Model\CountryCodeEnum',
+        'country_code' => 'string',
         'postal_code' => 'string',
         'state_or_province' => 'string'
     ];
@@ -316,9 +315,9 @@ class TaxAddress implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets country_code
      *
-     * @return \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null
+     * @return string|null
      */
-    public function getCountryCode(): ?\eBay\Sell\Fulfillment\Model\CountryCodeEnum
+    public function getCountryCode(): ?string
     {
         return $this->container['country_code'];
     }
@@ -326,11 +325,11 @@ class TaxAddress implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets country_code
      *
-     * @param \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null $country_code The country code that can be used by sellers for tax purposes, represented as a two-letter ISO 3166&#8209;1 alpha&#8209;2 country code. For example, <strong>US</strong> represents the United States, and <strong>DE</strong> represents Germany.
+     * @param string|null $country_code The country code that can be used by sellers for tax purposes, represented as a two-letter ISO 3166&#8209;1 alpha&#8209;2 country code. For example, <strong>US</strong> represents the United States, and <strong>DE</strong> represents Germany.
      *
      * @return $this
      */
-    public function setCountryCode(?\eBay\Sell\Fulfillment\Model\CountryCodeEnum $country_code): static
+    public function setCountryCode(?string $country_code): static
     {
         if (is_null($country_code)) {
             throw new InvalidArgumentException('non-nullable country_code cannot be null');
@@ -457,7 +456,7 @@ class TaxAddress implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

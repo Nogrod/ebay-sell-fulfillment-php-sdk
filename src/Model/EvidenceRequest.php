@@ -1,5 +1,4 @@
 <?php
-
 /**
  * EvidenceRequest
  *
@@ -61,7 +60,7 @@ class EvidenceRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'evidence_id' => 'string',
-        'evidence_type' => '\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum',
+        'evidence_type' => 'string',
         'line_items' => '\eBay\Sell\Fulfillment\Model\OrderLineItems[]',
         'request_date' => 'string',
         'respond_by_date' => 'string'
@@ -323,9 +322,9 @@ class EvidenceRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets evidence_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum|null
+     * @return string|null
      */
-    public function getEvidenceType(): ?\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum
+    public function getEvidenceType(): ?string
     {
         return $this->container['evidence_type'];
     }
@@ -333,11 +332,11 @@ class EvidenceRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets evidence_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum|null $evidence_type This enumeration value shows the type of evidential document provided.
+     * @param string|null $evidence_type This enumeration value shows the type of evidential document provided.
      *
      * @return $this
      */
-    public function setEvidenceType(?\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum $evidence_type): static
+    public function setEvidenceType(?string $evidence_type): static
     {
         if (is_null($evidence_type)) {
             throw new InvalidArgumentException('non-nullable evidence_type cannot be null');
@@ -491,7 +490,7 @@ class EvidenceRequest implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

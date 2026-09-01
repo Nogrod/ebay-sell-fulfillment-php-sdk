@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ItemLocation
  *
@@ -60,7 +59,7 @@ class ItemLocation implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'country_code' => '\eBay\Sell\Fulfillment\Model\CountryCodeEnum',
+        'country_code' => 'string',
         'location' => 'string',
         'postal_code' => 'string'
     ];
@@ -282,9 +281,9 @@ class ItemLocation implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets country_code
      *
-     * @return \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null
+     * @return string|null
      */
-    public function getCountryCode(): ?\eBay\Sell\Fulfillment\Model\CountryCodeEnum
+    public function getCountryCode(): ?string
     {
         return $this->container['country_code'];
     }
@@ -292,11 +291,11 @@ class ItemLocation implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets country_code
      *
-     * @param \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null $country_code The two-letter <a href=\"https://www.iso.org/iso-3166-country-codes.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 3166</a> code representing the country of the address.
+     * @param string|null $country_code The two-letter <a href=\"https://www.iso.org/iso-3166-country-codes.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 3166</a> code representing the country of the address.
      *
      * @return $this
      */
-    public function setCountryCode(?\eBay\Sell\Fulfillment\Model\CountryCodeEnum $country_code): static
+    public function setCountryCode(?string $country_code): static
     {
         if (is_null($country_code)) {
             throw new InvalidArgumentException('non-nullable country_code cannot be null');
@@ -423,7 +422,7 @@ class ItemLocation implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

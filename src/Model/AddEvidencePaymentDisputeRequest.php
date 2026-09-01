@@ -61,7 +61,7 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
     protected static array $openAPITypes = [
         'files' => '\eBay\Sell\Fulfillment\Model\FileEvidence[]',
         'line_items' => '\eBay\Sell\Fulfillment\Model\OrderLineItems[]',
-        'evidence_type' => '\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum'
+        'evidence_type' => 'string'
     ];
 
     /**
@@ -344,9 +344,9 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
     /**
      * Gets evidence_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum
+     * @return string
      */
-    public function getEvidenceType(): \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum
+    public function getEvidenceType(): string
     {
         return $this->container['evidence_type'];
     }
@@ -354,11 +354,11 @@ class AddEvidencePaymentDisputeRequest implements ModelInterface, ArrayAccess, J
     /**
      * Sets evidence_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum $evidence_type This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-addevidence.evidencetypeenum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types.
+     * @param string $evidence_type This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.<br><br>See the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-addevidence.evidencetypeenum\" target=\"_blank \">EvidenceTypeEnum</a> type for the supported evidence types.
      *
      * @return $this
      */
-    public function setEvidenceType(\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum $evidence_type): static
+    public function setEvidenceType(string $evidence_type): static
     {
         if (is_null($evidence_type)) {
             throw new InvalidArgumentException('non-nullable evidence_type cannot be null');

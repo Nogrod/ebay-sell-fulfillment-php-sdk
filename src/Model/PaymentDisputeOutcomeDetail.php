@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PaymentDisputeOutcomeDetail
  *
@@ -62,8 +61,8 @@ class PaymentDisputeOutcomeDetail implements ModelInterface, ArrayAccess, JsonSe
     protected static array $openAPITypes = [
         'fees' => '\eBay\Sell\Fulfillment\Model\SimpleAmount',
         'protected_amount' => '\eBay\Sell\Fulfillment\Model\SimpleAmount',
-        'protection_status' => '\eBay\Sell\Fulfillment\Model\ProtectionStatusEnum',
-        'reason_for_closure' => '\eBay\Sell\Fulfillment\Model\OutcomeEnum',
+        'protection_status' => 'string',
+        'reason_for_closure' => 'string',
         'recoup_amount' => '\eBay\Sell\Fulfillment\Model\SimpleAmount',
         'total_fee_credit' => '\eBay\Sell\Fulfillment\Model\SimpleAmount',
         'donation_credit_amount' => '\eBay\Sell\Fulfillment\Model\SimpleAmount'
@@ -364,9 +363,9 @@ class PaymentDisputeOutcomeDetail implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets protection_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\ProtectionStatusEnum|null
+     * @return string|null
      */
-    public function getProtectionStatus(): ?\eBay\Sell\Fulfillment\Model\ProtectionStatusEnum
+    public function getProtectionStatus(): ?string
     {
         return $this->container['protection_status'];
     }
@@ -374,11 +373,11 @@ class PaymentDisputeOutcomeDetail implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets protection_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\ProtectionStatusEnum|null $protection_status This enumeration value indicates if the seller is fully protected, partially protected, or not protected by eBay for the payment dispute. This field is always returned once the payment dispute is resolved.
+     * @param string|null $protection_status This enumeration value indicates if the seller is fully protected, partially protected, or not protected by eBay for the payment dispute. This field is always returned once the payment dispute is resolved.
      *
      * @return $this
      */
-    public function setProtectionStatus(?\eBay\Sell\Fulfillment\Model\ProtectionStatusEnum $protection_status): static
+    public function setProtectionStatus(?string $protection_status): static
     {
         if (is_null($protection_status)) {
             throw new InvalidArgumentException('non-nullable protection_status cannot be null');
@@ -391,9 +390,9 @@ class PaymentDisputeOutcomeDetail implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets reason_for_closure
      *
-     * @return \eBay\Sell\Fulfillment\Model\OutcomeEnum|null
+     * @return string|null
      */
-    public function getReasonForClosure(): ?\eBay\Sell\Fulfillment\Model\OutcomeEnum
+    public function getReasonForClosure(): ?string
     {
         return $this->container['reason_for_closure'];
     }
@@ -401,11 +400,11 @@ class PaymentDisputeOutcomeDetail implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets reason_for_closure
      *
-     * @param \eBay\Sell\Fulfillment\Model\OutcomeEnum|null $reason_for_closure The enumeration value returned in this field indicates the outcome of the payment dispute for the seller. This field is always returned once the payment dispute is resolved.
+     * @param string|null $reason_for_closure The enumeration value returned in this field indicates the outcome of the payment dispute for the seller. This field is always returned once the payment dispute is resolved.
      *
      * @return $this
      */
-    public function setReasonForClosure(?\eBay\Sell\Fulfillment\Model\OutcomeEnum $reason_for_closure): static
+    public function setReasonForClosure(?string $reason_for_closure): static
     {
         if (is_null($reason_for_closure)) {
             throw new InvalidArgumentException('non-nullable reason_for_closure cannot be null');
@@ -559,7 +558,7 @@ class PaymentDisputeOutcomeDetail implements ModelInterface, ArrayAccess, JsonSe
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

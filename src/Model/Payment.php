@@ -63,9 +63,9 @@ class Payment implements ModelInterface, ArrayAccess, JsonSerializable
         'amount' => '\eBay\Sell\Fulfillment\Model\Amount',
         'payment_date' => 'string',
         'payment_holds' => '\eBay\Sell\Fulfillment\Model\PaymentHold[]',
-        'payment_method' => '\eBay\Sell\Fulfillment\Model\PaymentMethodTypeEnum',
+        'payment_method' => 'string',
         'payment_reference_id' => 'string',
-        'payment_status' => '\eBay\Sell\Fulfillment\Model\PaymentStatusEnum'
+        'payment_status' => 'string'
     ];
 
     /**
@@ -384,9 +384,9 @@ class Payment implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets payment_method
      *
-     * @return \eBay\Sell\Fulfillment\Model\PaymentMethodTypeEnum|null
+     * @return string|null
      */
-    public function getPaymentMethod(): ?\eBay\Sell\Fulfillment\Model\PaymentMethodTypeEnum
+    public function getPaymentMethod(): ?string
     {
         return $this->container['payment_method'];
     }
@@ -394,11 +394,11 @@ class Payment implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets payment_method
      *
-     * @param \eBay\Sell\Fulfillment\Model\PaymentMethodTypeEnum|null $payment_method The payment method used to pay for the order. See the <strong>PaymentMethodTypeEnum</strong> type for more information on the payment methods.<br><br><span class=\"tablenote\"><strong>Note:</strong> Effective September 26, 2025, access to buyer payment details for U.S. users will be limited to select developers. All other developers will receive a value of \"CustomCode\" in place of buyer payment details. For more information, please refer to <a href=\"/api-docs/static/data-handling-update.html\" target=\"_blank\">Data Handling Compliance</a>.</span>
+     * @param string|null $payment_method The payment method used to pay for the order. See the <strong>PaymentMethodTypeEnum</strong> type for more information on the payment methods.<br><br><span class=\"tablenote\"><strong>Note:</strong> Effective September 26, 2025, access to buyer payment details for U.S. users will be limited to select developers. All other developers will receive a value of \"CustomCode\" in place of buyer payment details. For more information, please refer to <a href=\"/api-docs/static/data-handling-update.html\" target=\"_blank\">Data Handling Compliance</a>.</span>
      *
      * @return $this
      */
-    public function setPaymentMethod(?\eBay\Sell\Fulfillment\Model\PaymentMethodTypeEnum $payment_method): static
+    public function setPaymentMethod(?string $payment_method): static
     {
         if (is_null($payment_method)) {
             throw new InvalidArgumentException('non-nullable payment_method cannot be null');
@@ -438,9 +438,9 @@ class Payment implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets payment_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\PaymentStatusEnum|null
+     * @return string|null
      */
-    public function getPaymentStatus(): ?\eBay\Sell\Fulfillment\Model\PaymentStatusEnum
+    public function getPaymentStatus(): ?string
     {
         return $this->container['payment_status'];
     }
@@ -448,11 +448,11 @@ class Payment implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets payment_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\PaymentStatusEnum|null $payment_status The enumeration value returned in this field indicates the status of the payment for the order. See the <strong>PaymentStatusEnum</strong> type definition for more information on the possible payment states.
+     * @param string|null $payment_status The enumeration value returned in this field indicates the status of the payment for the order. See the <strong>PaymentStatusEnum</strong> type definition for more information on the possible payment states.
      *
      * @return $this
      */
-    public function setPaymentStatus(?\eBay\Sell\Fulfillment\Model\PaymentStatusEnum $payment_status): static
+    public function setPaymentStatus(?string $payment_status): static
     {
         if (is_null($payment_status)) {
             throw new InvalidArgumentException('non-nullable payment_status cannot be null');

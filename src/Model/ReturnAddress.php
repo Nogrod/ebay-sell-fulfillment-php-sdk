@@ -63,7 +63,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, JsonSerializable
         'address_line1' => 'string',
         'address_line2' => 'string',
         'city' => 'string',
-        'country' => '\eBay\Sell\Fulfillment\Model\CountryCodeEnum',
+        'country' => 'string',
         'county' => 'string',
         'full_name' => 'string',
         'postal_code' => 'string',
@@ -405,9 +405,9 @@ class ReturnAddress implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets country
      *
-     * @return \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null
+     * @return string|null
      */
-    public function getCountry(): ?\eBay\Sell\Fulfillment\Model\CountryCodeEnum
+    public function getCountry(): ?string
     {
         return $this->container['country'];
     }
@@ -415,11 +415,11 @@ class ReturnAddress implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets country
      *
-     * @param \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null $country The country's two-letter, ISO 3166-1 country code. See the enumeration type for a country's value.
+     * @param string|null $country The country's two-letter, ISO 3166-1 country code. See the enumeration type for a country's value.
      *
      * @return $this
      */
-    public function setCountry(?\eBay\Sell\Fulfillment\Model\CountryCodeEnum $country): static
+    public function setCountry(?string $country): static
     {
         if (is_null($country)) {
             throw new InvalidArgumentException('non-nullable country cannot be null');

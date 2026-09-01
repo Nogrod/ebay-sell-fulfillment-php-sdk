@@ -1,5 +1,4 @@
 <?php
-
 /**
  * TaxIdentifier
  *
@@ -61,8 +60,8 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'taxpayer_id' => 'string',
-        'tax_identifier_type' => '\eBay\Sell\Fulfillment\Model\TaxIdentifierTypeEnum',
-        'issuing_country' => '\eBay\Sell\Fulfillment\Model\CountryCodeEnum'
+        'tax_identifier_type' => 'string',
+        'issuing_country' => 'string'
     ];
 
     /**
@@ -309,9 +308,9 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets tax_identifier_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\TaxIdentifierTypeEnum|null
+     * @return string|null
      */
-    public function getTaxIdentifierType(): ?\eBay\Sell\Fulfillment\Model\TaxIdentifierTypeEnum
+    public function getTaxIdentifierType(): ?string
     {
         return $this->container['tax_identifier_type'];
     }
@@ -319,11 +318,11 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets tax_identifier_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\TaxIdentifierTypeEnum|null $tax_identifier_type This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the <strong>TaxIdentifierTypeEnum</strong> type.
+     * @param string|null $tax_identifier_type This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the <strong>TaxIdentifierTypeEnum</strong> type.
      *
      * @return $this
      */
-    public function setTaxIdentifierType(?\eBay\Sell\Fulfillment\Model\TaxIdentifierTypeEnum $tax_identifier_type): static
+    public function setTaxIdentifierType(?string $tax_identifier_type): static
     {
         if (is_null($tax_identifier_type)) {
             throw new InvalidArgumentException('non-nullable tax_identifier_type cannot be null');
@@ -336,9 +335,9 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets issuing_country
      *
-     * @return \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null
+     * @return string|null
      */
-    public function getIssuingCountry(): ?\eBay\Sell\Fulfillment\Model\CountryCodeEnum
+    public function getIssuingCountry(): ?string
     {
         return $this->container['issuing_country'];
     }
@@ -346,11 +345,11 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets issuing_country
      *
-     * @param \eBay\Sell\Fulfillment\Model\CountryCodeEnum|null $issuing_country This two-letter code indicates the country that issued the buyer's tax ID. The country that the two-letter code represents can be found in the <strong>CountryCodeEnum</strong> type or in the  <a href=\"https://www.iso.org/iso-3166-country-codes.html\" target=\"_blank\">ISO 3166</a> standard.
+     * @param string|null $issuing_country This two-letter code indicates the country that issued the buyer's tax ID. The country that the two-letter code represents can be found in the <strong>CountryCodeEnum</strong> type or in the  <a href=\"https://www.iso.org/iso-3166-country-codes.html\" target=\"_blank\">ISO 3166</a> standard.
      *
      * @return $this
      */
-    public function setIssuingCountry(?\eBay\Sell\Fulfillment\Model\CountryCodeEnum $issuing_country): static
+    public function setIssuingCountry(?string $issuing_country): static
     {
         if (is_null($issuing_country)) {
             throw new InvalidArgumentException('non-nullable issuing_country cannot be null');
@@ -423,7 +422,7 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * DisputeAmount
  *
@@ -60,9 +59,9 @@ class DisputeAmount implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'converted_from_currency' => '\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum',
+        'converted_from_currency' => 'string',
         'converted_from_value' => 'string',
-        'currency' => '\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum',
+        'currency' => 'string',
         'exchange_rate' => 'string',
         'value' => 'string'
     ];
@@ -296,9 +295,9 @@ class DisputeAmount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets converted_from_currency
      *
-     * @return \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getConvertedFromCurrency(): ?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum
+    public function getConvertedFromCurrency(): ?string
     {
         return $this->container['converted_from_currency'];
     }
@@ -306,11 +305,11 @@ class DisputeAmount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets converted_from_currency
      *
-     * @param \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null $converted_from_currency The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <strong> convertedFromValue</strong> field. This value is the pre-conversion currency.<br><br>This field is only returned if/when currency conversion was applied by eBay.
+     * @param string|null $converted_from_currency The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <strong> convertedFromValue</strong> field. This value is the pre-conversion currency.<br><br>This field is only returned if/when currency conversion was applied by eBay.
      *
      * @return $this
      */
-    public function setConvertedFromCurrency(?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum $converted_from_currency): static
+    public function setConvertedFromCurrency(?string $converted_from_currency): static
     {
         if (is_null($converted_from_currency)) {
             throw new InvalidArgumentException('non-nullable converted_from_currency cannot be null');
@@ -350,9 +349,9 @@ class DisputeAmount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets currency
      *
-     * @return \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getCurrency(): ?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum
+    public function getCurrency(): ?string
     {
         return $this->container['currency'];
     }
@@ -360,11 +359,11 @@ class DisputeAmount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets currency
      *
-     * @param \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null $currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. This field is always returned with any container using <strong>Amount</strong> type. <br><br><strong>Default</strong>: The currency of the authenticated user's country.
+     * @param string|null $currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. This field is always returned with any container using <strong>Amount</strong> type. <br><br><strong>Default</strong>: The currency of the authenticated user's country.
      *
      * @return $this
      */
-    public function setCurrency(?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum $currency): static
+    public function setCurrency(?string $currency): static
     {
         if (is_null($currency)) {
             throw new InvalidArgumentException('non-nullable currency cannot be null');
@@ -491,7 +490,7 @@ class DisputeAmount implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -61,7 +61,7 @@ class Refund implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'refund_id' => 'string',
-        'refund_status' => '\eBay\Sell\Fulfillment\Model\RefundStatusEnum'
+        'refund_status' => 'string'
     ];
 
     /**
@@ -302,9 +302,9 @@ class Refund implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets refund_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\RefundStatusEnum|null
+     * @return string|null
      */
-    public function getRefundStatus(): ?\eBay\Sell\Fulfillment\Model\RefundStatusEnum
+    public function getRefundStatus(): ?string
     {
         return $this->container['refund_status'];
     }
@@ -312,11 +312,11 @@ class Refund implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets refund_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\RefundStatusEnum|null $refund_status The value returned in this field indicates the success or failure of the refund operation. A successful <strong>issueRefund</strong> operation should result in a value of <code>PENDING</code>. A failed <strong>issueRefund</strong> operation should result in a value of <code>FAILED</code>, and an HTTP status code and/or API error code may also get returned to possibly indicate the issue.<br><br>The refunds issued through this method are processed asynchronously, so the refund will not show as 'Refunded' right away. A seller will have to make a subsequent <strong>getOrder</strong> call to check the status of the refund.  The status of an order refund can be found in the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder.orderrefund.refundstatus\" target=\"_blank\">paymentSummary.refunds.refundStatus</a> field of the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder\" target=\"_blank\">getOrder</a> response.
+     * @param string|null $refund_status The value returned in this field indicates the success or failure of the refund operation. A successful <strong>issueRefund</strong> operation should result in a value of <code>PENDING</code>. A failed <strong>issueRefund</strong> operation should result in a value of <code>FAILED</code>, and an HTTP status code and/or API error code may also get returned to possibly indicate the issue.<br><br>The refunds issued through this method are processed asynchronously, so the refund will not show as 'Refunded' right away. A seller will have to make a subsequent <strong>getOrder</strong> call to check the status of the refund.  The status of an order refund can be found in the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder.orderrefund.refundstatus\" target=\"_blank\">paymentSummary.refunds.refundStatus</a> field of the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder\" target=\"_blank\">getOrder</a> response.
      *
      * @return $this
      */
-    public function setRefundStatus(?\eBay\Sell\Fulfillment\Model\RefundStatusEnum $refund_status): static
+    public function setRefundStatus(?string $refund_status): static
     {
         if (is_null($refund_status)) {
             throw new InvalidArgumentException('non-nullable refund_status cannot be null');

@@ -65,7 +65,7 @@ class CancelRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cancel_reason' => 'string',
         'cancel_requested_date' => 'string',
         'cancel_request_id' => 'string',
-        'cancel_request_state' => '\eBay\Sell\Fulfillment\Model\CancelRequestStateEnum'
+        'cancel_request_state' => 'string'
     ];
 
     /**
@@ -438,9 +438,9 @@ class CancelRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets cancel_request_state
      *
-     * @return \eBay\Sell\Fulfillment\Model\CancelRequestStateEnum|null
+     * @return string|null
      */
-    public function getCancelRequestState(): ?\eBay\Sell\Fulfillment\Model\CancelRequestStateEnum
+    public function getCancelRequestState(): ?string
     {
         return $this->container['cancel_request_state'];
     }
@@ -448,11 +448,11 @@ class CancelRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cancel_request_state
      *
-     * @param \eBay\Sell\Fulfillment\Model\CancelRequestStateEnum|null $cancel_request_state The current stage or condition of the cancellation request. This field is returned for each cancellation request.
+     * @param string|null $cancel_request_state The current stage or condition of the cancellation request. This field is returned for each cancellation request.
      *
      * @return $this
      */
-    public function setCancelRequestState(?\eBay\Sell\Fulfillment\Model\CancelRequestStateEnum $cancel_request_state): static
+    public function setCancelRequestState(?string $cancel_request_state): static
     {
         if (is_null($cancel_request_state)) {
             throw new InvalidArgumentException('non-nullable cancel_request_state cannot be null');

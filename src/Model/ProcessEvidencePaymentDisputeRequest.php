@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ProcessEvidencePaymentDisputeRequest
  *
@@ -62,7 +61,7 @@ class ProcessEvidencePaymentDisputeRequest implements ModelInterface, ArrayAcces
     protected static array $openAPITypes = [
         'files' => '\eBay\Sell\Fulfillment\Model\FileEvidence[]',
         'line_items' => '\eBay\Sell\Fulfillment\Model\OrderLineItems[]',
-        'evidence_type' => '\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum'
+        'evidence_type' => 'string'
     ];
 
     /**
@@ -336,9 +335,9 @@ class ProcessEvidencePaymentDisputeRequest implements ModelInterface, ArrayAcces
     /**
      * Gets evidence_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum|null
+     * @return string|null
      */
-    public function getEvidenceType(): ?\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum
+    public function getEvidenceType(): ?string
     {
         return $this->container['evidence_type'];
     }
@@ -346,11 +345,11 @@ class ProcessEvidencePaymentDisputeRequest implements ModelInterface, ArrayAcces
     /**
      * Sets evidence_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\EvidenceTypeEnum|null $evidence_type evidence_type
+     * @param string|null $evidence_type evidence_type
      *
      * @return $this
      */
-    public function setEvidenceType(?\eBay\Sell\Fulfillment\Model\EvidenceTypeEnum $evidence_type): static
+    public function setEvidenceType(?string $evidence_type): static
     {
         if (is_null($evidence_type)) {
             throw new InvalidArgumentException('non-nullable evidence_type cannot be null');
@@ -423,7 +422,7 @@ class ProcessEvidencePaymentDisputeRequest implements ModelInterface, ArrayAcces
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

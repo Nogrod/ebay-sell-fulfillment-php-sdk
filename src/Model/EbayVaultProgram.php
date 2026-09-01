@@ -1,5 +1,4 @@
 <?php
-
 /**
  * EbayVaultProgram
  *
@@ -60,7 +59,7 @@ class EbayVaultProgram implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'fulfillment_type' => '\eBay\Sell\Fulfillment\Model\EbayVaultFulfillmentTypeEnum'
+        'fulfillment_type' => 'string'
     ];
 
     /**
@@ -268,9 +267,9 @@ class EbayVaultProgram implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fulfillment_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\EbayVaultFulfillmentTypeEnum|null
+     * @return string|null
      */
-    public function getFulfillmentType(): ?\eBay\Sell\Fulfillment\Model\EbayVaultFulfillmentTypeEnum
+    public function getFulfillmentType(): ?string
     {
         return $this->container['fulfillment_type'];
     }
@@ -278,11 +277,11 @@ class EbayVaultProgram implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fulfillment_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\EbayVaultFulfillmentTypeEnum|null $fulfillment_type This field specifies how an eBay vault order will be fulfilled. Supported options are:<ul><li><strong>Seller to Vault</strong>: The order will be shipped by the seller to an authenticator.</li><li><strong>Vault to Vault</strong>: The order will be shipped from an eBay vault to the buyer's vault.</li><li><strong>Vault to Buyer</strong>: The order will be shipped from an eBay vault to the buyer's shipping address.</li></ul>
+     * @param string|null $fulfillment_type This field specifies how an eBay vault order will be fulfilled. Supported options are:<ul><li><strong>Seller to Vault</strong>: The order will be shipped by the seller to an authenticator.</li><li><strong>Vault to Vault</strong>: The order will be shipped from an eBay vault to the buyer's vault.</li><li><strong>Vault to Buyer</strong>: The order will be shipped from an eBay vault to the buyer's shipping address.</li></ul>
      *
      * @return $this
      */
-    public function setFulfillmentType(?\eBay\Sell\Fulfillment\Model\EbayVaultFulfillmentTypeEnum $fulfillment_type): static
+    public function setFulfillmentType(?string $fulfillment_type): static
     {
         if (is_null($fulfillment_type)) {
             throw new InvalidArgumentException('non-nullable fulfillment_type cannot be null');
@@ -355,7 +354,7 @@ class EbayVaultProgram implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PaymentDisputeSummary
  *
@@ -66,8 +65,8 @@ class PaymentDisputeSummary implements ModelInterface, ArrayAccess, JsonSerializ
         'open_date' => 'string',
         'order_id' => 'string',
         'payment_dispute_id' => 'string',
-        'payment_dispute_status' => '\eBay\Sell\Fulfillment\Model\DisputeStateEnum',
-        'reason' => '\eBay\Sell\Fulfillment\Model\DisputeReasonEnum',
+        'payment_dispute_status' => 'string',
+        'reason' => 'string',
         'respond_by_date' => 'string'
     ];
 
@@ -486,9 +485,9 @@ class PaymentDisputeSummary implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets payment_dispute_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\DisputeStateEnum|null
+     * @return string|null
      */
-    public function getPaymentDisputeStatus(): ?\eBay\Sell\Fulfillment\Model\DisputeStateEnum
+    public function getPaymentDisputeStatus(): ?string
     {
         return $this->container['payment_dispute_status'];
     }
@@ -496,11 +495,11 @@ class PaymentDisputeSummary implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets payment_dispute_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\DisputeStateEnum|null $payment_dispute_status The enumeration value in this field gives the current status of the payment dispute.
+     * @param string|null $payment_dispute_status The enumeration value in this field gives the current status of the payment dispute.
      *
      * @return $this
      */
-    public function setPaymentDisputeStatus(?\eBay\Sell\Fulfillment\Model\DisputeStateEnum $payment_dispute_status): static
+    public function setPaymentDisputeStatus(?string $payment_dispute_status): static
     {
         if (is_null($payment_dispute_status)) {
             throw new InvalidArgumentException('non-nullable payment_dispute_status cannot be null');
@@ -513,9 +512,9 @@ class PaymentDisputeSummary implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets reason
      *
-     * @return \eBay\Sell\Fulfillment\Model\DisputeReasonEnum|null
+     * @return string|null
      */
-    public function getReason(): ?\eBay\Sell\Fulfillment\Model\DisputeReasonEnum
+    public function getReason(): ?string
     {
         return $this->container['reason'];
     }
@@ -523,11 +522,11 @@ class PaymentDisputeSummary implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets reason
      *
-     * @param \eBay\Sell\Fulfillment\Model\DisputeReasonEnum|null $reason The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute.
+     * @param string|null $reason The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute.
      *
      * @return $this
      */
-    public function setReason(?\eBay\Sell\Fulfillment\Model\DisputeReasonEnum $reason): static
+    public function setReason(?string $reason): static
     {
         if (is_null($reason)) {
             throw new InvalidArgumentException('non-nullable reason cannot be null');
@@ -627,7 +626,7 @@ class PaymentDisputeSummary implements ModelInterface, ArrayAccess, JsonSerializ
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * MonetaryTransaction
  *
@@ -61,8 +60,8 @@ class MonetaryTransaction implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static array $openAPITypes = [
         'date' => 'string',
-        'type' => '\eBay\Sell\Fulfillment\Model\MonetaryTransactionTypeEnum',
-        'reason' => '\eBay\Sell\Fulfillment\Model\MonetaryTransactionReasonEnum',
+        'type' => 'string',
+        'reason' => 'string',
         'amount' => '\eBay\Sell\Fulfillment\Model\DisputeAmount'
     ];
 
@@ -316,9 +315,9 @@ class MonetaryTransaction implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets type
      *
-     * @return \eBay\Sell\Fulfillment\Model\MonetaryTransactionTypeEnum|null
+     * @return string|null
      */
-    public function getType(): ?\eBay\Sell\Fulfillment\Model\MonetaryTransactionTypeEnum
+    public function getType(): ?string
     {
         return $this->container['type'];
     }
@@ -326,11 +325,11 @@ class MonetaryTransaction implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets type
      *
-     * @param \eBay\Sell\Fulfillment\Model\MonetaryTransactionTypeEnum|null $type This enumeration value indicates whether the monetary transaction is a charge or a credit to the seller.
+     * @param string|null $type This enumeration value indicates whether the monetary transaction is a charge or a credit to the seller.
      *
      * @return $this
      */
-    public function setType(?\eBay\Sell\Fulfillment\Model\MonetaryTransactionTypeEnum $type): static
+    public function setType(?string $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
@@ -343,9 +342,9 @@ class MonetaryTransaction implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets reason
      *
-     * @return \eBay\Sell\Fulfillment\Model\MonetaryTransactionReasonEnum|null
+     * @return string|null
      */
-    public function getReason(): ?\eBay\Sell\Fulfillment\Model\MonetaryTransactionReasonEnum
+    public function getReason(): ?string
     {
         return $this->container['reason'];
     }
@@ -353,11 +352,11 @@ class MonetaryTransaction implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets reason
      *
-     * @param \eBay\Sell\Fulfillment\Model\MonetaryTransactionReasonEnum|null $reason This enumeration value indicates the reason for the monetary transaction.
+     * @param string|null $reason This enumeration value indicates the reason for the monetary transaction.
      *
      * @return $this
      */
-    public function setReason(?\eBay\Sell\Fulfillment\Model\MonetaryTransactionReasonEnum $reason): static
+    public function setReason(?string $reason): static
     {
         if (is_null($reason)) {
             throw new InvalidArgumentException('non-nullable reason cannot be null');
@@ -457,7 +456,7 @@ class MonetaryTransaction implements ModelInterface, ArrayAccess, JsonSerializab
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

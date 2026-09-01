@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **address_line1** | **string** | The first line of the street address. | [optional]
 **address_line2** | **string** | The second line of the street address. This line is not always necessarily, but is often used for apartment number or suite number, or other relevant information that can not fit on the first line. | [optional]
 **city** | **string** | The city of the return address. | [optional]
-**country** | [**\eBay\Sell\Fulfillment\Model\CountryCodeEnum**](CountryCodeEnum.md) | The country&#39;s two-letter, ISO 3166-1 country code. See the enumeration type for a country&#39;s value. | [optional]
+**country** | **string** | The country&#39;s two-letter, ISO 3166-1 country code. See the enumeration type for a country&#39;s value. | [optional]
 **county** | **string** | The county of the return address. Counties are not applicable to all countries. | [optional]
 **full_name** | **string** | The full name of return address owner. | [optional]
 **postal_code** | **string** | The postal code of the return address. | [optional]

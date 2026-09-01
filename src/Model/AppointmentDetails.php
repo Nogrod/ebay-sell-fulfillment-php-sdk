@@ -62,9 +62,9 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static array $openAPITypes = [
         'appointment_end_time' => 'string',
         'appointment_start_time' => 'string',
-        'appointment_status' => '\eBay\Sell\Fulfillment\Model\AppointmentStatusEnum',
-        'appointment_type' => '\eBay\Sell\Fulfillment\Model\AppointmentTypeEnum',
-        'appointment_window' => '\eBay\Sell\Fulfillment\Model\AppointmentWindowEnum',
+        'appointment_status' => 'string',
+        'appointment_type' => 'string',
+        'appointment_window' => 'string',
         'service_provider_appointment_date' => 'string'
     ];
 
@@ -357,9 +357,9 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets appointment_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\AppointmentStatusEnum|null
+     * @return string|null
      */
-    public function getAppointmentStatus(): ?\eBay\Sell\Fulfillment\Model\AppointmentStatusEnum
+    public function getAppointmentStatus(): ?string
     {
         return $this->container['appointment_status'];
     }
@@ -367,11 +367,11 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets appointment_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\AppointmentStatusEnum|null $appointment_status The status of the appointment.
+     * @param string|null $appointment_status The status of the appointment.
      *
      * @return $this
      */
-    public function setAppointmentStatus(?\eBay\Sell\Fulfillment\Model\AppointmentStatusEnum $appointment_status): static
+    public function setAppointmentStatus(?string $appointment_status): static
     {
         if (is_null($appointment_status)) {
             throw new InvalidArgumentException('non-nullable appointment_status cannot be null');
@@ -384,9 +384,9 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets appointment_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\AppointmentTypeEnum|null
+     * @return string|null
      */
-    public function getAppointmentType(): ?\eBay\Sell\Fulfillment\Model\AppointmentTypeEnum
+    public function getAppointmentType(): ?string
     {
         return $this->container['appointment_type'];
     }
@@ -394,11 +394,11 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets appointment_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\AppointmentTypeEnum|null $appointment_type The type of appointment. <code>MACRO</code> appointments only have a start time (not bounded with end time). <code>TIME_SLOT</code> appointments have a period (both start time and end time). Required for tire installation.
+     * @param string|null $appointment_type The type of appointment. <code>MACRO</code> appointments only have a start time (not bounded with end time). <code>TIME_SLOT</code> appointments have a period (both start time and end time). Required for tire installation.
      *
      * @return $this
      */
-    public function setAppointmentType(?\eBay\Sell\Fulfillment\Model\AppointmentTypeEnum $appointment_type): static
+    public function setAppointmentType(?string $appointment_type): static
     {
         if (is_null($appointment_type)) {
             throw new InvalidArgumentException('non-nullable appointment_type cannot be null');
@@ -411,9 +411,9 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets appointment_window
      *
-     * @return \eBay\Sell\Fulfillment\Model\AppointmentWindowEnum|null
+     * @return string|null
      */
-    public function getAppointmentWindow(): ?\eBay\Sell\Fulfillment\Model\AppointmentWindowEnum
+    public function getAppointmentWindow(): ?string
     {
         return $this->container['appointment_window'];
     }
@@ -421,11 +421,11 @@ class AppointmentDetails implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets appointment_window
      *
-     * @param \eBay\Sell\Fulfillment\Model\AppointmentWindowEnum|null $appointment_window Appointment window for <code>MACRO</code> appointments.
+     * @param string|null $appointment_window Appointment window for <code>MACRO</code> appointments.
      *
      * @return $this
      */
-    public function setAppointmentWindow(?\eBay\Sell\Fulfillment\Model\AppointmentWindowEnum $appointment_window): static
+    public function setAppointmentWindow(?string $appointment_window): static
     {
         if (is_null($appointment_window)) {
             throw new InvalidArgumentException('non-nullable appointment_window cannot be null');

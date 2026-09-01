@@ -60,7 +60,7 @@ class SimpleAmount implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'currency' => '\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum',
+        'currency' => 'string',
         'value' => 'string'
     ];
 
@@ -275,9 +275,9 @@ class SimpleAmount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets currency
      *
-     * @return \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getCurrency(): ?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum
+    public function getCurrency(): ?string
     {
         return $this->container['currency'];
     }
@@ -285,11 +285,11 @@ class SimpleAmount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets currency
      *
-     * @param \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null $currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code (such as <code>USD</code> for US site) that indicates the currency of the amount in the <strong>value</strong> field. Both the <strong>value</strong> and <strong>currency</strong> fields are always returned with the <strong>amount</strong> container.
+     * @param string|null $currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code (such as <code>USD</code> for US site) that indicates the currency of the amount in the <strong>value</strong> field. Both the <strong>value</strong> and <strong>currency</strong> fields are always returned with the <strong>amount</strong> container.
      *
      * @return $this
      */
-    public function setCurrency(?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum $currency): static
+    public function setCurrency(?string $currency): static
     {
         if (is_null($currency)) {
             throw new InvalidArgumentException('non-nullable currency cannot be null');

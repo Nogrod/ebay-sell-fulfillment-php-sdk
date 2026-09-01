@@ -64,7 +64,7 @@ class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, JsonSe
         'destination_time_zone' => 'string',
         'ebay_supported_fulfillment' => 'bool',
         'final_destination_address' => '\eBay\Sell\Fulfillment\Model\Address',
-        'fulfillment_instructions_type' => '\eBay\Sell\Fulfillment\Model\FulfillmentInstructionsType',
+        'fulfillment_instructions_type' => 'string',
         'max_estimated_delivery_date' => 'string',
         'min_estimated_delivery_date' => 'string',
         'pickup_step' => '\eBay\Sell\Fulfillment\Model\PickupStep',
@@ -432,9 +432,9 @@ class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets fulfillment_instructions_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\FulfillmentInstructionsType|null
+     * @return string|null
      */
-    public function getFulfillmentInstructionsType(): ?\eBay\Sell\Fulfillment\Model\FulfillmentInstructionsType
+    public function getFulfillmentInstructionsType(): ?string
     {
         return $this->container['fulfillment_instructions_type'];
     }
@@ -442,11 +442,11 @@ class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets fulfillment_instructions_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\FulfillmentInstructionsType|null $fulfillment_instructions_type The enumeration value returned in this field indicates the method of fulfillment that will be used to deliver this set of line items (this package) to the buyer. This field will have a value of <code>SHIP_TO</code> if the <strong>ebaySupportedFulfillment</strong> field is returned with a value of <code>true</code>. See the <strong>FulfillmentInstructionsType</strong> definition for more information about different fulfillment types.
+     * @param string|null $fulfillment_instructions_type The enumeration value returned in this field indicates the method of fulfillment that will be used to deliver this set of line items (this package) to the buyer. This field will have a value of <code>SHIP_TO</code> if the <strong>ebaySupportedFulfillment</strong> field is returned with a value of <code>true</code>. See the <strong>FulfillmentInstructionsType</strong> definition for more information about different fulfillment types.
      *
      * @return $this
      */
-    public function setFulfillmentInstructionsType(?\eBay\Sell\Fulfillment\Model\FulfillmentInstructionsType $fulfillment_instructions_type): static
+    public function setFulfillmentInstructionsType(?string $fulfillment_instructions_type): static
     {
         if (is_null($fulfillment_instructions_type)) {
             throw new InvalidArgumentException('non-nullable fulfillment_instructions_type cannot be null');

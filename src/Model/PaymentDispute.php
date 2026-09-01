@@ -61,7 +61,7 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'amount' => '\eBay\Sell\Fulfillment\Model\SimpleAmount',
-        'available_choices' => '\eBay\Sell\Fulfillment\Model\SellerDecisionEnum[]',
+        'available_choices' => 'string[]',
         'buyer_provided' => '\eBay\Sell\Fulfillment\Model\InfoFromBuyer',
         'buyer_username' => 'string',
         'closed_date' => 'string',
@@ -73,13 +73,13 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
         'open_date' => 'string',
         'order_id' => 'string',
         'payment_dispute_id' => 'string',
-        'payment_dispute_status' => '\eBay\Sell\Fulfillment\Model\DisputeStateEnum',
-        'reason' => '\eBay\Sell\Fulfillment\Model\DisputeReasonEnum',
+        'payment_dispute_status' => 'string',
+        'reason' => 'string',
         'resolution' => '\eBay\Sell\Fulfillment\Model\PaymentDisputeOutcomeDetail',
         'respond_by_date' => 'string',
         'return_address' => '\eBay\Sell\Fulfillment\Model\ReturnAddress',
         'revision' => 'int',
-        'seller_response' => '\eBay\Sell\Fulfillment\Model\SellerResponseEnum'
+        'seller_response' => 'string'
     ];
 
     /**
@@ -428,7 +428,7 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets available_choices
      *
-     * @return \eBay\Sell\Fulfillment\Model\SellerDecisionEnum[]|null
+     * @return string[]|null
      */
     public function getAvailableChoices(): ?array
     {
@@ -438,7 +438,7 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets available_choices
      *
-     * @param \eBay\Sell\Fulfillment\Model\SellerDecisionEnum[]|null $available_choices The value(s) returned in this array indicate the choices that the seller has when responding to the payment dispute. Once the seller has responded to the payment dispute, this field will no longer be shown, and instead, the <strong>sellerResponse</strong> field will show the decision that the seller made.
+     * @param string[]|null $available_choices The value(s) returned in this array indicate the choices that the seller has when responding to the payment dispute. Once the seller has responded to the payment dispute, this field will no longer be shown, and instead, the <strong>sellerResponse</strong> field will show the decision that the seller made.
      *
      * @return $this
      */
@@ -752,9 +752,9 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets payment_dispute_status
      *
-     * @return \eBay\Sell\Fulfillment\Model\DisputeStateEnum|null
+     * @return string|null
      */
-    public function getPaymentDisputeStatus(): ?\eBay\Sell\Fulfillment\Model\DisputeStateEnum
+    public function getPaymentDisputeStatus(): ?string
     {
         return $this->container['payment_dispute_status'];
     }
@@ -762,11 +762,11 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets payment_dispute_status
      *
-     * @param \eBay\Sell\Fulfillment\Model\DisputeStateEnum|null $payment_dispute_status The enumeration value in this field gives the current status of the payment dispute. The status of a payment dispute partially determines other fields that are returned in the response.
+     * @param string|null $payment_dispute_status The enumeration value in this field gives the current status of the payment dispute. The status of a payment dispute partially determines other fields that are returned in the response.
      *
      * @return $this
      */
-    public function setPaymentDisputeStatus(?\eBay\Sell\Fulfillment\Model\DisputeStateEnum $payment_dispute_status): static
+    public function setPaymentDisputeStatus(?string $payment_dispute_status): static
     {
         if (is_null($payment_dispute_status)) {
             throw new InvalidArgumentException('non-nullable payment_dispute_status cannot be null');
@@ -779,9 +779,9 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets reason
      *
-     * @return \eBay\Sell\Fulfillment\Model\DisputeReasonEnum|null
+     * @return string|null
      */
-    public function getReason(): ?\eBay\Sell\Fulfillment\Model\DisputeReasonEnum
+    public function getReason(): ?string
     {
         return $this->container['reason'];
     }
@@ -789,11 +789,11 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets reason
      *
-     * @param \eBay\Sell\Fulfillment\Model\DisputeReasonEnum|null $reason The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute.
+     * @param string|null $reason The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See <strong>DisputeReasonEnum</strong> type for a description of the supported reasons that buyers can give for initiating a payment dispute.
      *
      * @return $this
      */
-    public function setReason(?\eBay\Sell\Fulfillment\Model\DisputeReasonEnum $reason): static
+    public function setReason(?string $reason): static
     {
         if (is_null($reason)) {
             throw new InvalidArgumentException('non-nullable reason cannot be null');
@@ -914,9 +914,9 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets seller_response
      *
-     * @return \eBay\Sell\Fulfillment\Model\SellerResponseEnum|null
+     * @return string|null
      */
-    public function getSellerResponse(): ?\eBay\Sell\Fulfillment\Model\SellerResponseEnum
+    public function getSellerResponse(): ?string
     {
         return $this->container['seller_response'];
     }
@@ -924,11 +924,11 @@ class PaymentDispute implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets seller_response
      *
-     * @param \eBay\Sell\Fulfillment\Model\SellerResponseEnum|null $seller_response The enumeration value returned in this field indicates how the seller has responded to the payment dispute. The seller has the option of accepting the payment dispute and agreeing to issue a refund, accepting the payment dispute and agreeing to issue a refund as long as the buyer returns the item, or contesting the payment dispute. This field is returned as soon as the seller makes an initial decision on the payment dispute.
+     * @param string|null $seller_response The enumeration value returned in this field indicates how the seller has responded to the payment dispute. The seller has the option of accepting the payment dispute and agreeing to issue a refund, accepting the payment dispute and agreeing to issue a refund as long as the buyer returns the item, or contesting the payment dispute. This field is returned as soon as the seller makes an initial decision on the payment dispute.
      *
      * @return $this
      */
-    public function setSellerResponse(?\eBay\Sell\Fulfillment\Model\SellerResponseEnum $seller_response): static
+    public function setSellerResponse(?string $seller_response): static
     {
         if (is_null($seller_response)) {
             throw new InvalidArgumentException('non-nullable seller_response cannot be null');

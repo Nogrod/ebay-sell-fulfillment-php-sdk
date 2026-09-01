@@ -61,8 +61,8 @@ class PaymentDisputeActivity implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static array $openAPITypes = [
         'activity_date' => 'string',
-        'activity_type' => '\eBay\Sell\Fulfillment\Model\ActivityEnum',
-        'actor' => '\eBay\Sell\Fulfillment\Model\ActorEnum'
+        'activity_type' => 'string',
+        'actor' => 'string'
     ];
 
     /**
@@ -309,9 +309,9 @@ class PaymentDisputeActivity implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets activity_type
      *
-     * @return \eBay\Sell\Fulfillment\Model\ActivityEnum|null
+     * @return string|null
      */
-    public function getActivityType(): ?\eBay\Sell\Fulfillment\Model\ActivityEnum
+    public function getActivityType(): ?string
     {
         return $this->container['activity_type'];
     }
@@ -319,11 +319,11 @@ class PaymentDisputeActivity implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets activity_type
      *
-     * @param \eBay\Sell\Fulfillment\Model\ActivityEnum|null $activity_type This enumeration value indicates the type of activity that occured on the payment dispute. For example, a value of <code>DISPUTE_OPENED</code> is returned when a payment disute is first created,  a value indicating the seller's decision on the dispute, such as <code>SELLER_CONTEST</code>, is returned when seller makes a decision to accept or contest dispute, and a value of <code>DISPUTE_CLOSED</code> is returned when a payment disute is resolved. See <strong>ActivityEnum</strong> for an explanation of each of the values that may be returned here.
+     * @param string|null $activity_type This enumeration value indicates the type of activity that occured on the payment dispute. For example, a value of <code>DISPUTE_OPENED</code> is returned when a payment disute is first created,  a value indicating the seller's decision on the dispute, such as <code>SELLER_CONTEST</code>, is returned when seller makes a decision to accept or contest dispute, and a value of <code>DISPUTE_CLOSED</code> is returned when a payment disute is resolved. See <strong>ActivityEnum</strong> for an explanation of each of the values that may be returned here.
      *
      * @return $this
      */
-    public function setActivityType(?\eBay\Sell\Fulfillment\Model\ActivityEnum $activity_type): static
+    public function setActivityType(?string $activity_type): static
     {
         if (is_null($activity_type)) {
             throw new InvalidArgumentException('non-nullable activity_type cannot be null');
@@ -336,9 +336,9 @@ class PaymentDisputeActivity implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets actor
      *
-     * @return \eBay\Sell\Fulfillment\Model\ActorEnum|null
+     * @return string|null
      */
-    public function getActor(): ?\eBay\Sell\Fulfillment\Model\ActorEnum
+    public function getActor(): ?string
     {
         return $this->container['actor'];
     }
@@ -346,11 +346,11 @@ class PaymentDisputeActivity implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets actor
      *
-     * @param \eBay\Sell\Fulfillment\Model\ActorEnum|null $actor This enumeration value indicates the actor that performed the action. Possible values include the <code>BUYER</code>, <code>SELLER</code>, <code>CS_AGENT</code> (eBay customer service), or <code>SYSTEM</code>.
+     * @param string|null $actor This enumeration value indicates the actor that performed the action. Possible values include the <code>BUYER</code>, <code>SELLER</code>, <code>CS_AGENT</code> (eBay customer service), or <code>SYSTEM</code>.
      *
      * @return $this
      */
-    public function setActor(?\eBay\Sell\Fulfillment\Model\ActorEnum $actor): static
+    public function setActor(?string $actor): static
     {
         if (is_null($actor)) {
             throw new InvalidArgumentException('non-nullable actor cannot be null');

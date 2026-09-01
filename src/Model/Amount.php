@@ -60,9 +60,9 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'converted_from_currency' => '\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum',
+        'converted_from_currency' => 'string',
         'converted_from_value' => 'string',
-        'currency' => '\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum',
+        'currency' => 'string',
         'value' => 'string'
     ];
 
@@ -289,9 +289,9 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets converted_from_currency
      *
-     * @return \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getConvertedFromCurrency(): ?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum
+    public function getConvertedFromCurrency(): ?string
     {
         return $this->container['converted_from_currency'];
     }
@@ -299,11 +299,11 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets converted_from_currency
      *
-     * @param \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null $converted_from_currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>convertedFromValue</strong> field. This value is required or returned only if currency conversion/localization is required and represents the pre-conversion currency.
+     * @param string|null $converted_from_currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>convertedFromValue</strong> field. This value is required or returned only if currency conversion/localization is required and represents the pre-conversion currency.
      *
      * @return $this
      */
-    public function setConvertedFromCurrency(?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum $converted_from_currency): static
+    public function setConvertedFromCurrency(?string $converted_from_currency): static
     {
         if (is_null($converted_from_currency)) {
             throw new InvalidArgumentException('non-nullable converted_from_currency cannot be null');
@@ -343,9 +343,9 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets currency
      *
-     * @return \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getCurrency(): ?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum
+    public function getCurrency(): ?string
     {
         return $this->container['currency'];
     }
@@ -353,11 +353,11 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets currency
      *
-     * @param \eBay\Sell\Fulfillment\Model\CurrencyCodeEnum|null $currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. If currency conversion/localization is required, this is the post-conversion currency of the amount in the <strong>value</strong> field.<br><br><strong>Default:</strong> The default currency with be that of the eBay marketplace that hosts the listing.
+     * @param string|null $currency A three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html\" title=\"https://www.iso.org \" target=\"_blank\">ISO 4217</a> code that indicates the currency of the amount in the <strong>value</strong> field. If currency conversion/localization is required, this is the post-conversion currency of the amount in the <strong>value</strong> field.<br><br><strong>Default:</strong> The default currency with be that of the eBay marketplace that hosts the listing.
      *
      * @return $this
      */
-    public function setCurrency(?\eBay\Sell\Fulfillment\Model\CurrencyCodeEnum $currency): static
+    public function setCurrency(?string $currency): static
     {
         if (is_null($currency)) {
             throw new InvalidArgumentException('non-nullable currency cannot be null');
