@@ -676,13 +676,6 @@
                   "description": "The <strong>location</strong> response header contains the <a href=\"/develop/api/sell/fulfillment_api#sell-fulfillment_api-shipping_fulfillment-getshippingfulfillment\" target=\"_blank\">getShippingFulfillment</a> URI to retrieve the contents of the newly created shipping fulfillment. The URL includes the eBay-assigned <code>fulfillmentId</code>, which you can use to reference the shipping fulfillment. Below is an example location response header:<br><br><code>{ENV}/sell/fulfillment/v1/order/{ORDERID}/shipping_fulfillment/{FULFILLMENTID}</code><br><br>The <code>ENV</code> string is the HTTPS path to the same eBay-supported environment in which this call was issued. The <code>ORDERID</code> parameter is the unique identifier of the order addressed by this call (e.g., 01-03955-36441). The <code>FULFILLMENTID</code> parameter identifies the newly created fulfillment (e.g., 9405509699937003457459). Use this Get Fulfillment URI to retrieve the contents of the new fulfillment."
                 }
               }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
             }
           },
           "400": {

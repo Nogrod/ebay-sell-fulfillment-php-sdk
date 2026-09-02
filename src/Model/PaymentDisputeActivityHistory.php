@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PaymentDisputeActivityHistory
  *
@@ -354,7 +355,7 @@ class PaymentDisputeActivityHistory implements ModelInterface, ArrayAccess, Json
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

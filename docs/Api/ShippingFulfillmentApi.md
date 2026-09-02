@@ -12,7 +12,7 @@ All URIs are relative to https://api.ebay.com/sell/fulfillment/v1, except if the
 ## `createShippingFulfillment()`
 
 ```php
-createShippingFulfillment($order_id, $shipping_fulfillment_details): object
+createShippingFulfillment($order_id, $shipping_fulfillment_details)
 ```
 
 
@@ -43,8 +43,7 @@ $order_id = 'order_id_example'; // string | This path parameter is used to speci
 $shipping_fulfillment_details = new \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails(); // \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails | fulfillment payload
 
 try {
-    $result = $apiInstance->createShippingFulfillment($order_id, $shipping_fulfillment_details);
-    print_r($result);
+    $apiInstance->createShippingFulfillment($order_id, $shipping_fulfillment_details);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingFulfillmentApi->createShippingFulfillment: ', $e->getMessage(), PHP_EOL;
 }
@@ -59,7 +58,7 @@ try {
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -68,7 +67,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

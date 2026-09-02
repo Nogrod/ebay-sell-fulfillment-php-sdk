@@ -139,15 +139,14 @@ class ShippingFulfillmentApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return object
+     * @return void
      */
     public function createShippingFulfillment(
         string $order_id,
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
-    ): array {
-        list($response) = $this->createShippingFulfillmentWithHttpInfo($order_id, $shipping_fulfillment_details, $contentType);
-        return $response;
+    ): void {
+        $this->createShippingFulfillmentWithHttpInfo($order_id, $shipping_fulfillment_details, $contentType);
     }
 
     /**
@@ -159,7 +158,7 @@ class ShippingFulfillmentApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array{0: object, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @return array{0: null, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function createShippingFulfillmentWithHttpInfo(
         string $order_id,
@@ -190,43 +189,10 @@ class ShippingFulfillmentApi
 
             $statusCode = $response->getStatusCode();
 
-            switch ($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        'object',
-                        $request,
-                        $response,
-                    );
-            }
 
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                'object',
-                $request,
-                $response,
-            );
+            return [null, $statusCode, $response->getHeaders()];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
             }
 
             throw $e;
@@ -271,27 +237,14 @@ class ShippingFulfillmentApi
         \eBay\Sell\Fulfillment\Model\ShippingFulfillmentDetails $shipping_fulfillment_details,
         string $contentType = self::contentTypes['createShippingFulfillment'][0]
     ): PromiseInterface {
-        $returnType = 'object';
+        $returnType = '';
         $request = $this->createShippingFulfillmentRequest($order_id, $shipping_fulfillment_details, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -358,7 +311,7 @@ class ShippingFulfillmentApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            [],
             $contentType,
             $multipart
         );
