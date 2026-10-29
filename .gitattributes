@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Composer dist archives carry only what the SDK needs at runtime
+/* export-ignore
+/src -export-ignore
+/composer.json -export-ignore
+/LICENSE -export-ignore
